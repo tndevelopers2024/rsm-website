@@ -1,0 +1,70 @@
+/**
+ * Representative stock imagery (Unsplash). Replace with the Society's approved
+ * photographs before launch: swap the URL here and every page updates.
+ */
+const u = (id: string) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=80`;
+
+export const img = {
+  // Client-supplied hero artwork (local files in /public/images/hero)
+  heroTeam: "/images/hero/hero-team.jpg",
+  heroJoint: "/images/hero/hero-joint.jpg",
+  heroPanel: "/images/hero/hero-panel.jpg",
+  heroSea: "/images/hero/hero-sea.jpg",
+  // Mauritius / destination
+  ocean: u("1505228395891-9a51e7e86bf6"),
+  resortMountains: u("1520250497591-112f2f40a3f4"),
+  beachSunset: u("1507525428034-b723cf961d3e"),
+  palmBeach: u("1519046904884-53103b34b206"),
+  palmsTall: u("1506953823976-52e1fdc0149a"),
+  palmsBeach2: u("1590523741831-ab7e8b8f9c7f"),
+  aerialBeach: u("1484821582734-6c6c9f99a672"),
+  lagoonMountains: u("1501785888041-af3ef285b470"),
+  infinityPool: u("1586611292717-f828b167408c"),
+  resortPoolEvening: u("1571896349842-33c89424de2d"),
+  resortPool: u("1566073771259-6a8506099945"),
+  resortNight: u("1542314831-068cd1dbfeeb"),
+  poolDeck: u("1584132967334-10e028bd69f7"),
+  parasol: u("1589979481223-deb893043163"),
+  jetty: u("1544550581-5f7ceaf7f992"),
+  hotelRoom: u("1582719478250-c89cae4dc85b"),
+  spa: u("1544161515-4ab6ce6db874"),
+  dining: u("1514933651103-005eec06c04b"),
+  dinner: u("1528605248644-14dd04022da1"),
+  greenMountains: u("1470071459604-3b5ec3a7fe05"),
+  hike: u("1551632811-561732d1e306"),
+  diver: u("1544551763-46a013bb70d5"),
+  // conference
+  audience: u("1540575467063-178a50c2df87"),
+  microphone: u("1475721027785-f74eccf877e2"),
+  audience2: u("1517457373958-b7bdd4587205"),
+  audience3: u("1515187029135-18ee286d815b"),
+  presentation: u("1505373877841-8d25f7d46678"),
+  talk: u("1556761175-5973dc0f32e7"),
+  classroom: u("1524178232363-1fb2b075b655"),
+  // medical / science
+  cells: u("1576086213369-97a306d36557"),
+  xrayHand: u("1530497610245-94d3c16cda28"),
+  holdingHands: u("1584515933487-779824d29309"),
+  doctorLaptop: u("1576091160550-2173dba999ef"),
+  doctorCoat: u("1532938911079-1b06ac7ceec7"),
+  doctorPatient: u("1581056771107-24ca5f033842"),
+  doctorElderly: u("1631217868264-e5b90bb7e133"),
+  doctorCare: u("1576765608535-5f04d1e3f289"),
+  doctorMonitor: u("1666214280557-f1b5022eb634"),
+  doctorReading: u("1576669801775-ff43c5ab079d"),
+  doctorXray: u("1581595219315-a187dd40c322"),
+  doctorMale: u("1612349317150-e413f6a5b16d"),
+  surgeons: u("1579684385127-1ef15d508118"),
+  stethoscope: u("1505751172876-fa1923c5c528"),
+  pipette: u("1532187863486-abf9dbad1b69"),
+  dna: u("1628595351029-c2bf17511435"),
+  microscope: u("1511174511562-5f7f18b874f8"),
+  labWoman: u("1527613426441-4da17471b66d"),
+  labGlass: u("1576671081837-49000212a370"),
+  anatomy: u("1530213786676-41ad9f7736f6"),
+  childPlay: u("1515488042361-ee00e0ddd4e4"),
+  hospital: u("1587351021759-3e566b6af7cc"),
+  portrait: u("1573497019940-1c28c88b4f3e"),
+};
+
+export type ImgKey = keyof typeof img;
