@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
+import { LIVE } from "@/lib/launch";
+import { ComingSoon } from "@/components/ComingSoon";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Presentation, BookOpen, Users } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
@@ -17,7 +19,7 @@ const offers = [
   { i: Users, t: "International learning", d: "Knowledge brought home from international congresses and shared with colleagues in Mauritius." },
 ];
 
-export default function EducationPage() {
+function EducationPage() {
   return (
     <>
       <PageHero eyebrow="Education & CPD" title="Learning that keeps clinical practice current." lead="Since July 2025, the Society has run quarterly continuing professional development activities for healthcare professionals." image="heroPanel" tone="none" crumbs={[{ label: "Education & CPD" }]} />
@@ -80,4 +82,8 @@ export default function EducationPage() {
       </section>
     </>
   );
+}
+
+export default function Page() {
+  return LIVE.education ? <EducationPage /> : <ComingSoon title="Education & CPD" />;
 }

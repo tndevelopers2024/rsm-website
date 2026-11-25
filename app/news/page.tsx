@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
+import { LIVE } from "@/lib/launch";
+import { ComingSoon } from "@/components/ComingSoon";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, MapPin } from "lucide-react";
 import { news, congress } from "@/lib/content";
@@ -10,7 +12,7 @@ import { DuoImage } from "@/components/DuoImage";
 
 export const metadata: Metadata = pageMeta({ title: "News & Events", description: "Latest news, conferences, CPD sessions and awareness events from the Rheumatology Society, Mauritius.", path: "/news" });
 
-export default function NewsPage() {
+function NewsPage() {
   const [lead, ...rest] = news;
   return (
     <>
@@ -68,4 +70,8 @@ export default function NewsPage() {
       </section>
     </>
   );
+}
+
+export default function Page() {
+  return LIVE.news ? <NewsPage /> : <ComingSoon title="News & Events" />;
 }

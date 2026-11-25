@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
+import { LIVE } from "@/lib/launch";
+import { ComingSoon } from "@/components/ComingSoon";
 import { Building2, GraduationCap, Globe2, Briefcase, HeartHandshake, Landmark } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHead } from "@/components/SectionHead";
@@ -19,7 +21,7 @@ const audiences = [
   { i: Landmark, t: "Donors", d: "Individual support for the Society's mission. Online giving in a later phase." },
 ];
 
-export default function PartnershipsPage() {
+function PartnershipsPage() {
   return (
     <>
       <PageHero eyebrow="Partnerships & Support" title="Partner with us to advance Rheumatology in Mauritius." lead="Institutional enquiries and approved funding initiatives that help the Society deliver education, research and patient care." image="hospital" crumbs={[{ label: "Support Us" }]} />
@@ -62,4 +64,8 @@ export default function PartnershipsPage() {
       </section>
     </>
   );
+}
+
+export default function Page() {
+  return LIVE.partnerships ? <PartnershipsPage /> : <ComingSoon title="Partnerships & Support" />;
 }

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
+import { LIVE } from "@/lib/launch";
+import { ComingSoon } from "@/components/ComingSoon";
 import Link from "next/link";
 import { ArrowRight, Building2 } from "lucide-react";
 import { about, initiatives } from "@/lib/content";
@@ -14,7 +16,7 @@ import { CircleText } from "@/components/CircleText";
 
 export const metadata: Metadata = pageMeta({ title: "About the Society", description: "Who we are, our vision and mission, and the Society’s journey since July 2015 — advancing rheumatology care in Mauritius.", path: "/about" });
 
-export default function AboutPage() {
+function AboutPage() {
   return (
     <>
       <PageHero
@@ -114,4 +116,8 @@ export default function AboutPage() {
       </section>
     </>
   );
+}
+
+export default function Page() {
+  return LIVE.about ? <AboutPage /> : <ComingSoon title="About the Society" />;
 }

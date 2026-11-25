@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
+import { LIVE } from "@/lib/launch";
+import { ComingSoon } from "@/components/ComingSoon";
 import Link from "next/link";
 import { ArrowRight, Database, FlaskConical, ClipboardList, FileText, Building2 } from "lucide-react";
 import { initiatives } from "@/lib/content";
@@ -14,7 +16,7 @@ export const metadata: Metadata = pageMeta({ title: "Research & Publications", d
 
 const icons = { registries: Database, research: FlaskConical, guidelines: ClipboardList } as const;
 
-export default function ResearchPage() {
+function ResearchPage() {
   const research = initiatives.filter((x) => x.key in icons);
   const coe = initiatives.find((x) => x.key === "coe")!;
   return (
@@ -72,4 +74,8 @@ export default function ResearchPage() {
       </section>
     </>
   );
+}
+
+export default function Page() {
+  return LIVE.research ? <ResearchPage /> : <ComingSoon title="Research & Publications" />;
 }

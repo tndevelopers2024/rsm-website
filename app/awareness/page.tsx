@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
+import { LIVE } from "@/lib/launch";
+import { ComingSoon } from "@/components/ComingSoon";
 import Link from "next/link";
 import { ArrowRight, Megaphone, Baby, HandHeart, FileHeart } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
@@ -16,7 +18,7 @@ const areas = [
   { i: FileHeart, t: "Approved public resources", d: "Patient information and public resources, published once approved by the Society." },
 ];
 
-export default function AwarenessPage() {
+function AwarenessPage() {
   return (
     <>
       <PageHero eyebrow="Patient Awareness & Advocacy" title="Helping the public understand rheumatic diseases." lead="We promote public awareness of rheumatic diseases and support patient advocacy initiatives." image="doctorCare" tone="teal" crumbs={[{ label: "Patient Awareness" }]} />
@@ -60,4 +62,8 @@ export default function AwarenessPage() {
       </section>
     </>
   );
+}
+
+export default function Page() {
+  return LIVE.awareness ? <AwarenessPage /> : <ComingSoon title="Patient Awareness & Advocacy" />;
 }

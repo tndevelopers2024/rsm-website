@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
+import { LIVE } from "@/lib/launch";
+import { ComingSoon } from "@/components/ComingSoon";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Info } from "lucide-react";
 import { conferences, congress, paflarThemes } from "@/lib/content";
@@ -12,7 +14,7 @@ import { Marquee } from "@/components/Marquee";
 
 export const metadata: Metadata = pageMeta({ title: "International Collaboration", description: "The Society’s international links, including AFLAR 2019 in Mauritius and the 7th PAFLAR Congress in 2027.", path: "/international" });
 
-export default function InternationalPage() {
+function InternationalPage() {
   return (
     <>
       <PageHero eyebrow="International Collaboration" title="Mauritius, connected to the world of Rheumatology." lead="International participation, knowledge exchange and collaboration with professional societies across Africa and beyond." image="heroSea" tone="none" crumbs={[{ label: "International" }]} />
@@ -62,4 +64,8 @@ export default function InternationalPage() {
       </section>
     </>
   );
+}
+
+export default function Page() {
+  return LIVE.international ? <InternationalPage /> : <ComingSoon title="International Collaboration" />;
 }

@@ -13,10 +13,10 @@ export function ComingSoon({ title, text }: { title: string; text?: string }) {
         <p className="mx-auto mt-6 max-w-xl text-[1.1rem] text-white/75">{text ?? "This page is being prepared and will be published shortly."}</p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <Link href="/" className="btn btn-gold"><ArrowLeft className="h-4 w-4" /> Back to home</Link>
-          <Link href="/contact" className="btn btn-ghost"><Mail className="h-4 w-4" /> Contact the Society</Link>
+          <Link href="/paflar-2027" className="btn btn-ghost">7th PAFLAR Congress 2027</Link>
         </div>
-        <p className="mt-8 text-[14px] text-white/45">{site.email}</p>
-      </div>
+        <a href={`mailto:${site.email}`} className="mt-8 inline-flex items-center gap-2 text-[14.5px] text-white/60 transition hover:text-white"><Mail className="h-4 w-4" /> {site.email}</a>
+              </div>
     </section>
   );
 }

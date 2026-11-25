@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
+import { LIVE } from "@/lib/launch";
+import { ComingSoon } from "@/components/ComingSoon";
 import Link from "next/link";
 import { Mail, MapPin, CalendarDays, ArrowUpRight } from "lucide-react";
 import { site, congress } from "@/lib/content";
@@ -10,7 +12,7 @@ import { Pending } from "@/components/Pending";
 
 export const metadata: Metadata = pageMeta({ title: "Contact Us", description: "Get in touch with the Rheumatology Society, Mauritius for membership, partnerships, events and enquiries.", path: "/contact" });
 
-export default function ContactPage() {
+function ContactPage() {
   return (
     <>
       <PageHero eyebrow="Contact Us" title="Get in touch with the Society." lead="For membership, education, partnership, media or congress enquiries, please write to us." image="ocean" tone="ocean" crumbs={[{ label: "Contact" }]} />
@@ -40,4 +42,8 @@ export default function ContactPage() {
       </section>
     </>
   );
+}
+
+export default function Page() {
+  return LIVE.contact ? <ContactPage /> : <ComingSoon title="Contact Us" />;
 }

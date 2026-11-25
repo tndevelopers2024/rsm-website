@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
+import { LIVE } from "@/lib/launch";
+import { ComingSoon } from "@/components/ComingSoon";
 import { PageHero } from "@/components/PageHero";
 import { GalleryGrid } from "@/components/GalleryGrid";
 
 export const metadata: Metadata = pageMeta({ title: "Gallery & Archive", description: "Photographs from the Society’s conferences, CPD sessions and awareness campaigns.", path: "/gallery" });
 
-export default function GalleryPage() {
+function GalleryPage() {
   return (
     <>
       <PageHero eyebrow="Gallery & Archive" title="Moments from our journey." lead="Photographs from the Rheumatology Congress Mauritius 2026, the Society’s meetings and its international engagement." image="heroPanel" tone="none" crumbs={[{ label: "Gallery" }]} />
@@ -16,4 +18,8 @@ export default function GalleryPage() {
       </section>
     </>
   );
+}
+
+export default function Page() {
+  return LIVE.gallery ? <GalleryPage /> : <ComingSoon title="Gallery & Archive" />;
 }

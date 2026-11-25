@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
+import { LIVE } from "@/lib/launch";
+import { ComingSoon } from "@/components/ComingSoon";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { committee } from "@/lib/content";
@@ -10,7 +12,7 @@ import { MemberCard } from "@/components/MemberCard";
 
 export const metadata: Metadata = pageMeta({ title: "The Team", description: "Meet the office bearers and members of the Rheumatology Society, Mauritius — consultant rheumatologists and physicians across the island.", path: "/committee" });
 
-export default function CommitteePage() {
+function CommitteePage() {
   const officers = committee.filter((m) => m.officer);
   const members = committee.filter((m) => !m.officer);
   return (
@@ -43,4 +45,8 @@ export default function CommitteePage() {
       </section>
     </>
   );
+}
+
+export default function Page() {
+  return LIVE.committee ? <CommitteePage /> : <ComingSoon title="The Team" />;
 }
