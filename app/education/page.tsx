@@ -19,7 +19,7 @@ const offers = [
 export default function EducationPage() {
   return (
     <>
-      <PageHero eyebrow="Education & CPD" title="Learning that keeps clinical practice current." lead="The Society conducts quarterly CPD activities to encourage continuing medical education and professional learning." image="heroPanel" tone="none" crumbs={[{ label: "Education & CPD" }]} />
+      <PageHero eyebrow="Education & CPD" title="Learning that keeps clinical practice current." lead="Since July 2025, the Society has run quarterly continuing professional development activities for healthcare professionals." image="heroPanel" tone="none" crumbs={[{ label: "Education & CPD" }]} />
 
       <section className="py-28 md:py-36">
         <div className="wrap grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
@@ -28,7 +28,7 @@ export default function EducationPage() {
           </RevealMask>
           <div>
             <SectionHead eyebrow="Continuing Professional Development" title={<>A rhythm of learning, <em>every quarter.</em></>} />
-            <Reveal delay={0.15}><p className="mt-8 text-[1.15rem] text-muted">The Society conducts quarterly CPD activities to encourage continuing medical education and professional learning. Details of forthcoming sessions, past programmes and approved educational resources will be published here as they become available.</p></Reveal>
+            <Reveal delay={0.15}><p className="mt-8 text-[1.15rem] text-muted">Since July 2025 the Society has conducted quarterly CPD activities to encourage continuing medical education and professional learning, alongside its yearly scientific conferences, held since 2024. Details of forthcoming sessions, past programmes and approved educational resources will be published here as they become available.</p></Reveal>
             <Reveal delay={0.25} className="mt-10 grid grid-cols-2 gap-4">
               {["Q1", "Q2", "Q3", "Q4"].map((q) => (
                 <div key={q} className="rounded-2xl bg-mist p-6">

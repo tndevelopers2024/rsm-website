@@ -5,13 +5,12 @@ import { PageHero } from "@/components/PageHero";
 import { SectionHead } from "@/components/SectionHead";
 import { Reveal, RevealMask } from "@/components/Reveal";
 import { DuoImage } from "@/components/DuoImage";
-import { Pending } from "@/components/Pending";
 
 export const metadata: Metadata = { title: "Patient Awareness & Advocacy" };
 
 const areas = [
   { i: Megaphone, t: "Public awareness campaigns", d: "Community events and media awareness that help people recognise rheumatic diseases earlier." },
-  { i: Baby, t: "Paediatric rheumatology", d: "Raising awareness that rheumatic diseases also affect children, including the Society's 2024 campaign." },
+  { i: Baby, t: "Paediatric rheumatology", d: "Raising awareness that rheumatic diseases also affect children, including the 2023 Juvenile Idiopathic Arthritis campaign." },
   { i: HandHeart, t: "Patient advocacy", d: "Supporting patient advocacy groups and initiatives for people living with rheumatic conditions." },
   { i: FileHeart, t: "Approved public resources", d: "Patient information and public resources, published once approved by the Society." },
 ];
@@ -41,18 +40,17 @@ export default function AwarenessPage() {
           <DuoImage name="doctorElderly" tone="none" sizes="50vw" className="!absolute inset-0" alt="Clinician with an older patient" />
         </RevealMask>
         <div className="flex flex-col justify-center bg-navy px-6 py-24 text-white md:px-20">
-          <span className="eyebrow !text-gold">Spotlight · 12 October</span>
+          <span className="eyebrow !text-gold">Spotlight · 12 October 2017</span>
           <h2 className="mt-5 font-display text-[clamp(2rem,3.6vw,3.2rem)] font-light leading-[1.1]">World Arthritis Day at <em className="font-serif italic text-sky">Quatre Bornes.</em></h2>
-          <p className="mt-6 max-w-lg text-white/75">A World Arthritis Day celebration at the Municipality of Quatre Bornes, with media coverage and support for a patient advocacy group.</p>
-          <div className="mt-6"><Pending>Year (2017 or 2018) to be confirmed</Pending></div>
+          <p className="mt-6 max-w-lg text-white/75">A World Arthritis Day awareness campaign at the Municipality of Quatre Bornes, in collaboration with the Association of Rheumatology Concern (ARC) and the Chinese Universities Graduate Union.</p>
         </div>
       </section>
 
       <section className="grid lg:grid-cols-2">
         <div className="order-2 flex flex-col justify-center bg-teal px-6 py-24 text-white md:px-20 lg:order-1">
-          <span className="eyebrow !text-sky">Spotlight · 2024</span>
+          <span className="eyebrow !text-sky">Spotlight · 20 May 2023</span>
           <h2 className="mt-5 font-display text-[clamp(2rem,3.6vw,3.2rem)] font-light leading-[1.1]">Paediatric Rheumatology <em className="font-serif italic">awareness campaign.</em></h2>
-          <p className="mt-6 max-w-lg text-white/85">In 2024 the Society ran a paediatric rheumatology awareness campaign alongside its annual conference, a focus that continues with the 7th PAFLAR Congress in 2027.</p>
+          <p className="mt-6 max-w-lg text-white/85">On 20 May 2023 the Society held an awareness campaign on Juvenile Idiopathic Arthritis at the Hennessy Park Hotel, a focus on children that continues with the 7th PAFLAR Congress in 2027.</p>
           <Link href="/paflar-2027" className="btn btn-white mt-10 self-start">About PAFLAR 2027 <ArrowRight className="h-4 w-4" /></Link>
         </div>
         <RevealMask className="relative order-1 min-h-[480px] lg:order-2">

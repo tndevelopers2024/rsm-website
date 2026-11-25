@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, CalendarDays, MapPin, Users, GraduationCap, Microscope, HeartHandshake, Globe2, Building2, Quote } from "lucide-react";
 import { about, congress, conferences, news, site, committee } from "@/lib/content";
+import { MemberCard } from "@/components/MemberCard";
 import { DuoImage } from "@/components/DuoImage";
 import { Orbits } from "@/components/Orbits";
 import { CircleText } from "@/components/CircleText";
@@ -142,12 +143,13 @@ export default function Home() {
           <div className="mt-16 grid gap-6 lg:grid-cols-2">
             {[
               { n: "01", k: "Our Vision", t: about.vision, extra: true },
-              { n: "02", k: "Our Mission", t: about.mission },
+              { n: "02", k: "Our Mission", t: about.mission, t2: about.mission2 },
             ].map((x, i) => (
               <Reveal key={x.k} delay={i * 0.12} className="relative overflow-hidden rounded-[28px] bg-white/[.05] p-10 ring-1 ring-white/10 backdrop-blur md:p-14">
                 <Quote className="absolute right-10 top-10 h-16 w-16 text-white/5" />
                 <div className="font-cond text-[14px] uppercase tracking-[0.25em] text-gold">{x.n} — {x.k}</div>
                 <p className="mt-6 font-display text-[clamp(1.25rem,2vw,1.6rem)] font-light leading-[1.5] text-white/90">{x.t}</p>
+                {"t2" in x && x.t2 && <p className="mt-5 border-t border-white/10 pt-5 font-display text-[clamp(1.1rem,1.6vw,1.3rem)] font-light leading-[1.5] text-white/75">{x.t2}</p>}
                 {x.extra && (
                   <div className="mt-8 inline-flex items-center gap-3 rounded-full bg-gold/15 px-5 py-2.5 text-[14px] font-medium text-gold ring-1 ring-gold/35">
                     <Building2 className="h-4 w-4" /> Long-term goal: Centre of Excellence in Rheumatology
@@ -279,7 +281,7 @@ export default function Home() {
           <Reveal delay={0.2}><p className="mt-6 max-w-lg text-white/85">We promote public awareness of rheumatic diseases and support patient advocacy initiatives, from community events to awareness of rheumatic disease in children.</p></Reveal>
           <Reveal delay={0.3} className="mt-10 flex items-center gap-6 rounded-2xl bg-black/15 p-6">
             <div className="shrink-0 whitespace-nowrap font-serif text-5xl font-light leading-none">12<span className="text-2xl"> Oct</span></div>
-            <p className="text-[15px] text-white/85">World Arthritis Day at the Municipality of Quatre Bornes, with media coverage and support for a patient advocacy group.</p>
+            <p className="text-[15px] text-white/85">World Arthritis Day 2017 at the Municipality of Quatre Bornes, with the Association of Rheumatology Concern (ARC) and the Chinese Universities Graduate Union.</p>
           </Reveal>
           <Reveal delay={0.4}><Link href="/awareness" className="btn btn-white mt-10">Awareness & advocacy <ArrowRight className="h-4 w-4" /></Link></Reveal>
         </div>
@@ -314,21 +316,13 @@ export default function Home() {
       <section className="relative isolate overflow-hidden bg-[radial-gradient(ellipse_at_10%_0%,rgba(8,127,131,.12),transparent_50%),linear-gradient(180deg,#f1f7f8_0%,#f7fafb_100%)] py-20 md:py-28">
         <DotGrid className="right-0 top-0 -z-10 h-[340px] w-[520px]" />
         <div className="wrap">
-          <SectionHead eyebrow="Managing Committee" title={<>The people leading <em>the Society.</em></>} aside={<Pending>Names, roles & photographs awaiting approval</Pending>} />
+          <SectionHead eyebrow="The Team" title={<>The people leading <em>the Society.</em></>} lead="Consultant rheumatologists and physicians from hospitals and private practice across Mauritius." />
           <div className="mt-16 grid grid-cols-2 gap-5 lg:grid-cols-4">
             {committee.slice(0, 4).map((m, i) => (
-              <Reveal key={i} delay={i * 0.08} className="overflow-hidden rounded-[24px] bg-white">
-                <div className="duo duo-ocean relative aspect-[4/5]">
-                  <div className="absolute inset-0 grid place-items-center"><Users className="h-16 w-16 text-white/50" strokeWidth={1} /></div>
-                </div>
-                <div className="p-6">
-                  <div className="font-cond text-[12px] uppercase tracking-[0.2em] text-teal">{m.role}</div>
-                  <div className="mt-1 font-display text-lg font-semibold text-navy">Name to be confirmed</div>
-                </div>
-              </Reveal>
+              <Reveal key={m.name} delay={i * 0.08}><MemberCard m={m} i={i} /></Reveal>
             ))}
           </div>
-          <Reveal className="mt-10"><Link href="/committee" className="btn btn-outline">View the committee <ArrowRight className="h-4 w-4" /></Link></Reveal>
+          <Reveal className="mt-10"><Link href="/committee" className="btn btn-outline">Meet the full team <ArrowRight className="h-4 w-4" /></Link></Reveal>
         </div>
       </section>
 

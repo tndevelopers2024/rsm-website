@@ -5,7 +5,7 @@ import { Orbits } from "./Orbits";
 import { congress, site } from "@/lib/content";
 
 const cols = [
-  { h: "The Society", l: [["About us", "/about"], ["Our journey", "/about#journey"], ["Managing committee", "/committee"], ["Gallery", "/gallery"], ["Contact", "/contact"]] },
+  { h: "The Society", l: [["About us", "/about"], ["Our journey", "/about#journey"], ["The team", "/committee"], ["Gallery", "/gallery"], ["Contact", "/contact"]] },
   { h: "Programmes", l: [["Education & CPD", "/education"], ["Research & publications", "/research"], ["Patient awareness", "/awareness"], ["International collaboration", "/international"], ["Partnerships & support", "/partnerships"]] },
   { h: "PAFLAR 2027", l: [["Congress overview", "/paflar-2027"], ["Programme", "/paflar-2027/programme"], ["Accommodation", "/paflar-2027/accommodation"], ["Welcome to Mauritius", "/paflar-2027/mauritius"], ["Travel & logistics", "/paflar-2027/travel"]] },
 ];
@@ -51,7 +51,7 @@ export function Footer() {
         </div>
         <div className="flex flex-col justify-between gap-4 border-t border-white/10 pt-8 text-[13.5px] text-white/45 md:flex-row">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
-          <p>Privacy · Terms · Accessibility</p>
+          <p className="flex gap-4"><Link href="/privacy" className="hover:text-white">Privacy</Link><Link href="/terms" className="hover:text-white">Terms</Link><Link href="/accessibility" className="hover:text-white">Accessibility</Link></p>
         </div>
       </div>
     </footer>

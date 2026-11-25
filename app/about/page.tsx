@@ -53,11 +53,12 @@ export default function AboutPage() {
         <div className="wrap grid gap-6 lg:grid-cols-2">
           {[
             { k: "Our Vision", t: about.vision },
-            { k: "Our Mission", t: about.mission, note: "Proposed wording" },
+            { k: "Our Mission", t: about.mission, t2: about.mission2, note: "Proposed wording" },
           ].map((x, i) => (
             <Reveal key={x.k} delay={i * 0.12} className="rounded-[28px] bg-white/[.05] p-10 ring-1 ring-white/10 md:p-14">
               <div className="flex items-center gap-4"><span className="font-cond text-[14px] uppercase tracking-[0.25em] text-gold">{x.k}</span>{x.note && <Pending>{x.note}</Pending>}</div>
               <p className="mt-7 font-display text-[clamp(1.35rem,2.2vw,1.8rem)] font-light leading-[1.45]">{x.t}</p>
+              {"t2" in x && x.t2 && <p className="mt-5 border-t border-white/10 pt-5 font-display text-[clamp(1.15rem,1.7vw,1.4rem)] font-light leading-[1.5] text-white/75">{x.t2}</p>}
             </Reveal>
           ))}
           <Reveal className="rounded-[28px] bg-gold/10 p-10 ring-1 ring-gold/30 md:p-12 lg:col-span-2">
@@ -105,7 +106,7 @@ export default function AboutPage() {
             ))}
           </div>
           <Reveal className="mt-14 flex flex-wrap gap-4">
-            <Link href="/committee" className="btn btn-teal">Meet the committee <ArrowRight className="h-4 w-4" /></Link>
+            <Link href="/committee" className="btn btn-teal">Meet the team <ArrowRight className="h-4 w-4" /></Link>
             <Link href="/partnerships" className="btn btn-outline">Support our initiatives</Link>
           </Reveal>
         </div>
