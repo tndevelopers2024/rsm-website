@@ -41,7 +41,7 @@ export default function CongressPage() {
             <SplitHeading text="of Paediatric Rheumatology." delay={0.35} />
           </h1>
           <Reveal delay={0.5}><p className="mx-auto mt-3.5 max-w-2xl text-[14.5px] leading-relaxed text-white/80 sm:mt-[2.5vh] sm:text-[clamp(.95rem,2.1vh,1.15rem)]">{congress.sub}</p></Reveal>
-          <Reveal delay={0.6} className="mx-auto mt-5 grid w-full grid-cols-2 overflow-hidden rounded-2xl sm:mt-[3.5vh] sm:inline-grid sm:w-auto bg-white/[.07] text-left ring-1 ring-white/20 backdrop-blur-xl sm:grid-cols-3">
+          <Reveal delay={0.6} className="mx-auto mt-5 grid w-full grid-cols-2 overflow-hidden rounded-2xl sm:mt-[3.5vh] sm:inline-grid sm:w-auto bg-navy-deep/70 text-left ring-1 ring-white/20  sm:grid-cols-3">
             {[
               { i: CalendarDays, k: "Dates", v: congress.dates },
               { i: Hotel, k: "Venue", v: congress.venue },
@@ -56,7 +56,7 @@ export default function CongressPage() {
           <Reveal delay={0.8} className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-[3.5vh] sm:flex sm:flex-wrap sm:justify-center sm:gap-3">
             <a href="#overview" className="btn btn-gold !gap-1.5 !px-3 !py-3 !text-[13px] sm:!gap-2.5 sm:!px-7 sm:!py-3.5 sm:!text-[15px]"><span className="sm:hidden">The Congress</span><span className="hidden sm:inline">Explore the Congress</span> <ArrowRight className="h-4 w-4" /></a>
             <a href={congress.links.main} target="_blank" rel="noopener noreferrer" className="btn btn-red !gap-1.5 !px-3 !py-3 !text-[13px] sm:!gap-2.5 sm:!px-7 sm:!py-3.5 sm:!text-[15px]"><span className="sm:hidden">Register</span><span className="hidden sm:inline">Official Registration</span> <ArrowUpRight className="h-4 w-4" /></a>
-            <Link href="/contact?type=sponsorship" className="btn btn-ghost col-span-2 !py-2.5 !text-[12.5px] sm:!py-3.5 sm:!text-[15px]">Sponsorship Enquiries</Link>
+            <Link href="/paflar-2027/sponsorship" className="btn btn-ghost col-span-2 !py-2.5 !text-[12.5px] sm:!py-3.5 sm:!text-[15px]">Sponsorship Enquiries</Link>
           </Reveal>
         </div>
       </section>
@@ -187,8 +187,7 @@ export default function CongressPage() {
             <span className="font-cond text-[13px] uppercase tracking-[0.24em] text-[#8a6d22]">Sponsorship</span>
             <h3 className="mt-4 font-display text-4xl font-light text-navy">Sponsorship opportunities</h3>
             <p className="mt-4 max-w-md text-muted">Align your organisation with the advancement of paediatric rheumatology in Africa and engage an international audience of clinicians and researchers.</p>
-            <Link href="/contact?type=sponsorship" className="btn btn-outline mt-10">Sponsorship Enquiries <ArrowRight className="h-4 w-4" /></Link>
-            <div className="mt-6"><Pending>Sponsorship prospectus to be supplied</Pending></div>
+            <Link href="/paflar-2027/sponsorship" className="btn btn-outline mt-10">View sponsorship packages <ArrowRight className="h-4 w-4" /></Link>
           </Reveal>
         </div>
       </section>

@@ -8,8 +8,8 @@ export function Reveal({ delay = 0, y = 36, children, className, ...rest }: Prop
     <motion.div
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px 140px 0px" }}
-      transition={{ duration: 0.8, delay: Math.min(delay, 0.25), ease: [0.2, 0.7, 0.2, 1] }}
+      viewport={{ once: true, margin: "0px 0px 200px 0px" }}
+      transition={{ duration: 0.7, delay: Math.min(delay, 0.25), ease: [0.2, 0.7, 0.2, 1] }}
       className={className}
       {...rest}
     >
@@ -22,10 +22,10 @@ export function Reveal({ delay = 0, y = 36, children, className, ...rest }: Prop
 export function RevealMask({ delay = 0, children, className }: { delay?: number; children: React.ReactNode; className?: string }) {
   return (
     <motion.div
-      initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
-      whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-      viewport={{ once: true, margin: "0px 0px 140px 0px" }}
-      transition={{ duration: 1.1, delay: Math.min(delay, 0.2), ease: [0.7, 0, 0.2, 1] }}
+      initial={{ opacity: 0, scale: 1.04 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "0px 0px 200px 0px" }}
+      transition={{ duration: 0.9, delay: Math.min(delay, 0.2), ease: [0.2, 0.7, 0.2, 1] }}
       className={className}
     >
       {children}

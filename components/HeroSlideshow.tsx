@@ -23,7 +23,7 @@ export function HeroSlideshow({ slides, interval = 7000, className, indicatorCla
         <AnimatePresence initial={false}>
           <motion.div
             key={i}
-            className="absolute inset-0"
+            className="absolute inset-0 will-change-transform"
             initial={{ opacity: 0, scale: 1.08 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}

@@ -22,7 +22,7 @@ export function CongressCta() {
         <Reveal delay={0.2} className="mx-auto mt-12 max-w-md"><Countdown target={congress.startISO} /></Reveal>
         <Reveal delay={0.3} className="mt-12 flex flex-wrap justify-center gap-4">
           <a href={congress.links.main} target="_blank" rel="noopener noreferrer" className="btn btn-red">Official Registration <ArrowUpRight className="h-4 w-4" /></a>
-          <Link href="/contact?type=sponsorship" className="btn btn-ghost">Sponsorship Enquiries</Link>
+          <Link href="/paflar-2027/sponsorship" className="btn btn-ghost">Sponsorship Enquiries</Link>
         </Reveal>
       </div>
     </section>

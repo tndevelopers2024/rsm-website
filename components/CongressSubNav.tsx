@@ -11,12 +11,13 @@ const links = [
   ["Accommodation", "/paflar-2027/accommodation"],
   ["Welcome to Mauritius", "/paflar-2027/mauritius"],
   ["Travel & Logistics", "/paflar-2027/travel"],
+  ["Sponsorship", "/paflar-2027/sponsorship"],
 ];
 
 export function CongressSubNav() {
   const p = usePathname();
   return (
-    <div className="sticky top-[78px] z-40 border-b border-line bg-white/95 backdrop-blur-xl">
+    <div className="sticky top-[61px] z-40 lg:top-[77px] border-b border-line bg-white">
       <div className="wrap flex items-center justify-between gap-6">
         <div className="no-scrollbar flex gap-1 overflow-x-auto">
           {links.map(([l, h]) => (

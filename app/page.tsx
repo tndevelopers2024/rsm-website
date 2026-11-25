@@ -66,7 +66,7 @@ export default function Home() {
         {/* feature cards inside the first screen */}
         <div className="wrap pb-5 sm:pb-[3vh]">
           <div className="grid gap-3 md:grid-cols-[1.4fr_1fr_1fr]">
-            <Reveal delay={0.8} className="flex items-center gap-6 rounded-[18px] bg-ink/90 px-4 py-3.5 ring-1 ring-white/10 backdrop-blur sm:rounded-[22px] sm:p-5 md:p-6">
+            <Reveal delay={0.8} className="flex items-center gap-6 rounded-[18px] bg-ink/95 px-4 py-3.5 ring-1 ring-white/10 sm:rounded-[22px] sm:p-5 md:p-6">
               <div className="min-w-0 flex-1">
                 <span className="font-cond text-[11.5px] uppercase tracking-[0.12em] text-teal-bright sm:text-[13px]">Featured Congress</span>
                 <h3 className="mt-0.5 truncate text-[15.5px] font-medium text-white sm:mt-1 sm:text-[18px]">7th PAFLAR Congress · {congress.dates}</h3>
@@ -123,7 +123,7 @@ export default function Home() {
           {about.pillars.map((p, i) => {
             const Icon = pillarIcons[i];
             return (
-              <Reveal key={p.title} delay={i * 0.08} className="group bg-white/80 p-9 backdrop-blur transition hover:bg-white">
+              <Reveal key={p.title} delay={i * 0.08} className="group bg-white/90 p-9 transition hover:bg-white">
                 <Icon className="h-9 w-9 text-teal transition group-hover:scale-110" strokeWidth={1.4} />
                 <h3 className="mt-6 text-xl font-semibold text-navy">{p.title}</h3>
                 <p className="mt-3 text-[15.5px] text-muted">{p.text}</p>
@@ -145,7 +145,7 @@ export default function Home() {
               { n: "01", k: "Our Vision", t: about.vision, extra: true },
               { n: "02", k: "Our Mission", t: about.mission, t2: about.mission2 },
             ].map((x, i) => (
-              <Reveal key={x.k} delay={i * 0.12} className="relative overflow-hidden rounded-[28px] bg-white/[.05] p-10 ring-1 ring-white/10 backdrop-blur md:p-14">
+              <Reveal key={x.k} delay={i * 0.12} className="relative overflow-hidden rounded-[28px] bg-white/[.05] p-10 ring-1 ring-white/10 md:p-14">
                 <Quote className="absolute right-10 top-10 h-16 w-16 text-white/5" />
                 <div className="font-cond text-[14px] uppercase tracking-[0.25em] text-gold">{x.n} — {x.k}</div>
                 <p className="mt-6 font-display text-[clamp(1.25rem,2vw,1.6rem)] font-light leading-[1.5] text-white/90">{x.t}</p>
@@ -207,7 +207,7 @@ export default function Home() {
               { i: MapPin, k: "Venue", v: `${congress.venue}, ${congress.location}` },
               { i: GraduationCap, k: "Programme", v: "Pre-congress workshop 7 May · Scientific sessions 8–9 May" },
             ].map((f, i) => (
-              <Reveal key={f.k} delay={0.15 + i * 0.1} className="flex items-center gap-5 rounded-2xl bg-white/[.07] p-6 ring-1 ring-white/12 backdrop-blur-md transition hover:translate-x-2 hover:bg-white/[.12]">
+              <Reveal key={f.k} delay={0.15 + i * 0.1} className="flex items-center gap-5 rounded-2xl bg-white/[.07] p-6 ring-1 ring-white/12  transition hover:translate-x-2 hover:bg-white/[.12]">
                 <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gold/15 text-gold"><f.i className="h-6 w-6" /></span>
                 <div>
                   <div className="font-cond text-[12px] uppercase tracking-[0.2em] text-white/55">{f.k}</div>
@@ -215,7 +215,7 @@ export default function Home() {
                 </div>
               </Reveal>
             ))}
-            <Reveal delay={0.5} className="rounded-2xl bg-white/[.07] p-6 ring-1 ring-white/12 backdrop-blur-md">
+            <Reveal delay={0.5} className="rounded-2xl bg-white/[.07] p-6 ring-1 ring-white/12 ">
               <div className="flex items-center gap-3 font-cond text-[12px] uppercase tracking-[0.2em] text-white/55"><Users className="h-4 w-4 text-gold" /> Organising collaboration</div>
               <div className="mt-4 flex flex-wrap gap-2">
                 {congress.organisers.map((o) => <span key={o} className="rounded-full px-4 py-2 text-[14px] ring-1 ring-white/25">{o}</span>)}
@@ -341,7 +341,7 @@ export default function Home() {
             <div className="flex flex-col justify-center gap-3">
               {[
                 ["Institutional partnerships", "Universities, hospitals & associations", "/partnerships"],
-                ["PAFLAR 2027 sponsorship", "Congress sponsorship enquiries", "/contact?type=sponsorship"],
+                ["PAFLAR 2027 sponsorship", "Congress sponsorship enquiries", "/paflar-2027/sponsorship"],
                 ["Support our initiatives", "Registries, research & the Centre of Excellence", "/partnerships"],
               ].map(([t, s, h]) => (
                 <Link key={t} href={h} className="group flex items-center justify-between rounded-2xl bg-white/[.07] px-7 py-6 ring-1 ring-white/12 transition hover:bg-white hover:text-navy">

@@ -50,7 +50,7 @@ export function Header() {
       </div>
 
       {/* Main bar */}
-      <div className={clsx("border-b bg-white/97 backdrop-blur-xl transition-shadow duration-500", scrolled ? "border-line shadow-[0_12px_40px_-24px_rgba(11,32,52,.45)]" : "border-transparent")}>
+      <div className={clsx("border-b bg-white transition-shadow duration-500", scrolled ? "border-line shadow-[0_12px_40px_-24px_rgba(11,32,52,.45)]" : "border-transparent")}>
         <div className="wrap flex h-[62px] items-center justify-between gap-6 lg:h-[76px]">
           <Link href="/" aria-label="Rheumatology Society, Mauritius home" className="shrink-0">
             <Image src="/brand/rsm-logo-wide.jpg" alt="Rheumatology Society Mauritius" width={440} height={140} priority className="h-[38px] w-auto lg:h-[46px]" />

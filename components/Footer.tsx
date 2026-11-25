@@ -7,7 +7,7 @@ import { congress, site } from "@/lib/content";
 const cols = [
   { h: "The Society", l: [["About us", "/about"], ["Our journey", "/about#journey"], ["The team", "/committee"], ["Gallery", "/gallery"], ["Contact", "/contact"]] },
   { h: "Programmes", l: [["Education & CPD", "/education"], ["Research & publications", "/research"], ["Patient awareness", "/awareness"], ["International collaboration", "/international"], ["Partnerships & support", "/partnerships"]] },
-  { h: "PAFLAR 2027", l: [["Congress overview", "/paflar-2027"], ["Programme", "/paflar-2027/programme"], ["Accommodation", "/paflar-2027/accommodation"], ["Welcome to Mauritius", "/paflar-2027/mauritius"], ["Travel & logistics", "/paflar-2027/travel"]] },
+  { h: "PAFLAR 2027", l: [["Congress overview", "/paflar-2027"], ["Programme", "/paflar-2027/programme"], ["Accommodation", "/paflar-2027/accommodation"], ["Welcome to Mauritius", "/paflar-2027/mauritius"], ["Travel & logistics", "/paflar-2027/travel"], ["Sponsorship", "/paflar-2027/sponsorship"]] },
 ];
 
 export function Footer() {

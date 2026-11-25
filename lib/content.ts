@@ -55,11 +55,12 @@ export const nav: NavItem[] = [
       { label: "Accommodation", href: "/paflar-2027/accommodation", desc: "Host venue and nearby hotels", icon: "Hotel" },
       { label: "Welcome to Mauritius", href: "/paflar-2027/mauritius", desc: "The island and things to explore", icon: "TreePalm" },
       { label: "Travel & Logistics", href: "/paflar-2027/travel", desc: "Airport, transfers, visas and weather", icon: "Plane" },
+      { label: "Sponsorship", href: "/paflar-2027/sponsorship", desc: "Exhibition booths, symposia and branding", icon: "Handshake" },
     ],
     feature: { image: "heroSea", kicker: "7–9 May 2027 · Flic-en-Flac", title: "7th PAFLAR Congress, Mauritius", href: "/paflar-2027", cta: "Explore the congress" },
   },
   { label: "News & Events", href: "/news" },
-  { label: "Support Us", href: "/partnerships" },
+  { label: "Sponsorship", href: "/paflar-2027/sponsorship" },
 ];
 
 export const about = {
@@ -435,3 +436,48 @@ export const photos: Photo[] = [
   g(17, 1280, 960, "Group photograph", "Delegates"),
   g(19, 960, 720, "From the Society's archive", "Archive"),
 ];
+
+/* ------------------------------ PAFLAR 2027 sponsorship ------------------------------ */
+export const sponsorship = {
+  intro:
+    "The Rheumatology Society (Mauritius) and the Paediatric Society of Mauritius are hosting the PAFLAR Congress in collaboration with PAFLAR, on 8–9 May 2027 at the Hilton Mauritius Resort & Spa, Flic-en-Flac, preceded by a full-day pre-congress workshop on 7 May 2027. We welcome educational and commercial support from organisations that share our commitment to paediatric rheumatology.",
+  stats: [
+    { v: "~100", k: "Delegates expected" },
+    { v: "25", k: "Eminent speakers & faculty" },
+    { v: "5", k: "Regions: Africa, Europe, India, USA & Canada" },
+    { v: "3", k: "Days, incl. pre-congress workshop" },
+  ],
+  booths: [
+    {
+      tier: "Platinum", price: "USD 5,000", area: "24 m²", position: "Maximum visibility at the entrance",
+      guide: "Advert on back cover and logo on front cover of the congress guide", flyers: "Up to 5 flyers in congress bags", screen: "Adverts on screen during breaks",
+    },
+    {
+      tier: "Gold", price: "USD 3,500", area: "18 m²", position: "Placed after Platinum booths",
+      guide: "Advert on the inside back cover of the congress guide", flyers: "Up to 3 flyers in congress bags", screen: "Adverts on screen during breaks",
+    },
+    {
+      tier: "Silver", price: "USD 2,500", area: "15 m²", position: "Standard placement",
+      guide: "Advert on one inside page of the congress guide", flyers: "Up to 3 flyers in congress bags", screen: "Adverts on screen during breaks",
+    },
+  ],
+  symposia: [
+    { k: "Lunch Symposium", price: "USD 10,000", items: ["Lunch break for delegates", "90-minute talk", "Promotion of company logo / image"] },
+    { k: "Dinner Symposium", price: "USD 15,000", items: ["Dinner for delegates", "90-minute talk", "Promotion of company logo / image"] },
+  ],
+  education: [
+    { k: "Delegate support", d: "Support local and international delegates to attend: air fare, registration and hotel accommodation for international delegates, and registration for local delegates. A list of international speakers requiring support is available." },
+    { k: "Workshop support", d: "Provide refreshments and meals for delegates attending the pre-congress workshop." },
+  ],
+  branding: [
+    { k: "Congress bags", price: "MUR 75,000", d: "120 congress bags with the sponsor's logo on top; PAFLAR, Rheumatology Society and Paediatric Society logos below right. Model and material in preparation." },
+    { k: "Conference booklet & abstracts guide", price: "MUR 75,000", d: "Covers the abstracts presented at the congress, with the sponsor's advert placed inside the guide." },
+    { k: "IT, hybrid & multimedia", price: "USD 3,000", d: "Support for IT, hybrid conference streaming, multimedia and congress photography." },
+  ],
+  contacts: [
+    { name: "Dr (Mrs) Ouma Devi Koussougbo", role: "Chairperson, PAFLAR 2027", org: "President, Rheumatology Society (Mauritius) · Board member & Treasurer, PAFLAR" },
+    { name: "Dr Ryad Joomye", role: "Co-chairperson, PAFLAR 2027", org: "President, Paediatric Society of Mauritius" },
+    { name: "Dr Meetranand Thakoor", role: "Local contact", org: "Treasurer, Rheumatology Society (Mauritius)" },
+  ],
+  secretariat: "paflar2020@gmail.com",
+};

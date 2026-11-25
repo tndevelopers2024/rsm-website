@@ -8,7 +8,7 @@ import clsx from "clsx";
 /** Dotted flowing waves, echoing the particle waves in the hero artwork. */
 export function ParticleWaves({ className, color = "#087f83", rows = 12, opacity = 0.35 }: { className?: string; color?: string; rows?: number; opacity?: number }) {
   return (
-    <svg viewBox="0 0 1440 420" preserveAspectRatio="none" className={clsx("pointer-events-none absolute", className)} aria-hidden>
+    <svg viewBox="0 0 1440 420" preserveAspectRatio="none" className={clsx("pointer-events-none absolute [contain:strict] [transform:translateZ(0)]", className)} aria-hidden>
       {Array.from({ length: rows }).map((_, i) => {
         const y = 140 + i * 14;
         const a = 70 + i * 6;
@@ -21,7 +21,7 @@ export function ParticleWaves({ className, color = "#087f83", rows = 12, opacity
             strokeOpacity={opacity * (0.35 + (i / rows) * 0.65)}
             strokeWidth={2.2}
             strokeLinecap="round"
-            strokeDasharray="0 9"
+            strokeDasharray="0 11"
           />
         );
       })}
