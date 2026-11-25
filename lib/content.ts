@@ -190,9 +190,9 @@ export const conferences = [
   { code: "SFR", name: "Société Française de Rhumatologie conferences", region: "France" },
 ];
 
-export type Member = { name: string; role: string; title: string; place: string; officer?: boolean };
+export type Member = { name: string; role: string; title: string; place: string; officer?: boolean; photo?: string };
 export const committee: Member[] = [
-  { role: "President", name: "Dr Ouma Devi Koussougbo", title: "Consultant Rheumatologist", place: "Victoria Hospital", officer: true },
+  { role: "President", name: "Dr Ouma Devi Koussougbo", title: "Consultant Rheumatologist", place: "Victoria Hospital", officer: true, photo: "/images/team/ouma-koussougbo.jpg" },
   { role: "Vice President", name: "Dr Anupa Roshni Ramjutun Karooa", title: "Consultant Rheumatologist", place: "Victoria Hospital", officer: true },
   { role: "Secretary", name: "Dr Kamini Boodhoo Munnee", title: "Consultant Rheumatologist", place: "Jawaharlal Nehru Hospital", officer: true },
   { role: "Vice Secretary", name: "Dr Aminah Dauhoo Fokeerbux", title: "Consultant Rheumatologist", place: "Dr A.G. Jeetoo Hospital", officer: true },
