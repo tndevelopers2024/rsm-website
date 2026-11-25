@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, CalendarDays, MapPin, Plane, Thermometer, UserRound, Hotel, Sparkles, Handshake } from "lucide-react";
 import { congress, programme, paflarThemes, travelFacts } from "@/lib/content";
@@ -13,10 +14,7 @@ import { CongressSubNav } from "@/components/CongressSubNav";
 import { CongressCta } from "@/components/CongressCta";
 import { Pending } from "@/components/Pending";
 
-export const metadata: Metadata = {
-  title: "7th PAFLAR Congress · Mauritius 2027",
-  description: `${congress.dates} · ${congress.venue}, ${congress.location}. ${congress.theme}`,
-};
+export const metadata: Metadata = pageMeta({ title: "7th PAFLAR Congress · Mauritius 2027", description: "7–9 May 2027 at the Hilton Mauritius Resort & Spa, Flic-en-Flac. Join the 7th PAFLAR Congress, hosted by the Rheumatology Society, Mauritius.", path: "/paflar-2027", paflar: true });
 
 export default function CongressPage() {
   return (

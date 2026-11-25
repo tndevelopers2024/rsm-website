@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { committee } from "@/lib/content";
@@ -7,7 +8,7 @@ import { SectionHead } from "@/components/SectionHead";
 import { Reveal } from "@/components/Reveal";
 import { MemberCard } from "@/components/MemberCard";
 
-export const metadata: Metadata = { title: "The Team" };
+export const metadata: Metadata = pageMeta({ title: "The Team", description: "Meet the office bearers and members of the Rheumatology Society, Mauritius — consultant rheumatologists and physicians across the island.", path: "/committee" });
 
 export default function CommitteePage() {
   const officers = committee.filter((m) => m.officer);

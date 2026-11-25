@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { Mail, MapPin, CalendarDays, ArrowUpRight } from "lucide-react";
 import { site, congress } from "@/lib/content";
@@ -7,7 +8,7 @@ import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { Pending } from "@/components/Pending";
 
-export const metadata: Metadata = { title: "Contact Us" };
+export const metadata: Metadata = pageMeta({ title: "Contact Us", description: "Get in touch with the Rheumatology Society, Mauritius for membership, partnerships, events and enquiries.", path: "/contact" });
 
 export default function ContactPage() {
   return (

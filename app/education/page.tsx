@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Presentation, BookOpen, Users } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
@@ -7,7 +8,7 @@ import { Reveal, RevealMask } from "@/components/Reveal";
 import { DuoImage } from "@/components/DuoImage";
 import { Pending } from "@/components/Pending";
 
-export const metadata: Metadata = { title: "Education & CPD" };
+export const metadata: Metadata = pageMeta({ title: "Education & CPD", description: "Quarterly CPD activities since July 2025 and yearly scientific conferences for healthcare professionals in rheumatology.", path: "/education" });
 
 const offers = [
   { i: CalendarDays, t: "Quarterly CPD sessions", d: "Regular continuing professional development activities that encourage continuing medical education and professional learning." },

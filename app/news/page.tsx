@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, MapPin } from "lucide-react";
 import { news, congress } from "@/lib/content";
@@ -7,7 +8,7 @@ import { SectionHead } from "@/components/SectionHead";
 import { Reveal } from "@/components/Reveal";
 import { DuoImage } from "@/components/DuoImage";
 
-export const metadata: Metadata = { title: "News & Events" };
+export const metadata: Metadata = pageMeta({ title: "News & Events", description: "Latest news, conferences, CPD sessions and awareness events from the Rheumatology Society, Mauritius.", path: "/news" });
 
 export default function NewsPage() {
   const [lead, ...rest] = news;

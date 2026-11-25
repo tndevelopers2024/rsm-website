@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Building2, GraduationCap, Globe2, Briefcase, HeartHandshake, Landmark } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { SectionHead } from "@/components/SectionHead";
@@ -7,7 +8,7 @@ import { Pending } from "@/components/Pending";
 import { ContactForm } from "@/components/ContactForm";
 import { initiatives } from "@/lib/content";
 
-export const metadata: Metadata = { title: "Partnerships & Support" };
+export const metadata: Metadata = pageMeta({ title: "Partnerships & Support", description: "Partner with the Rheumatology Society, Mauritius — universities, healthcare institutions, international associations, sponsors and donors.", path: "/partnerships" });
 
 const audiences = [
   { i: GraduationCap, t: "Universities", d: "Academic collaboration, teaching and research partnerships." },

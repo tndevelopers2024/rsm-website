@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ArrowUpRight, UserRound, Clock } from "lucide-react";
 import { congress, programme } from "@/lib/content";
 import { PageHero } from "@/components/PageHero";
@@ -8,7 +9,7 @@ import { Reveal } from "@/components/Reveal";
 import { Pending } from "@/components/Pending";
 import { CongressCta } from "@/components/CongressCta";
 
-export const metadata: Metadata = { title: "Programme · PAFLAR 2027" };
+export const metadata: Metadata = pageMeta({ title: "Programme · PAFLAR 2027", description: "Scientific programme and themes of the 7th PAFLAR Congress, 7–9 May 2027, Mauritius.", path: "/paflar-2027/programme", paflar: true });
 
 export default function ProgrammePage() {
   return (

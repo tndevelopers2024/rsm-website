@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ArrowUpRight } from "lucide-react";
 import { congress, explore } from "@/lib/content";
 import { PageHero } from "@/components/PageHero";
@@ -8,7 +9,7 @@ import { Reveal, RevealMask } from "@/components/Reveal";
 import { DuoImage } from "@/components/DuoImage";
 import { CongressCta } from "@/components/CongressCta";
 
-export const metadata: Metadata = { title: "Welcome to Mauritius · PAFLAR 2027" };
+export const metadata: Metadata = pageMeta({ title: "Welcome to Mauritius · PAFLAR 2027", description: "Discover Mauritius — what to see and do around the 7th PAFLAR Congress, May 2027.", path: "/paflar-2027/mauritius", paflar: true });
 
 const highlights = [
   { t: "Flic-en-Flac & the west coast", d: "A sheltered lagoon, long beaches and some of the island's finest sunsets.", img: "palmBeach" as const },

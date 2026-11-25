@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Info } from "lucide-react";
 import { conferences, congress, paflarThemes } from "@/lib/content";
@@ -9,7 +10,7 @@ import { Globe } from "@/components/Globe";
 import { CircleText } from "@/components/CircleText";
 import { Marquee } from "@/components/Marquee";
 
-export const metadata: Metadata = { title: "International Collaboration" };
+export const metadata: Metadata = pageMeta({ title: "International Collaboration", description: "The Society’s international links, including AFLAR 2019 in Mauritius and the 7th PAFLAR Congress in 2027.", path: "/international" });
 
 export default function InternationalPage() {
   return (

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { GalleryGrid } from "@/components/GalleryGrid";
 
-export const metadata: Metadata = { title: "Gallery & Archive" };
+export const metadata: Metadata = pageMeta({ title: "Gallery & Archive", description: "Photographs from the Society’s conferences, CPD sessions and awareness campaigns.", path: "/gallery" });
 
 export default function GalleryPage() {
   return (

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ArrowUpRight, Plane, Car, Sun, Moon, Waves, Check } from "lucide-react";
 import { congress, travelFacts, travelFaq } from "@/lib/content";
 import { PageHero } from "@/components/PageHero";
@@ -8,7 +9,7 @@ import { Reveal } from "@/components/Reveal";
 import { Accordion } from "@/components/Accordion";
 import { CongressCta } from "@/components/CongressCta";
 
-export const metadata: Metadata = { title: "Travel & Logistics · PAFLAR 2027" };
+export const metadata: Metadata = pageMeta({ title: "Travel & Logistics · PAFLAR 2027", description: "Visas, flights, airport transfers and practical travel information for PAFLAR 2027 delegates.", path: "/paflar-2027/travel", paflar: true });
 
 const wIcons = [Sun, Moon, Waves];
 

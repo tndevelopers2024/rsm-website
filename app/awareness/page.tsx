@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight, Megaphone, Baby, HandHeart, FileHeart } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
@@ -6,7 +7,7 @@ import { SectionHead } from "@/components/SectionHead";
 import { Reveal, RevealMask } from "@/components/Reveal";
 import { DuoImage } from "@/components/DuoImage";
 
-export const metadata: Metadata = { title: "Patient Awareness & Advocacy" };
+export const metadata: Metadata = pageMeta({ title: "Patient Awareness & Advocacy", description: "Public awareness campaigns, World Arthritis Day and the Juvenile Idiopathic Arthritis campaign — helping people recognise rheumatic diseases early.", path: "/awareness" });
 
 const areas = [
   { i: Megaphone, t: "Public awareness campaigns", d: "Community events and media awareness that help people recognise rheumatic diseases earlier." },

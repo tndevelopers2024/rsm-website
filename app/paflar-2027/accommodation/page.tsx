@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ArrowUpRight, Info } from "lucide-react";
 import { congress } from "@/lib/content";
 import { PageHero } from "@/components/PageHero";
@@ -10,7 +11,7 @@ import { HotelList } from "@/components/HotelList";
 import { Pending } from "@/components/Pending";
 import { CongressCta } from "@/components/CongressCta";
 
-export const metadata: Metadata = { title: "Accommodation · PAFLAR 2027" };
+export const metadata: Metadata = pageMeta({ title: "Accommodation · PAFLAR 2027", description: "Hotels and accommodation for delegates of the 7th PAFLAR Congress at Flic-en-Flac, Mauritius.", path: "/paflar-2027/accommodation", paflar: true });
 
 export default function AccommodationPage() {
   return (

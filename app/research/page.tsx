@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight, Database, FlaskConical, ClipboardList, FileText, Building2 } from "lucide-react";
 import { initiatives } from "@/lib/content";
@@ -9,7 +10,7 @@ import { DuoImage } from "@/components/DuoImage";
 import { Pending } from "@/components/Pending";
 import { Orbits } from "@/components/Orbits";
 
-export const metadata: Metadata = { title: "Research & Publications" };
+export const metadata: Metadata = pageMeta({ title: "Research & Publications", description: "Supporting rheumatology research, registries, clinical guidelines and publications in Mauritius.", path: "/research" });
 
 const icons = { registries: Database, research: FlaskConical, guidelines: ClipboardList } as const;
 
