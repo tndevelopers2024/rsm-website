@@ -317,7 +317,7 @@ export default function Home() {
         <DotGrid className="right-0 top-0 -z-10 h-[340px] w-[520px]" />
         <div className="wrap">
           <SectionHead eyebrow="The Team" title={<>The people leading <em>the Society.</em></>} lead="Consultant rheumatologists and physicians from hospitals and private practice across Mauritius." />
-          <div className="mt-16 grid grid-cols-2 gap-5 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-5 lg:grid-cols-4">
             {committee.slice(0, 4).map((m, i) => (
               <Reveal key={m.name} delay={i * 0.08}><MemberCard m={m} i={i} /></Reveal>
             ))}

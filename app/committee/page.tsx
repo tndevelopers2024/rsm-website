@@ -21,7 +21,7 @@ function CommitteePage() {
       <section className="py-28 md:py-36">
         <div className="wrap">
           <SectionHead eyebrow="Office bearers" title={<>Leading <em>the Society.</em></>} lead="The Society's elected office bearers, drawn from public hospitals across Mauritius." />
-          <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-5 lg:grid-cols-4">
             {officers.map((m, i) => (
               <Reveal key={m.name} delay={(i % 4) * 0.07}><MemberCard m={m} i={i} /></Reveal>
             ))}
@@ -29,7 +29,7 @@ function CommitteePage() {
 
           <div className="mt-28">
             <SectionHead eyebrow="Members" title={<>Our <em>members.</em></>} />
-            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-5 lg:grid-cols-5">
               {members.map((m, i) => (
                 <Reveal key={m.name} delay={i * 0.06}><MemberCard m={m} i={i + 1} compact /></Reveal>
               ))}

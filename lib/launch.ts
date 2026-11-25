@@ -3,14 +3,14 @@
  * false shows the "Coming soon" page instead. Home and PAFLAR 2027 are always live.
  */
 export const LIVE = {
-  about: false,
-  committee: false,
-  education: false,
-  research: false,
-  awareness: false,
-  international: false,
-  partnerships: false,
-  news: false,
-  gallery: false,
-  contact: false,
+  about: true,
+  committee: true,
+  education: true,
+  research: true,
+  awareness: true,
+  international: true,
+  partnerships: true,
+  news: true,
+  gallery: true,
+  contact: true,
 } as const;

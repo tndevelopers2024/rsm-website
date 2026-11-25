@@ -23,9 +23,9 @@ function ContactPage() {
               { i: Mail, k: "Email", v: site.email, p: site.emailPending ? "Proposed address" : undefined },
               { i: MapPin, k: "Location", v: "Mauritius" },
             ].map((c, i) => (
-              <Reveal key={c.k} delay={i * 0.08} className="flex gap-5 rounded-[24px] bg-mist p-7">
+              <Reveal key={c.k} delay={i * 0.08} className="flex gap-4 rounded-[24px] bg-mist p-5 sm:gap-5 sm:p-7">
                 <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-white text-teal"><c.i className="h-5 w-5" /></span>
-                <div><div className="font-cond text-[12px] uppercase tracking-[0.2em] text-muted">{c.k}</div><div className="mt-1 font-display text-lg font-semibold text-navy">{c.v}</div>{c.p && <div className="mt-2"><Pending>{c.p}</Pending></div>}</div>
+                <div className="min-w-0"><div className="font-cond text-[12px] uppercase tracking-[0.2em] text-muted">{c.k}</div><div className="mt-1 break-words font-display text-[16px] font-semibold text-navy sm:text-lg">{c.v}</div>{c.p && <div className="mt-2"><Pending>{c.p}</Pending></div>}</div>
               </Reveal>
             ))}
             <Reveal delay={0.2} className="rounded-[24px] bg-navy p-7 text-white">
