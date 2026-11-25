@@ -398,3 +398,31 @@ export const travelFaq = [
     a: "Drink bottled or filtered water, apply sunscreen often as UV is strong, wear water shoes near coral, and use insect repellent for evening outdoor dining or forest visits.",
   },
 ];
+
+/* ------------------------------ Event photographs ------------------------------ */
+// Client-supplied photographs (public/images/gallery). Captions kept factual.
+export type Photo = { src: string; w: number; h: number; caption: string; cat: "Congress" | "Speakers" | "Delegates" | "International" | "Archive" };
+const g = (n: number, w: number, h: number, caption: string, cat: Photo["cat"]): Photo => ({ src: `/images/gallery/g${String(n).padStart(2, "0")}.jpg`, w, h, caption, cat });
+
+export const photos: Photo[] = [
+  g(9, 1280, 960, "Faculty and delegates · Rheumatology Congress Mauritius 2026", "Delegates"),
+  g(11, 960, 1280, "Speaker at the 2026 congress", "Speakers"),
+  g(2, 1280, 960, "Scientific session in progress", "Congress"),
+  g(5, 1280, 960, "Relevance of Autoantibodies in Rheumatology", "Speakers"),
+  g(18, 1024, 768, "At the AFLAR stand", "International"),
+  g(1, 1280, 960, "International faculty · Madagascar", "Speakers"),
+  g(13, 1280, 960, "Guest lecture", "Speakers"),
+  g(16, 1080, 487, "A full house for the scientific programme", "Congress"),
+  g(14, 1280, 960, "Session chairs", "Speakers"),
+  g(20, 1080, 810, "With colleagues at an international congress", "International"),
+  g(8, 1280, 960, "B Cell Depletion in Rheumatology", "Speakers"),
+  g(6, 1280, 960, "Organising team and faculty", "Delegates"),
+  g(10, 1280, 960, "Congress delegates", "Delegates"),
+  g(3, 1280, 960, "Speakers and organisers", "Delegates"),
+  g(4, 1280, 960, "Presentation session", "Speakers"),
+  g(12, 1280, 576, "Clinical domains of psoriatic disease", "Speakers"),
+  g(15, 1280, 576, "Society meeting delegates", "Delegates"),
+  g(7, 1280, 960, "Clinical update", "Congress"),
+  g(17, 1280, 960, "Group photograph", "Delegates"),
+  g(19, 960, 720, "From the Society's archive", "Archive"),
+];

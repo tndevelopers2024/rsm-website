@@ -13,6 +13,7 @@ import { Timeline } from "@/components/Timeline";
 import { Marquee } from "@/components/Marquee";
 import { Pending } from "@/components/Pending";
 import { ContactForm } from "@/components/ContactForm";
+import { PhotoCollage } from "@/components/PhotoCollage";
 
 const pillarIcons = [GraduationCap, Microscope, HeartHandshake, Globe2];
 
@@ -385,21 +386,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============================== 13. GALLERY TEASER ============================== */}
-      <section className="relative overflow-hidden bg-navy-deep py-28 text-white md:py-32">
+      {/* ============================== 13. GALLERY COLLAGE ============================== */}
+      <section className="relative isolate overflow-hidden bg-navy-deep py-24 text-white md:py-32" id="gallery">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <Glow className="-left-40 top-20 h-[520px] w-[520px]" color="rgba(57,143,168,.22)" />
+          <Glow className="-right-40 bottom-10 h-[560px] w-[560px]" color="rgba(199,166,90,.14)" />
+          <ParticleWaves className="inset-x-0 bottom-0 h-[260px] w-full" color="#8fd3e8" opacity={0.18} rows={10} />
+        </div>
         <div className="wrap">
-          <SectionHead light eyebrow="Gallery & Archive" title={<>Moments from <em>our journey.</em></>} aside={<Link href="/gallery" className="btn btn-ghost">Open gallery <ArrowRight className="h-4 w-4" /></Link>} />
-        </div>
-        <div className="mt-14 flex gap-4 overflow-hidden">
-          <div className="flex w-max animate-marquee gap-4 [animation-duration:60s]">
-            {(["audience", "talk", "microphone", "childPlay", "presentation", "audience3", "classroom", "holdingHands"] as const).concat(["audience", "talk", "microphone", "childPlay", "presentation", "audience3", "classroom", "holdingHands"] as const).map((k, i) => (
-              <div key={i} className={`relative shrink-0 overflow-hidden rounded-2xl ${i % 2 ? "h-[260px] w-[340px]" : "h-[340px] w-[280px]"}`}>
-                <DuoImage name={k} tone={i % 3 === 0 ? "navy" : "none"} sizes="340px" className="h-full w-full" />
-              </div>
-            ))}
+          <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+            <SectionHead light eyebrow="Gallery" title={<>Moments from <em>our congresses.</em></>} lead="Scenes from the Rheumatology Congress Mauritius 2026 and the Society's international engagement. Tap any photograph to view it in full." />
+            <Reveal delay={0.2} className="flex flex-wrap gap-2 lg:justify-end">
+              {["Congress 2026", "Faculty & speakers", "Delegates", "AFLAR"].map((c) => <span key={c} className="rounded-full px-4 py-2 font-cond text-[13px] uppercase tracking-[0.12em] text-white/80 ring-1 ring-white/20">{c}</span>)}
+            </Reveal>
           </div>
+          <div className="mt-16 lg:mt-20"><PhotoCollage /></div>
+          <Reveal className="mt-16 flex justify-center lg:mt-20">
+            <Link href="/gallery" className="btn btn-gold">View the full gallery <ArrowRight className="h-4 w-4" /></Link>
+          </Reveal>
         </div>
-        <p className="wrap mt-8 text-[13.5px] text-white/45">Representative imagery, to be replaced with the Society&apos;s approved photographs and captions.</p>
       </section>
 
       {/* ============================== 14. CONTACT ============================== */}
