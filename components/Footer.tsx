@@ -26,7 +26,7 @@ export function Footer() {
           </div>
           <div className="flex flex-col justify-end gap-4 lg:items-end">
             <Link href="/contact" className="btn btn-gold">Get in touch <ArrowUpRight className="h-4 w-4" /></Link>
-            <a href={congress.links.main} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">Official PAFLAR 2027 page <ArrowUpRight className="h-4 w-4" /></a>
+            <Link href="/paflar-2027" className="btn btn-ghost">PAFLAR 2027 congress <ArrowUpRight className="h-4 w-4" /></Link>
           </div>
         </div>
         <div className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">

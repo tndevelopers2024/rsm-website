@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { ArrowUpRight } from "lucide-react";
-import { congress } from "@/lib/content";
+import { congress, registerHref, registerLabel } from "@/lib/content";
 
 const links = [
   ["Overview", "/paflar-2027"],
@@ -27,8 +27,8 @@ export function CongressSubNav() {
             </Link>
           ))}
         </div>
-        <a href={congress.links.main} target="_blank" rel="noopener noreferrer" className="hidden shrink-0 items-center gap-2 rounded-full bg-crimson px-5 py-2.5 font-cond text-[14px] uppercase tracking-[0.08em] text-white transition hover:bg-[#9a0f31] md:flex">
-          Register <ArrowUpRight className="h-4 w-4" />
+        <a href={registerHref} className="hidden shrink-0 items-center gap-2 rounded-full bg-crimson px-5 py-2.5 font-cond text-[14px] uppercase tracking-[0.08em] text-white transition hover:bg-[#9a0f31] md:flex">
+          {registerLabel} <ArrowUpRight className="h-4 w-4" />
         </a>
       </div>
     </div>

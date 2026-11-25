@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { congress } from "@/lib/content";
+import { congress, registerHref, registerLabel } from "@/lib/content";
 import { DuoImage } from "./DuoImage";
 import { Orbits } from "./Orbits";
 import { Reveal } from "./Reveal";
@@ -21,7 +21,7 @@ export function CongressCta() {
         </Reveal>
         <Reveal delay={0.2} className="mx-auto mt-12 max-w-md"><Countdown target={congress.startISO} /></Reveal>
         <Reveal delay={0.3} className="mt-12 flex flex-wrap justify-center gap-4">
-          <a href={congress.links.main} target="_blank" rel="noopener noreferrer" className="btn btn-red">Official Registration <ArrowUpRight className="h-4 w-4" /></a>
+          <a href={registerHref} className="btn btn-red">{registerLabel} <ArrowUpRight className="h-4 w-4" /></a>
           <Link href="/paflar-2027/sponsorship" className="btn btn-ghost">Sponsorship Enquiries</Link>
         </Reveal>
       </div>

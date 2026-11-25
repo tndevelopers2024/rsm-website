@@ -4,7 +4,7 @@ import { LIVE } from "@/lib/launch";
 import { ComingSoon } from "@/components/ComingSoon";
 import Link from "next/link";
 import { Mail, MapPin, CalendarDays, ArrowUpRight } from "lucide-react";
-import { site, congress } from "@/lib/content";
+import { site, congress, registerHref, registerLabel } from "@/lib/content";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
@@ -30,9 +30,9 @@ function ContactPage() {
             ))}
             <Reveal delay={0.2} className="rounded-[24px] bg-navy p-7 text-white">
               <div className="flex items-center gap-3 font-cond text-[12px] uppercase tracking-[0.2em] text-gold"><CalendarDays className="h-4 w-4" /> 7th PAFLAR Congress</div>
-              <p className="mt-3 text-white/75">Registration, abstracts and programme questions are handled by the official congress organisers.</p>
+              <p className="mt-3 text-white/75">Registration, abstracts and programme questions are handled by the congress organisers through the PAFLAR Secretariat.</p>
               <div className="mt-5 flex flex-wrap gap-3">
-                <a href={congress.links.main} target="_blank" rel="noopener noreferrer" className="btn btn-gold !px-5 !py-3">Official page <ArrowUpRight className="h-4 w-4" /></a>
+                <a href={registerHref} className="btn btn-gold !px-5 !py-3">{registerLabel} <ArrowUpRight className="h-4 w-4" /></a>
                 <Link href="/paflar-2027" className="btn btn-ghost !px-5 !py-3">Congress info</Link>
               </div>
             </Reveal>

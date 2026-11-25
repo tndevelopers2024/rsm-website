@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, CalendarDays, MapPin, Plane, Thermometer, UserRound, Hotel, Sparkles, Handshake } from "lucide-react";
-import { congress, programme, paflarThemes, travelFacts } from "@/lib/content";
+import { congress, programme, paflarThemes, travelFacts, registerHref, registerLabel } from "@/lib/content";
 import { DuoImage } from "@/components/DuoImage";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { Orbits } from "@/components/Orbits";
@@ -14,7 +14,7 @@ import { CongressSubNav } from "@/components/CongressSubNav";
 import { CongressCta } from "@/components/CongressCta";
 import { Pending } from "@/components/Pending";
 
-export const metadata: Metadata = pageMeta({ title: "7th PAFLAR Congress · Mauritius 2027", description: "7–9 May 2027 at the Hilton Mauritius Resort & Spa, Flic-en-Flac. Join the 7th PAFLAR Congress, hosted by the Rheumatology Society, Mauritius.", path: "/paflar-2027", paflar: true });
+export const metadata: Metadata = pageMeta({ title: "7th PAFLAR Congress · Mauritius 2027", description: "Pre-congress workshop 7 May 2027 at Artemis Cascavelle Hospital; main congress 8–9 May at the Hilton Mauritius Resort & Spa, Flic-en-Flac. Join the 7th PAFLAR Congress, hosted by the Rheumatology Society, Mauritius.", path: "/paflar-2027", paflar: true });
 
 export default function CongressPage() {
   return (
@@ -41,13 +41,13 @@ export default function CongressPage() {
             <SplitHeading text="of Paediatric Rheumatology." delay={0.35} />
           </h1>
           <Reveal delay={0.5}><p className="mx-auto mt-3.5 max-w-2xl text-[14.5px] leading-relaxed text-white/80 sm:mt-[2.5vh] sm:text-[clamp(.95rem,2.1vh,1.15rem)]">{congress.sub}</p></Reveal>
-          <Reveal delay={0.6} className="mx-auto mt-5 grid w-full grid-cols-2 overflow-hidden rounded-2xl sm:mt-[3.5vh] sm:inline-grid sm:w-auto bg-navy-deep/70 text-left ring-1 ring-white/20  sm:grid-cols-3">
+          <Reveal delay={0.6} className="mx-auto mt-5 grid w-full grid-cols-1 overflow-hidden rounded-2xl sm:mt-[3.5vh] sm:inline-grid sm:w-auto bg-navy-deep/70 text-left ring-1 ring-white/20  sm:grid-cols-3">
             {[
               { i: CalendarDays, k: "Dates", v: congress.dates },
-              { i: Hotel, k: "Venue", v: congress.venue },
-              { i: MapPin, k: "Location", v: congress.location },
+              { i: Hotel, k: "Main congress · 8–9 May", v: "Hilton Mauritius, Flic-en-Flac" },
+              { i: MapPin, k: "Workshop · 7 May", v: congress.workshopVenue },
             ].map((x, i) => (
-              <div key={x.k} className={`flex items-center gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-[1.6vh] ${i === 1 ? "col-span-2 order-last border-t border-white/15 sm:order-none sm:col-span-1 sm:border-l sm:border-t-0" : ""} ${i === 2 ? "border-l border-white/15" : ""}`}>
+              <div key={x.k} className={`flex items-center gap-3 px-4 py-2.5 sm:gap-4 sm:px-6 sm:py-[1.6vh] ${i ? "border-t border-white/15 sm:border-l sm:border-t-0" : ""}`}>
                 <x.i className="h-4 w-4 shrink-0 text-gold sm:h-5 sm:w-5" />
                 <div><div className="font-cond text-[11px] uppercase tracking-[0.2em] text-gold">{x.k}</div><div className="font-display text-[14.5px] font-medium leading-snug sm:text-base">{x.v}</div></div>
               </div>
@@ -55,7 +55,7 @@ export default function CongressPage() {
           </Reveal>
           <Reveal delay={0.8} className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-[3.5vh] sm:flex sm:flex-wrap sm:justify-center sm:gap-3">
             <a href="#overview" className="btn btn-gold !gap-1.5 !px-3 !py-3 !text-[13px] sm:!gap-2.5 sm:!px-7 sm:!py-3.5 sm:!text-[15px]"><span className="sm:hidden">The Congress</span><span className="hidden sm:inline">Explore the Congress</span> <ArrowRight className="h-4 w-4" /></a>
-            <a href={congress.links.main} target="_blank" rel="noopener noreferrer" className="btn btn-red !gap-1.5 !px-3 !py-3 !text-[13px] sm:!gap-2.5 sm:!px-7 sm:!py-3.5 sm:!text-[15px]"><span className="sm:hidden">Register</span><span className="hidden sm:inline">Official Registration</span> <ArrowUpRight className="h-4 w-4" /></a>
+            <a href={registerHref} className="btn btn-red !gap-1.5 !px-3 !py-3 !text-[13px] sm:!gap-2.5 sm:!px-7 sm:!py-3.5 sm:!text-[15px]"><span className="sm:hidden">Register</span><span className="hidden sm:inline">{registerLabel}</span> <ArrowUpRight className="h-4 w-4" /></a>
             <Link href="/paflar-2027/sponsorship" className="btn btn-ghost col-span-2 !py-2.5 !text-[12.5px] sm:!py-3.5 sm:!text-[15px]">Sponsorship Enquiries</Link>
           </Reveal>
         </div>
@@ -72,6 +72,14 @@ export default function CongressPage() {
             <Reveal delay={0.25} className="mt-10">
               <div className="font-cond text-[12px] uppercase tracking-[0.2em] text-muted">Organising collaboration</div>
               <div className="mt-4 flex flex-wrap gap-2">{congress.organisers.map((o) => <span key={o} className="rounded-full bg-aqua px-4 py-2 text-[14.5px] font-medium text-navy">{o}</span>)}</div>
+            </Reveal>
+            <Reveal delay={0.3} className="mt-10 grid grid-cols-3 gap-3">
+              {congress.stats.map((x) => (
+                <div key={x.k} className="rounded-2xl bg-mist p-4 ring-1 ring-line sm:p-5">
+                  <div className="font-display text-[clamp(1.8rem,3vw,2.4rem)] font-light leading-none text-teal">{x.v}</div>
+                  <div className="mt-2 text-[12.5px] leading-snug text-ink/75 sm:text-[13.5px]">{x.k}</div>
+                </div>
+              ))}
             </Reveal>
           </div>
           <Reveal delay={0.1} className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-navy to-[#1b4a6b] p-10 text-white md:p-14">
@@ -108,8 +116,11 @@ export default function CongressPage() {
           <Reveal className="flex flex-col justify-between rounded-[32px] bg-mist p-10 md:p-14">
             <div>
               <span className="eyebrow">Date & Venue</span>
-              <h2 className="h-section mt-5">{congress.venue}</h2>
-              <p className="mt-5 text-muted">On Mauritius&apos; western coast at Flic-en-Flac, known for its sheltered lagoon and sunsets. Approximately 50–60 minutes by road from {travelFacts.airport}.</p>
+              <h2 className="h-section mt-5">Two venues on the <em>west coast.</em></h2>
+              <div className="mt-6 space-y-4">
+                <div className="flex gap-4"><span className="mt-0.5 h-fit w-[76px] shrink-0 whitespace-nowrap rounded-full bg-gold py-1 text-center font-cond text-[12px] uppercase tracking-[0.14em] text-white">7 May</span><p className="text-muted"><b className="font-semibold text-navy">Pre-congress workshop</b> at {congress.workshopVenue}, Cascavelle.</p></div>
+                <div className="flex gap-4"><span className="mt-0.5 h-fit w-[76px] shrink-0 whitespace-nowrap rounded-full bg-navy py-1 text-center font-cond text-[12px] uppercase tracking-[0.14em] text-white">8–9 May</span><p className="text-muted"><b className="font-semibold text-navy">Main congress</b> at the {congress.venue}, Flic-en-Flac, about 50–60 minutes by road from {travelFacts.airport}.</p></div>
+              </div>
             </div>
             <div className="mt-10 grid grid-cols-3 gap-3">
               {programme.map((d) => (
@@ -117,6 +128,7 @@ export default function CongressPage() {
                   <div className="font-serif text-4xl font-light text-navy">{d.day}</div>
                   <div className="font-cond text-[11.5px] uppercase tracking-[0.16em] text-muted">May 2027</div>
                   <div className="mt-2 text-[13.5px] font-medium text-teal">{d.kind}</div>
+                  <div className="mt-1 text-[12px] leading-snug text-muted">{d.venue.replace(" Mauritius Resort & Spa", "")}</div>
                 </div>
               ))}
             </div>
@@ -178,9 +190,9 @@ export default function CongressPage() {
             <Orbits className="absolute -right-40 -top-40 -z-10 w-[500px] opacity-50" />
             <span className="font-cond text-[13px] uppercase tracking-[0.24em] text-white/70">Registration</span>
             <h3 className="mt-4 font-display text-4xl font-light">Register for the congress</h3>
-            <p className="mt-4 max-w-md text-white/80">Registration and payment are handled by the official organisers. Delegate categories and fees are published by PAFLAR.</p>
-            <a href={congress.links.main} target="_blank" rel="noopener noreferrer" className="btn btn-white mt-10">Official Registration <ArrowUpRight className="h-4 w-4" /></a>
-            <div className="mt-6"><span className="pill-tag !border-white/40 !bg-white/10 !text-white">Final registration URL to be confirmed by organisers</span></div>
+            <p className="mt-4 max-w-md text-white/80">Registration and payment will be handled through PAFLAR. Online registration for 2027 opens soon: register your interest and the Secretariat will keep you informed.</p>
+            <a href={registerHref} className="btn btn-white mt-10">{registerLabel} <ArrowUpRight className="h-4 w-4" /></a>
+            {!congress.registration.open && <div className="mt-6"><span className="pill-tag !border-white/40 !bg-white/10 !text-white">Online registration opens soon</span></div>}
           </Reveal>
           <Reveal delay={0.1} className="relative overflow-hidden rounded-[32px] bg-gold-soft p-10 ring-1 ring-[#eadbb4] md:p-14" >
             <Handshake className="absolute right-10 top-10 h-14 w-14 text-gold/40" strokeWidth={1} />

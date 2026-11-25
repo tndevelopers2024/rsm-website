@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
-import { ArrowUpRight, UserRound, Clock } from "lucide-react";
+import { ArrowUpRight, UserRound, Clock, MapPin } from "lucide-react";
 import { congress, programme } from "@/lib/content";
 import { PageHero } from "@/components/PageHero";
 import { CongressSubNav } from "@/components/CongressSubNav";
@@ -29,7 +29,7 @@ export default function ProgrammePage() {
                   <div className="font-cond text-[13px] uppercase tracking-[0.2em] opacity-80">May 2027</div>
                 </div>
                 <div className="p-10">
-                  <span className="rounded-full bg-aqua px-3.5 py-1 font-cond text-[12px] uppercase tracking-[0.14em] text-teal">{d.kind}</span>
+                  <div className="flex flex-wrap items-center gap-3"><span className="rounded-full bg-aqua px-3.5 py-1 font-cond text-[12px] uppercase tracking-[0.14em] text-teal">{d.kind}</span><span className="inline-flex items-center gap-1.5 text-[14px] text-muted"><MapPin className="h-4 w-4 text-teal" />{d.venue}</span></div>
                   <h3 className="mt-5 text-3xl font-light text-navy">{d.title}</h3>
                   <p className="mt-3 max-w-2xl text-muted">{d.text}</p>
                   <div className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -45,8 +45,8 @@ export default function ProgrammePage() {
             ))}
           </div>
           <Reveal className="mt-12 flex flex-wrap items-center justify-between gap-6 rounded-[24px] bg-mist p-8">
-            <p className="max-w-xl text-muted">The full scientific programme will be published here once released by the organisers. The latest information is always on the official congress page.</p>
-            <a href={congress.links.main} target="_blank" rel="noopener noreferrer" className="btn btn-outline">Official congress page <ArrowUpRight className="h-4 w-4" /></a>
+            <p className="max-w-xl text-muted">The full scientific programme will be published here once released by the organisers. Congress updates are also published by PAFLAR.</p>
+            <a href={congress.links.paflar} target="_blank" rel="noopener noreferrer" className="btn btn-outline">PAFLAR website <ArrowUpRight className="h-4 w-4" /></a>
           </Reveal>
         </div>
       </section>

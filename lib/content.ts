@@ -140,7 +140,7 @@ export const milestones: Milestone[] = [
     year: "2027",
     label: "Upcoming",
     title: "7th PAFLAR Congress",
-    text: "The upcoming 7th PAFLAR Congress in Mauritius, hosted by the Society with the Paediatric Society of Mauritius in collaboration with PAFLAR, at the Hilton Mauritius Resort & Spa, Flic-en-Flac.",
+    text: "The upcoming 7th PAFLAR Congress in Mauritius, hosted by the Society with the Paediatric Society of Mauritius in collaboration with PAFLAR: a pre-congress workshop on 7 May at Artemis Cascavelle Hospital and the main congress on 8–9 May at the Hilton Mauritius Resort & Spa, Flic-en-Flac.",
     future: true,
   },
 ];
@@ -216,7 +216,7 @@ export const news = [
     date: "7–9 May 2027",
     tag: "Congress",
     title: "Mauritius to host the 7th PAFLAR Congress",
-    text: "The Rheumatology Society, Mauritius and the Paediatric Society of Mauritius will host the congress in collaboration with PAFLAR at the Hilton Mauritius Resort & Spa, Flic-en-Flac.",
+    text: "The Rheumatology Society, Mauritius and the Paediatric Society of Mauritius will host the congress in collaboration with PAFLAR, with about 100 delegates, 30 international and 20 local speakers expected. The pre-congress workshop is at Artemis Cascavelle Hospital; the main congress at the Hilton, Flic-en-Flac.",
     href: "/paflar-2027",
     image: "heroSea" as const,
   },
@@ -265,6 +265,13 @@ export const congress = {
   dates: "7–9 May 2027",
   startISO: "2027-05-07T08:00:00+04:00",
   venue: "Hilton Mauritius Resort & Spa",
+  workshopVenue: "Artemis Cascavelle Hospital",
+  workshopLocation: "Cascavelle, Mauritius",
+  stats: [
+    { v: "30", k: "International speakers" },
+    { v: "20", k: "Local speakers" },
+    { v: "~100", k: "Delegates expected" },
+  ],
   location: "Flic-en-Flac, Mauritius",
   theme:
     "Shaping the Future of Paediatric Rheumatology in Africa: Precision Medicine, Innovation, and Collaborative Care.",
@@ -273,15 +280,16 @@ export const congress = {
   headline: "Where Global Expertise Meets the Future of Paediatric Rheumatology.",
   sub: "Join the international paediatric rheumatology community in Mauritius for three days of scientific exchange, education and collaboration.",
   intro:
-    "The Rheumatology Society, Mauritius and the Paediatric Society of Mauritius, in collaboration with PAFLAR, are hosting the congress. The congress will bring together healthcare professionals, researchers and international faculty to advance education, research and collaborative care in paediatric rheumatology.",
+    "The Rheumatology Society, Mauritius and the Paediatric Society of Mauritius, in collaboration with PAFLAR, are hosting the congress: a pre-congress workshop on 7 May 2027 at Artemis Cascavelle Hospital, followed by the main congress on 8–9 May at the Hilton Mauritius Resort & Spa, Flic-en-Flac. It will bring together healthcare professionals, researchers and international faculty to advance education, research and collaborative care in paediatric rheumatology.",
   links: {
     main: "https://mypaflar.org/congress?c=7th-paflar-congress",
     welcome: "https://mypaflar.org/congress-welcome-note",
     accommodation: "https://mypaflar.org/congress-accommodation",
     paflar: "https://mypaflar.org/",
   },
-  // Registration destination still to be confirmed by the organisers.
-  registrationPending: true,
+  // The PAFLAR registration link still points to the 2025 Lagos congress; switch `open` on
+  // and set `url` once the organisers publish the 2027 registration page.
+  registration: { open: false, url: "", email: "paflar2020@gmail.com" },
 };
 
 export const paflarThemes = [
@@ -298,6 +306,7 @@ export const programme = [
     day: "07",
     weekday: "Friday",
     title: "Pre-congress workshop",
+    venue: "Artemis Cascavelle Hospital",
     text: "Focused, practical learning ahead of the main scientific programme.",
     kind: "Workshop",
   },
@@ -305,6 +314,7 @@ export const programme = [
     day: "08",
     weekday: "Saturday",
     title: "Scientific congress · Day 1",
+    venue: "Hilton Mauritius Resort & Spa",
     text: "Opening of the scientific congress with plenary lectures and scientific sessions.",
     kind: "Scientific sessions",
   },
@@ -312,6 +322,7 @@ export const programme = [
     day: "09",
     weekday: "Sunday",
     title: "Scientific congress · Day 2",
+    venue: "Hilton Mauritius Resort & Spa",
     text: "Continued scientific sessions, discussion and collaborative exchange.",
     kind: "Scientific sessions",
   },
@@ -440,11 +451,11 @@ export const photos: Photo[] = [
 /* ------------------------------ PAFLAR 2027 sponsorship ------------------------------ */
 export const sponsorship = {
   intro:
-    "The Rheumatology Society (Mauritius) and the Paediatric Society of Mauritius are hosting the PAFLAR Congress in collaboration with PAFLAR, on 8–9 May 2027 at the Hilton Mauritius Resort & Spa, Flic-en-Flac, preceded by a full-day pre-congress workshop on 7 May 2027. We welcome educational and commercial support from organisations that share our commitment to paediatric rheumatology.",
+    "The Rheumatology Society (Mauritius) and the Paediatric Society of Mauritius are hosting the PAFLAR Congress in collaboration with PAFLAR, on 8–9 May 2027 at the Hilton Mauritius Resort & Spa, Flic-en-Flac, preceded by a full-day pre-congress workshop on 7 May 2027 at Artemis Cascavelle Hospital. Around 100 delegates and 50 speakers from Africa, Europe, India, the USA and Canada are expected. We welcome educational and commercial support from organisations that share our commitment to paediatric rheumatology.",
   stats: [
+    { v: "30", k: "International speakers" },
+    { v: "20", k: "Local speakers" },
     { v: "~100", k: "Delegates expected" },
-    { v: "25", k: "Eminent speakers & faculty" },
-    { v: "5", k: "Regions: Africa, Europe, India, USA & Canada" },
     { v: "3", k: "Days, incl. pre-congress workshop" },
   ],
   booths: [
@@ -481,3 +492,9 @@ export const sponsorship = {
   ],
   secretariat: "paflar2020@gmail.com",
 };
+
+/** Registration button target: the official page once open, otherwise an email to register interest. */
+export const registerHref = congress.registration.open
+  ? congress.registration.url
+  : `mailto:${congress.registration.email}?subject=${encodeURIComponent("PAFLAR 2027 – register my interest")}`;
+export const registerLabel = congress.registration.open ? "Register now" : "Register interest";

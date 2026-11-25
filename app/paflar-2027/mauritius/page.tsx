@@ -13,7 +13,7 @@ export const metadata: Metadata = pageMeta({ title: "Welcome to Mauritius · PAF
 
 const highlights = [
   { t: "Flic-en-Flac & the west coast", d: "A sheltered lagoon, long beaches and some of the island's finest sunsets.", img: "palmBeach" as const },
-  { t: "Hilton Mauritius Resort & Spa", d: "The official congress venue, set directly on the Flic-en-Flac coastline.", img: "resortPool" as const },
+  { t: "Hilton Mauritius Resort & Spa", d: "The main congress venue for 8–9 May, set directly on the Flic-en-Flac coastline.", img: "resortPool" as const },
   { t: "Multicultural heritage", d: "Influences from Africa, India, Europe and China shape the island's languages, festivals and faiths.", img: "dinner" as const },
   { t: "Local cuisine & hospitality", d: "Creole, Indian and French flavours, from beachfront cafés to seafood restaurants along the coastal road.", img: "dining" as const },
 ];

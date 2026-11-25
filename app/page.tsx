@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, CalendarDays, MapPin, Users, GraduationCap, Microscope, HeartHandshake, Globe2, Building2, Quote } from "lucide-react";
-import { about, congress, conferences, news, site, committee } from "@/lib/content";
+import { about, congress, conferences, news, site, committee, registerHref, registerLabel } from "@/lib/content";
 import { MemberCard } from "@/components/MemberCard";
 import { DuoImage } from "@/components/DuoImage";
 import { Orbits } from "@/components/Orbits";
@@ -198,14 +198,14 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.45} className="mt-10 flex flex-wrap gap-4">
               <Link href="/paflar-2027" className="btn btn-gold">Explore the Congress <ArrowRight className="h-4 w-4" /></Link>
-              <a href={congress.links.main} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">Official Registration <ArrowUpRight className="h-4 w-4" /></a>
+              <a href={registerHref} className="btn btn-ghost">{registerLabel} <ArrowUpRight className="h-4 w-4" /></a>
             </Reveal>
           </div>
           <div className="space-y-4">
             {[
               { i: CalendarDays, k: "Dates", v: congress.dates },
-              { i: MapPin, k: "Venue", v: `${congress.venue}, ${congress.location}` },
-              { i: GraduationCap, k: "Programme", v: "Pre-congress workshop 7 May · Scientific sessions 8–9 May" },
+              { i: GraduationCap, k: "Pre-congress workshop · 7 May", v: congress.workshopVenue },
+              { i: MapPin, k: "Main congress · 8–9 May", v: `${congress.venue}, Flic-en-Flac` },
             ].map((f, i) => (
               <Reveal key={f.k} delay={0.15 + i * 0.1} className="flex items-center gap-5 rounded-2xl bg-white/[.07] p-6 ring-1 ring-white/12  transition hover:translate-x-2 hover:bg-white/[.12]">
                 <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gold/15 text-gold"><f.i className="h-6 w-6" /></span>

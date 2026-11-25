@@ -64,7 +64,7 @@ function EducationPage() {
           <SectionHead eyebrow="Educational Calendar" title={<>Upcoming <em>sessions.</em></>} aside={<Pending>Calendar awaiting confirmation</Pending>} />
           <div className="mt-14 overflow-hidden rounded-[24px] ring-1 ring-line">
             {[
-              ["7 May 2027", "Pre-congress workshop · 7th PAFLAR Congress", "Hilton Mauritius Resort & Spa", "/paflar-2027/programme"],
+              ["7 May 2027", "Pre-congress workshop · 7th PAFLAR Congress", "Artemis Cascavelle Hospital", "/paflar-2027/programme"],
               ["8–9 May 2027", "Scientific congress sessions · 7th PAFLAR Congress", "Hilton Mauritius Resort & Spa", "/paflar-2027/programme"],
               ["Quarterly", "CPD session", "Details to be announced", "/contact"],
             ].map(([d, t, v, h], i) => (

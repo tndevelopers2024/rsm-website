@@ -12,7 +12,7 @@ import { ParticleWaves } from "@/components/Abstracts";
 
 export const metadata: Metadata = pageMeta({
   title: "Sponsorship · PAFLAR 2027",
-  description: "Exhibition booths, satellite symposia and branding opportunities at the 7th PAFLAR Congress, 7–9 May 2027, Hilton Mauritius Resort & Spa, Flic-en-Flac.",
+  description: "Exhibition booths, satellite symposia and branding opportunities at the 7th PAFLAR Congress, 8–9 May 2027 (pre-congress workshop 7 May), Hilton Mauritius Resort & Spa, Flic-en-Flac.",
   path: "/paflar-2027/sponsorship",
   paflar: true,
 });
@@ -58,7 +58,7 @@ export default function SponsorshipPage() {
             </div>
             <div className="absolute -bottom-6 left-6 right-6 flex items-center gap-4 rounded-2xl bg-navy-deep p-5 text-white shadow-[0_30px_60px_-30px_rgba(11,32,52,.7)] sm:left-auto sm:w-[320px]">
               <MapPin className="h-5 w-5 shrink-0 text-gold" />
-              <div className="text-[14px] leading-snug"><div className="font-medium">Hilton Mauritius Resort & Spa</div><div className="text-white/60">Flic-en-Flac · 7–9 May 2027</div></div>
+              <div className="text-[14px] leading-snug"><div className="font-medium">Hilton Mauritius, Flic-en-Flac · 8–9 May</div><div className="text-white/60">Workshop: Artemis Cascavelle Hospital · 7 May</div></div>
             </div>
           </Reveal>
         </div>

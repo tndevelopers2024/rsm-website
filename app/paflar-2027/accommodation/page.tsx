@@ -26,7 +26,7 @@ export default function AccommodationPage() {
             <div className="flex flex-col justify-center p-10 md:p-16">
               <span className="font-cond text-[13px] uppercase tracking-[0.24em] text-gold">Official Host Venue</span>
               <h2 className="mt-4 font-display text-[clamp(2rem,3.4vw,3rem)] font-light leading-tight">Hilton Mauritius Resort & Spa</h2>
-              <p className="mt-5 text-white/75">The congress takes place on site at the Hilton in Flic-en-Flac, on the island&apos;s west coast, known for its sheltered lagoon and sunsets.</p>
+              <p className="mt-5 text-white/75">The main congress on 8–9 May takes place on site at the Hilton in Flic-en-Flac (the 7 May pre-congress workshop is at Artemis Cascavelle Hospital nearby), on the island&apos;s west coast, known for its sheltered lagoon and sunsets.</p>
               <a href={congress.links.accommodation} target="_blank" rel="noopener noreferrer" className="btn btn-gold mt-10 self-start">Rates & booking <ArrowUpRight className="h-4 w-4" /></a>
             </div>
           </Reveal>
