@@ -34,29 +34,29 @@ export default function CongressPage() {
         <Orbits className="absolute left-1/2 top-1/2 -z-10 w-[1300px] -translate-x-1/2 -translate-y-1/2 opacity-40" />
         <CircleText text="7TH PAFLAR CONGRESS · MAURITIUS 2027 · " size={180} className="absolute right-[6%] top-[18%] hidden lg:block" color="#c7a65a" />
         <div className="wrap text-center">
-          <Reveal><span className="inline-flex items-center gap-3 rounded-full border border-gold/50 px-5 py-2 font-cond text-[13px] uppercase tracking-[0.24em] text-gold">7th PAFLAR Congress · Mauritius 2027</span></Reveal>
-          <h1 className="mx-auto mt-[2.5vh] max-w-5xl font-display text-[clamp(2.1rem,min(5vw,7vh),4.8rem)] font-light leading-[1.04] tracking-[-0.03em]">
+          <Reveal><span className="inline-flex items-center gap-3 rounded-full border border-gold/50 px-4 py-1.5 font-cond text-[11px] uppercase tracking-[0.18em] text-gold sm:px-5 sm:py-2 sm:text-[13px] sm:tracking-[0.24em]">7th PAFLAR Congress<span className="hidden sm:inline">&nbsp;· Mauritius 2027</span></span></Reveal>
+          <h1 className="mx-auto mt-4 max-w-5xl font-display text-[clamp(1.75rem,7.6vw,2.2rem)] font-light leading-[1.1] tracking-[-0.025em] sm:mt-[2.5vh] sm:text-[clamp(2.1rem,min(5vw,7vh),4.8rem)] sm:leading-[1.04] sm:tracking-[-0.03em]">
             <SplitHeading text="Where Global Expertise Meets" />{" "}
             <span className="font-serif italic text-gold"><SplitHeading text="the Future" delay={0.25} /></span>{" "}
             <SplitHeading text="of Paediatric Rheumatology." delay={0.35} />
           </h1>
-          <Reveal delay={0.5}><p className="mx-auto mt-[2.5vh] max-w-2xl text-[clamp(.95rem,2.1vh,1.15rem)] text-white/80">{congress.sub}</p></Reveal>
-          <Reveal delay={0.6} className="mx-auto mt-[3.5vh] inline-grid overflow-hidden rounded-2xl bg-white/[.07] text-left ring-1 ring-white/20 backdrop-blur-xl sm:grid-cols-3">
+          <Reveal delay={0.5}><p className="mx-auto mt-3.5 max-w-2xl text-[14.5px] leading-relaxed text-white/80 sm:mt-[2.5vh] sm:text-[clamp(.95rem,2.1vh,1.15rem)]">{congress.sub}</p></Reveal>
+          <Reveal delay={0.6} className="mx-auto mt-5 grid w-full grid-cols-2 overflow-hidden rounded-2xl sm:mt-[3.5vh] sm:inline-grid sm:w-auto bg-white/[.07] text-left ring-1 ring-white/20 backdrop-blur-xl sm:grid-cols-3">
             {[
               { i: CalendarDays, k: "Dates", v: congress.dates },
               { i: Hotel, k: "Venue", v: congress.venue },
               { i: MapPin, k: "Location", v: congress.location },
             ].map((x, i) => (
-              <div key={x.k} className={`flex items-center gap-4 px-6 py-[1.6vh] ${i ? "border-t border-white/15 sm:border-l sm:border-t-0" : ""}`}>
-                <x.i className="h-5 w-5 text-gold" />
-                <div><div className="font-cond text-[11px] uppercase tracking-[0.2em] text-gold">{x.k}</div><div className="font-display font-medium">{x.v}</div></div>
+              <div key={x.k} className={`flex items-center gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-[1.6vh] ${i === 1 ? "col-span-2 order-last border-t border-white/15 sm:order-none sm:col-span-1 sm:border-l sm:border-t-0" : ""} ${i === 2 ? "border-l border-white/15" : ""}`}>
+                <x.i className="h-4 w-4 shrink-0 text-gold sm:h-5 sm:w-5" />
+                <div><div className="font-cond text-[11px] uppercase tracking-[0.2em] text-gold">{x.k}</div><div className="font-display text-[14.5px] font-medium leading-snug sm:text-base">{x.v}</div></div>
               </div>
             ))}
           </Reveal>
-          <Reveal delay={0.8} className="mt-[3.5vh] flex flex-wrap justify-center gap-3">
-            <a href="#overview" className="btn btn-gold">Explore the Congress <ArrowRight className="h-4 w-4" /></a>
-            <a href={congress.links.main} target="_blank" rel="noopener noreferrer" className="btn btn-red">Official Registration <ArrowUpRight className="h-4 w-4" /></a>
-            <Link href="/contact?type=sponsorship" className="btn btn-ghost">Sponsorship Enquiries</Link>
+          <Reveal delay={0.8} className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-[3.5vh] sm:flex sm:flex-wrap sm:justify-center sm:gap-3">
+            <a href="#overview" className="btn btn-gold !gap-1.5 !px-3 !py-3 !text-[13px] sm:!gap-2.5 sm:!px-7 sm:!py-3.5 sm:!text-[15px]"><span className="sm:hidden">The Congress</span><span className="hidden sm:inline">Explore the Congress</span> <ArrowRight className="h-4 w-4" /></a>
+            <a href={congress.links.main} target="_blank" rel="noopener noreferrer" className="btn btn-red !gap-1.5 !px-3 !py-3 !text-[13px] sm:!gap-2.5 sm:!px-7 sm:!py-3.5 sm:!text-[15px]"><span className="sm:hidden">Register</span><span className="hidden sm:inline">Official Registration</span> <ArrowUpRight className="h-4 w-4" /></a>
+            <Link href="/contact?type=sponsorship" className="btn btn-ghost col-span-2 !py-2.5 !text-[12.5px] sm:!py-3.5 sm:!text-[15px]">Sponsorship Enquiries</Link>
           </Reveal>
         </div>
       </section>

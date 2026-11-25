@@ -34,7 +34,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50">
       {/* Utility strip */}
       <div className={clsx("overflow-hidden bg-navy-deep text-white/75 transition-all duration-500", scrolled ? "max-h-0" : "max-h-10")}>
-        <div className="wrap flex h-9 items-center justify-between gap-6 text-[12.5px]">
+        <div className="wrap flex h-8 items-center justify-center gap-6 text-[12px] sm:h-9 sm:justify-between sm:text-[12.5px]">
           <span className="hidden items-center gap-2 sm:flex">
             <span className="flex h-1.5 w-6 overflow-hidden rounded-full"><i className="flex-1 bg-brand-red" /><i className="flex-1 bg-sky" /><i className="flex-1 bg-brand-yellow" /><i className="flex-1 bg-brand-green" /></span>
             Professional medical society · Established {site.established}
@@ -51,9 +51,9 @@ export function Header() {
 
       {/* Main bar */}
       <div className={clsx("border-b bg-white/97 backdrop-blur-xl transition-shadow duration-500", scrolled ? "border-line shadow-[0_12px_40px_-24px_rgba(11,32,52,.45)]" : "border-transparent")}>
-        <div className="wrap flex h-[76px] items-center justify-between gap-6">
+        <div className="wrap flex h-[62px] items-center justify-between gap-6 lg:h-[76px]">
           <Link href="/" aria-label="Rheumatology Society, Mauritius home" className="shrink-0">
-            <Image src="/brand/rsm-logo-wide.jpg" alt="Rheumatology Society Mauritius" width={440} height={140} priority className="h-[46px] w-auto" />
+            <Image src="/brand/rsm-logo-wide.jpg" alt="Rheumatology Society Mauritius" width={440} height={140} priority className="h-[38px] w-auto lg:h-[46px]" />
           </Link>
 
           <nav className="hidden items-center lg:flex xl:gap-1" onMouseLeave={() => setHover(null)}>
@@ -91,7 +91,7 @@ export function Header() {
             </Link>
           </div>
 
-          <button onClick={() => setOpen(true)} className="grid h-11 w-11 place-items-center rounded-full bg-navy text-white lg:hidden" aria-label="Open menu">
+          <button onClick={() => setOpen(true)} className="grid h-10 w-10 place-items-center rounded-full bg-navy text-white lg:hidden" aria-label="Open menu">
             <Menu className="h-5 w-5" />
           </button>
         </div>

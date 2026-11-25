@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
       {/* ============================== 1. HERO (fits one screen) ============================== */}
-      <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-navy-deep pt-[112px] text-white lg:h-[100svh] lg:min-h-[620px]">
+      <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-navy-deep pt-[118px] text-white sm:pt-[112px] lg:h-[100svh] lg:min-h-[620px]">
         <HeroSlideshow
             className="-z-20"
             slides={[
@@ -40,36 +40,36 @@ export default function Home() {
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-navy-deep/60 to-transparent" />
         </div>
 
-        <div className="wrap grid min-h-0 flex-1 items-center">
+        <div className="wrap grid min-h-0 flex-1 items-center py-6 sm:py-0">
           <div className="relative z-10 max-w-[680px]">
             <Reveal>
-              <span className="eyebrow-plain text-[12px] text-white/80">Established 2015 &nbsp;|&nbsp; Mauritius</span>
+              <span className="eyebrow-plain text-[11px] text-white/75 sm:text-[12px]">Established 2015 &nbsp;|&nbsp; Mauritius</span>
             </Reveal>
-            <h1 className="mt-[2.2vh] font-display text-[clamp(2.1rem,min(4.3vw,7.4vh),4.4rem)] font-light leading-[1.04] tracking-[-0.03em]">
+            <h1 className="mt-4 font-display text-[clamp(1.85rem,8.2vw,2.3rem)] font-light leading-[1.1] tracking-[-0.025em] sm:mt-[2.2vh] sm:text-[clamp(2.1rem,min(4.3vw,7.4vh),4.4rem)] sm:leading-[1.04] sm:tracking-[-0.03em]">
               <span className="block sm:whitespace-nowrap"><SplitHeading text="Advancing Rheumatology." /></span>
               <span className="block sm:whitespace-nowrap font-serif italic text-sky"><SplitHeading text="Strengthening Care." delay={0.15} /></span>
               <span className="block sm:whitespace-nowrap"><SplitHeading text="Shaping the Future." delay={0.3} /></span>
             </h1>
             <Reveal delay={0.5}>
-              <p className="mt-[2.4vh] max-w-xl text-[clamp(.95rem,2.1vh,1.12rem)] leading-relaxed text-white/80">
+              <p className="mt-4 max-w-xl text-[14.5px] leading-[1.65] text-white/80 sm:mt-[2.4vh] sm:text-[clamp(.95rem,2.1vh,1.12rem)] sm:leading-relaxed">
                 Rheumatology Society, Mauritius brings together healthcare professionals, researchers and partners to advance medical education, scientific research, awareness and collaborative care.
               </p>
             </Reveal>
-            <Reveal delay={0.65} className="mt-[3vh] flex flex-wrap gap-3">
-              <Link href="/about" className="btn btn-red !py-3">Discover Our Society <ArrowRight className="h-4 w-4" /></Link>
-              <Link href="/paflar-2027" className="btn btn-ghost !py-3">Explore PAFLAR 2027</Link>
+            <Reveal delay={0.65} className="mt-6 grid grid-cols-2 gap-2.5 sm:mt-[3vh] sm:flex sm:flex-wrap sm:gap-3">
+              <Link href="/about" className="btn btn-red !gap-1.5 !px-3 !py-3 !text-[13px] sm:!gap-2.5 sm:!px-7 sm:!text-[15px]"><span className="sm:hidden">Our Society</span><span className="hidden sm:inline">Discover Our Society</span> <ArrowRight className="h-4 w-4" /></Link>
+              <Link href="/paflar-2027" className="btn btn-ghost !px-3 !py-3 !text-[13px] sm:!px-7 sm:!text-[15px]"><span className="sm:hidden">PAFLAR 2027</span><span className="hidden sm:inline">Explore PAFLAR 2027</span></Link>
             </Reveal>
           </div>
 
         </div>
 
         {/* feature cards inside the first screen */}
-        <div className="wrap pb-[3vh]">
+        <div className="wrap pb-5 sm:pb-[3vh]">
           <div className="grid gap-3 md:grid-cols-[1.4fr_1fr_1fr]">
-            <Reveal delay={0.8} className="flex items-center gap-6 rounded-[22px] bg-ink/90 p-5 ring-1 ring-white/10 backdrop-blur md:p-6">
+            <Reveal delay={0.8} className="flex items-center gap-6 rounded-[18px] bg-ink/90 px-4 py-3.5 ring-1 ring-white/10 backdrop-blur sm:rounded-[22px] sm:p-5 md:p-6">
               <div className="min-w-0 flex-1">
-                <span className="font-cond text-[13px] uppercase tracking-[0.12em] text-teal-bright">Featured Congress</span>
-                <h3 className="mt-1 truncate text-[18px] font-medium text-white">7th PAFLAR Congress · {congress.dates}</h3>
+                <span className="font-cond text-[11.5px] uppercase tracking-[0.12em] text-teal-bright sm:text-[13px]">Featured Congress</span>
+                <h3 className="mt-0.5 truncate text-[15.5px] font-medium text-white sm:mt-1 sm:text-[18px]">7th PAFLAR Congress · {congress.dates}</h3>
                 <p className="mt-1 flex items-center gap-1.5 truncate text-[13px] text-white/55"><MapPin className="h-3.5 w-3.5 shrink-0" />{congress.venue}, Flic-en-Flac</p>
               </div>
               <Countdown target={congress.startISO} className="hidden w-[230px] shrink-0 [&>div]:py-2 [&_div:first-child]:text-xl sm:grid" />
