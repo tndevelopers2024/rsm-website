@@ -198,7 +198,7 @@ export const committee: Member[] = [
   { role: "Secretary", name: "Dr Kamini Boodhoo Munnee", title: "Consultant Rheumatologist", place: "Jawaharlal Nehru Hospital", officer: true },
   { role: "Vice Secretary", name: "Dr Aminah Dauhoo Fokeerbux", title: "Consultant Rheumatologist", place: "Dr A.G. Jeetoo Hospital", officer: true },
   { role: "Treasurer", name: "Dr Meetranand Thakoor", title: "Consultant Rheumatologist", place: "Sir Seewoosagur Ramgoolam National Hospital", officer: true },
-  { role: "Vice Treasurer", name: "Dr Aroona Mudhu", title: "Consultant in Physical Medicine", place: "Sir Seewoosagur Ramgoolam National Hospital", officer: true },
+  { role: "Assistant Treasurer", name: "Dr Aroona Mudhu", title: "Consultant in Physical Medicine", place: "Sir Seewoosagur Ramgoolam National Hospital", officer: true, photo: "/images/team/aroona-mudhu.jpg" },
   { role: "Executive Member", name: "Dr Nazeerah Dowlut", title: "Consultant-in-Charge, Rheumatology", place: "Jawaharlal Nehru Hospital", officer: true },
   { role: "Auditor", name: "Dr Manishrai Sookha", title: "Consultant Rheumatologist", place: "Sir Anerood Jugnauth Hospital", officer: true },
   { role: "Member", name: "Dr Helene Bhoyroo Petit", title: "Consultant Rheumatologist", place: "Private practice" },
