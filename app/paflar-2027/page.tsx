@@ -12,6 +12,7 @@ import { SectionHead } from "@/components/SectionHead";
 import { Countdown } from "@/components/Countdown";
 import { CongressSubNav } from "@/components/CongressSubNav";
 import { CongressCta } from "@/components/CongressCta";
+import { SpeakerGrid } from "@/components/SpeakerGrid";
 import { Pending } from "@/components/Pending";
 
 export const metadata: Metadata = pageMeta({ title: "7th PAFLAR Congress · Mauritius 2027", description: "Pre-congress workshop 7 May 2027 at Artemis Cascavelle Hospital; main congress 8–9 May at the Hilton Mauritius Resort & Spa, Flic-en-Flac. Join the 7th PAFLAR Congress, hosted by the Rheumatology Society, Mauritius.", path: "/paflar-2027", paflar: true });
@@ -170,16 +171,8 @@ export default function CongressPage() {
       {/* SPEAKERS */}
       <section className="py-28 md:py-36">
         <div className="wrap">
-          <SectionHead eyebrow="Speakers & Faculty" title={<>International <em>faculty.</em></>} aside={<Pending>Faculty to be announced</Pending>} />
-          <div className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-4">
-            {["Keynote speaker", "Keynote speaker", "Faculty", "Faculty"].map((r, i) => (
-              <Reveal key={i} delay={i * 0.08} className="text-center">
-                <div className="duo duo-ocean relative mx-auto aspect-square max-w-[220px] rounded-full ring-8 ring-mist"><div className="absolute inset-0 grid place-items-center"><UserRound className="h-16 w-16 text-white/50" strokeWidth={1} /></div></div>
-                <h3 className="mt-5 text-lg font-semibold text-navy">To be announced</h3>
-                <p className="text-[14.5px] text-muted">{r}</p>
-              </Reveal>
-            ))}
-          </div>
+          <SectionHead eyebrow="Speakers & Faculty" title={<>Leading specialists from <em>Africa and beyond.</em></>} aside={<Link href="/paflar-2027/programme#speakers" className="btn btn-outline">All speakers <ArrowRight className="h-4 w-4" /></Link>} />
+          <div className="mt-12"><SpeakerGrid limit={6} /></div>
         </div>
       </section>
 
@@ -190,9 +183,8 @@ export default function CongressPage() {
             <Orbits className="absolute -right-40 -top-40 -z-10 w-[500px] opacity-50" />
             <span className="font-cond text-[13px] uppercase tracking-[0.24em] text-white/70">Registration</span>
             <h3 className="mt-4 font-display text-4xl font-light">Register for the congress</h3>
-            <p className="mt-4 max-w-md text-white/80">Registration and payment will be handled through PAFLAR. Online registration for 2027 opens soon: register your interest and the Secretariat will keep you informed.</p>
+            <p className="mt-4 max-w-md text-white/80">Mauritian residents register by the day from MUR 4,000. International delegates get a full three-day pass from USD 250 (early bird until 31 January 2027).</p>
             <a href={registerHref} className="btn btn-white mt-10">{registerLabel} <ArrowUpRight className="h-4 w-4" /></a>
-            {!congress.registration.open && <div className="mt-6"><span className="pill-tag !border-white/40 !bg-white/10 !text-white">Online registration opens soon</span></div>}
           </Reveal>
           <Reveal delay={0.1} className="relative overflow-hidden rounded-[32px] bg-gold-soft p-10 ring-1 ring-[#eadbb4] md:p-14" >
             <Handshake className="absolute right-10 top-10 h-14 w-14 text-gold/40" strokeWidth={1} />

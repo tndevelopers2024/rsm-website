@@ -8,6 +8,7 @@ import { congress, registerHref, registerLabel } from "@/lib/content";
 const links = [
   ["Overview", "/paflar-2027"],
   ["Programme", "/paflar-2027/programme"],
+  ["Register", "/paflar-2027/register"],
   ["Accommodation", "/paflar-2027/accommodation"],
   ["Welcome to Mauritius", "/paflar-2027/mauritius"],
   ["Travel & Logistics", "/paflar-2027/travel"],

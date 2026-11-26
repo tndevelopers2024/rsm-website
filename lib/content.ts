@@ -55,6 +55,7 @@ export const nav: NavItem[] = [
       { label: "Accommodation", href: "/paflar-2027/accommodation", desc: "Host venue and nearby hotels", icon: "Hotel" },
       { label: "Welcome to Mauritius", href: "/paflar-2027/mauritius", desc: "The island and things to explore", icon: "TreePalm" },
       { label: "Travel & Logistics", href: "/paflar-2027/travel", desc: "Airport, transfers, visas and weather", icon: "Plane" },
+      { label: "Registration", href: "/paflar-2027/register", desc: "Fees and online registration", icon: "Ticket" },
       { label: "Sponsorship", href: "/paflar-2027/sponsorship", desc: "Exhibition booths, symposia and branding", icon: "Handshake" },
     ],
     feature: { image: "heroSea", kicker: "7–9 May 2027 · Flic-en-Flac", title: "7th PAFLAR Congress, Mauritius", href: "/paflar-2027", cta: "Explore the congress" },
@@ -289,7 +290,7 @@ export const congress = {
   },
   // The PAFLAR registration link still points to the 2025 Lagos congress; switch `open` on
   // and set `url` once the organisers publish the 2027 registration page.
-  registration: { open: false, url: "", email: "paflar2020@gmail.com" },
+  registration: { open: true, url: "/paflar-2027/register", email: "paflar2020@gmail.com" },
 };
 
 export const paflarThemes = [
@@ -307,7 +308,7 @@ export const programme = [
     weekday: "Friday",
     title: "Pre-congress workshop",
     venue: "Artemis Cascavelle Hospital",
-    text: "Focused, practical learning ahead of the main scientific programme.",
+    text: "Hands-on workshops: pGALS, musculoskeletal ultrasound, imaging, patient education and laboratory testing.",
     kind: "Workshop",
   },
   {
@@ -315,7 +316,7 @@ export const programme = [
     weekday: "Saturday",
     title: "Scientific congress · Day 1",
     venue: "Hilton Mauritius Resort & Spa",
-    text: "Opening of the scientific congress with plenary lectures and scientific sessions.",
+    text: "Frontiers in rheumatology, childhood lupus, juvenile idiopathic arthritis and African research priorities.",
     kind: "Scientific sessions",
   },
   {
@@ -323,7 +324,7 @@ export const programme = [
     weekday: "Sunday",
     title: "Scientific congress · Day 2",
     venue: "Hilton Mauritius Resort & Spa",
-    text: "Continued scientific sessions, discussion and collaborative exchange.",
+    text: "Clinical cases, autoinflammatory conditions, care across the lifespan and the future of training.",
     kind: "Scientific sessions",
   },
 ];

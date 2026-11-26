@@ -2,12 +2,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Building2, Milestone, Sparkles, Users, GraduationCap, Microscope, HeartHandshake, CalendarDays, ListChecks, Hotel, TreePalm, Plane, Handshake, type LucideIcon } from "lucide-react";
+import { ArrowRight, Building2, Milestone, Sparkles, Users, GraduationCap, Microscope, HeartHandshake, CalendarDays, ListChecks, Hotel, TreePalm, Plane, Handshake, Ticket, type LucideIcon } from "lucide-react";
 import clsx from "clsx";
 import type { NavItem } from "@/lib/content";
 import { img } from "@/lib/images";
 
-const icons: Record<string, LucideIcon> = { Building2, Milestone, Sparkles, Users, GraduationCap, Microscope, HeartHandshake, CalendarDays, ListChecks, Hotel, TreePalm, Plane, Handshake };
+const icons: Record<string, LucideIcon> = { Building2, Milestone, Sparkles, Users, GraduationCap, Microscope, HeartHandshake, CalendarDays, ListChecks, Hotel, TreePalm, Plane, Handshake, Ticket };
 
 /** Two-column mega menu: icon links with descriptions + a featured image card. */
 export function MegaPanel({ item, align = "center", dark }: { item: NavItem; align?: "center" | "right"; dark?: boolean }) {
