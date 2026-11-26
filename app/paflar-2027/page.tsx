@@ -26,7 +26,7 @@ export default function CongressPage() {
           <HeroSlideshow
             className="-z-20"
             slides={[
-              { image: "heroSea", label: "Evenings at the Hilton, AFLAR 2019", position: "50% center" },
+              { image: "heroSea", label: "Evenings at the Hilton, AFLAR 2019", position: "center 40%" },
               { image: "aflarBallroom", label: "At the Hilton, AFLAR 2019", position: "60% center" },
               { image: "aflarDinner", label: "Networking", position: "55% center" },
             ]}

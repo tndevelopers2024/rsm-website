@@ -26,10 +26,10 @@ export default function Home() {
         <HeroSlideshow
             className="-z-20"
             slides={[
+              { image: "aflarGroup", label: "Collaboration", position: "60% center" },
               { image: "heroJoint", label: "Science", position: "70% center" },
               { image: "aflarBallroom", label: "Education", position: "60% center" },
-              { image: "aflarGroup", label: "Collaboration", position: "60% center" },
-              { image: "aflarOpening", label: "PAFLAR 2027", position: "75% center" },
+              { image: "aflarOpening", label: "Expertise", position: "75% center" },
             ]}
             indicatorClassName="absolute bottom-[calc(3vh+150px)] right-[max(24px,calc((100vw-1320px)/2+40px))] z-20 hidden lg:flex"
           />
@@ -56,8 +56,9 @@ export default function Home() {
               </p>
             </Reveal>
             <Reveal delay={0.65} className="mt-6 grid grid-cols-2 gap-2.5 sm:mt-[3vh] sm:flex sm:flex-wrap sm:gap-3">
-              <Link href="/about" className="btn btn-red !gap-1.5 !px-3 !py-3 !text-[13px] sm:!gap-2.5 sm:!px-7 sm:!text-[15px]"><span className="sm:hidden">Our Society</span><span className="hidden sm:inline">Discover Our Society</span> <ArrowRight className="h-4 w-4" /></Link>
+              <Link href="/paflar-2027/register" className="btn btn-red col-span-2 !gap-2 !py-3.5 !text-[14px] sm:!px-8 sm:!text-[15px]">Register now <ArrowRight className="h-4 w-4" /></Link>
               <Link href="/paflar-2027" className="btn btn-ghost !px-3 !py-3 !text-[13px] sm:!px-7 sm:!text-[15px]"><span className="sm:hidden">PAFLAR 2027</span><span className="hidden sm:inline">Explore PAFLAR 2027</span></Link>
+              <Link href="/about" className="btn btn-ghost !px-3 !py-3 !text-[13px] sm:!px-7 sm:!text-[15px]"><span className="sm:hidden">Our Society</span><span className="hidden sm:inline">Discover Our Society</span></Link>
             </Reveal>
           </div>
 

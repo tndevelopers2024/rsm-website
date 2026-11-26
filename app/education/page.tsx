@@ -22,7 +22,7 @@ const offers = [
 function EducationPage() {
   return (
     <>
-      <PageHero eyebrow="Education & CPD" title="Learning that keeps clinical practice current." lead="Since July 2025, the Society has run quarterly continuing professional development activities for healthcare professionals." image="heroPanel" tone="none" crumbs={[{ label: "Education & CPD" }]} />
+      <PageHero eyebrow="Education & CPD" title="Learning that keeps clinical practice current." lead="Since July 2025, the Society has run quarterly continuing professional development activities for healthcare professionals." image="heroPanel" tone="none" position="object-[center_40%]" crumbs={[{ label: "Education & CPD" }]} />
 
       <section className="py-28 md:py-36">
         <div className="wrap grid items-center gap-16 lg:grid-cols-2 lg:gap-24">

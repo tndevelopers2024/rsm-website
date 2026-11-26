@@ -28,7 +28,7 @@ const brandIcons = [ShoppingBag, BookOpen, MonitorPlay];
 export default function SponsorshipPage() {
   return (
     <>
-      <PageHero eyebrow="7th PAFLAR Congress · Sponsorship" title="Partner with PAFLAR 2027" lead="Educational and commercial support opportunities at the congress for paediatric rheumatology in Africa, Mauritius 2027." image="heroPanel" tone="none" crumbs={[{ label: "PAFLAR 2027", href: "/paflar-2027" }, { label: "Sponsorship" }]}>
+      <PageHero eyebrow="7th PAFLAR Congress · Sponsorship" title="Partner with PAFLAR 2027" lead="Educational and commercial support opportunities at the congress for paediatric rheumatology in Africa, Mauritius 2027." image="sponsorStage" tone="none" position="object-[center_40%]" crumbs={[{ label: "PAFLAR 2027", href: "/paflar-2027" }, { label: "Sponsorship" }]}>
         <div className="flex flex-wrap gap-3">
           <a href="#packages" className="btn btn-gold">View packages <ArrowRight className="h-4 w-4" /></a>
           <a href={mail} className="btn btn-ghost"><Mail className="h-4 w-4" /> Sponsorship enquiry</a>

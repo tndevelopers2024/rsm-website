@@ -10,7 +10,7 @@ export const metadata: Metadata = pageMeta({ title: "Gallery & Archive", descrip
 function GalleryPage() {
   return (
     <>
-      <PageHero eyebrow="Gallery & Archive" title="Moments from our journey." lead="Photographs from the Rheumatology Congress Mauritius 2026, the Society’s meetings and its international engagement." image="heroPanel" tone="none" crumbs={[{ label: "Gallery" }]} />
+      <PageHero eyebrow="Gallery & Archive" title="Moments from our journey." lead="Photographs from the Rheumatology Congress Mauritius 2026, the Society’s meetings and its international engagement." image="galleryEvening" tone="none" position="object-[center_18%]" crumbs={[{ label: "Gallery" }]} />
       <section className="bg-navy-deep py-24 md:py-32">
         <div className="wrap">
           <GalleryGrid />

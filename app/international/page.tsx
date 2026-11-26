@@ -17,7 +17,7 @@ export const metadata: Metadata = pageMeta({ title: "International Collaboration
 function InternationalPage() {
   return (
     <>
-      <PageHero eyebrow="International Collaboration" title="Mauritius, connected to the world of Rheumatology." lead="International participation, knowledge exchange and collaboration with professional societies across Africa and beyond." image="heroSea" tone="none" crumbs={[{ label: "International" }]} />
+      <PageHero eyebrow="International Collaboration" title="Mauritius, connected to the world of Rheumatology." lead="International participation, knowledge exchange and collaboration with professional societies across Africa and beyond." image="intlFaculty" tone="none" position="object-[center_8%]" crumbs={[{ label: "International" }]} />
 
       <section className="relative overflow-hidden bg-ink py-28 text-white md:py-36">
         <div className="wrap grid items-center gap-16 lg:grid-cols-2">

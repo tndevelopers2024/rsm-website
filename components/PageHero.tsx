@@ -13,6 +13,7 @@ export function PageHero({
   crumbs = [],
   children,
   tone = "navy",
+  position = "object-[70%_center]",
 }: {
   eyebrow: string;
   title: string;
@@ -21,10 +22,11 @@ export function PageHero({
   crumbs?: { label: string; href?: string }[];
   children?: React.ReactNode;
   tone?: "navy" | "teal" | "ocean" | "none";
+  position?: string;
 }) {
   return (
     <section className="grain relative isolate overflow-hidden bg-navy-deep pb-16 pt-36 text-white sm:pb-24 sm:pt-44 md:pb-32 md:pt-56">
-      <DuoImage name={image} tone={tone} priority className={`!absolute inset-0 -z-10 ${tone === "none" ? "" : "opacity-80"}`} imgClassName="object-[70%_center]" />
+      <DuoImage name={image} tone={tone} priority className={`!absolute inset-0 -z-10 ${tone === "none" ? "" : "opacity-80"}`} imgClassName={position} />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(11,32,52,.96)_0%,rgba(11,32,52,.85)_35%,rgba(11,32,52,.35)_65%,rgba(11,32,52,.1)_100%)]" />
       <div className="absolute inset-0 -z-10 bg-navy-deep/45 md:hidden" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-navy-deep/70 to-transparent" />

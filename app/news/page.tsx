@@ -16,7 +16,7 @@ function NewsPage() {
   const [lead, ...rest] = news;
   return (
     <>
-      <PageHero eyebrow="News & Events" title="News, events and announcements." lead="Upcoming and past events, congress updates and Society announcements." image="heroPanel" tone="none" crumbs={[{ label: "News & Events" }]} />
+      <PageHero eyebrow="News & Events" title="News, events and announcements." lead="Upcoming and past events, congress updates and Society announcements." image="newsTable" tone="none" position="object-[center_35%]" crumbs={[{ label: "News & Events" }]} />
 
       <section className="py-28 md:py-36">
         <div className="wrap">
