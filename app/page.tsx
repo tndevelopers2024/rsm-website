@@ -26,9 +26,9 @@ export default function Home() {
         <HeroSlideshow
             className="-z-20"
             slides={[
-              { image: "heroTeam", label: "Collaboration", position: "68% center" },
-              { image: "heroJoint", label: "Science", position: "70% center" },
-              { image: "heroPanel", label: "Education", position: "65% center" },
+              { image: "aflarBallroom", label: "Education", position: "60% center" },
+              { image: "aflarOpening", label: "Science", position: "75% center" },
+              { image: "aflarGroup", label: "Collaboration", position: "60% center" },
               { image: "heroSea", label: "PAFLAR 2027", position: "60% center" },
             ]}
             indicatorClassName="absolute bottom-[calc(3vh+150px)] right-[max(24px,calc((100vw-1320px)/2+40px))] z-20 hidden lg:flex"

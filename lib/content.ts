@@ -423,7 +423,7 @@ export const travelFaq = [
 
 /* ------------------------------ Event photographs ------------------------------ */
 // Client-supplied photographs (public/images/gallery). Captions kept factual.
-export type Photo = { src: string; w: number; h: number; caption: string; cat: "Congress" | "Speakers" | "Delegates" | "International" | "Archive" };
+export type Photo = { src: string; w: number; h: number; caption: string; cat: "Congress" | "Speakers" | "Delegates" | "International" | "Archive" | "AFLAR 2019" };
 const g = (n: number, w: number, h: number, caption: string, cat: Photo["cat"]): Photo => ({ src: `/images/gallery/g${String(n).padStart(2, "0")}.jpg`, w, h, caption, cat });
 
 export const photos: Photo[] = [
@@ -499,3 +499,40 @@ export const registerHref = congress.registration.open
   ? congress.registration.url
   : `mailto:${congress.registration.email}?subject=${encodeURIComponent("PAFLAR 2027 – register my interest")}`;
 export const registerLabel = congress.registration.open ? "Register now" : "Register interest";
+
+/* AFLAR 2019, 9th African League of Associations for Rheumatology congress, Hilton Mauritius (6–8 Sept 2019). */
+export const aflarPhotos: Photo[] = [
+  { src: "/images/aflar2019/a01.jpg", w: 1800, h: 1201, caption: "Opening address at AFLAR 2019, Hilton Mauritius · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a02.jpg", w: 1800, h: 1201, caption: "Faculty on stage · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a03.jpg", w: 1800, h: 1201, caption: "Delegates of the 9th AFLAR Congress · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a04.jpg", w: 1800, h: 1201, caption: "Faculty and organisers · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a05.jpg", w: 1800, h: 1201, caption: "Welcome evening by the pool · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a06.jpg", w: 1800, h: 1201, caption: "Cultural performance at the welcome evening · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a07.jpg", w: 1800, h: 1201, caption: "Delegates at the welcome evening · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a08.jpg", w: 1800, h: 1201, caption: "Plenary lecture · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a09.jpg", w: 1800, h: 1201, caption: "Scientific session in the ballroom · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a10.jpg", w: 1800, h: 1201, caption: "Delegates following a lecture · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a11.jpg", w: 1800, h: 1201, caption: "A full ballroom for the scientific programme · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a12.jpg", w: 1800, h: 1201, caption: "Question from the floor · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a13.jpg", w: 1800, h: 1201, caption: "Plenary lecture · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a14.jpg", w: 1800, h: 1201, caption: "Delegates in session · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a15.jpg", w: 1800, h: 1202, caption: "Speaker at the Rheumatology Society podium · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a16.jpg", w: 1204, h: 1800, caption: "Presentation by a local speaker · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a17.jpg", w: 1800, h: 1201, caption: "Discussion between sessions · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a18.jpg", w: 1800, h: 1201, caption: "Delegates in discussion · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a19.jpg", w: 1800, h: 1201, caption: "Speaker presenting regional data · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a20.jpg", w: 1800, h: 1201, caption: "Garden networking evening · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a21.jpg", w: 1800, h: 1201, caption: "Colleagues at the networking evening · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a22.jpg", w: 1800, h: 1201, caption: "Delegates from across Africa · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a23.jpg", w: 1800, h: 1202, caption: "Networking in the gardens · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a24.jpg", w: 1800, h: 1201, caption: "Lecture · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a25.jpg", w: 1800, h: 1201, caption: "Speakers after their session · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a26.jpg", w: 1800, h: 1201, caption: "Congress dinner · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a27.jpg", w: 1800, h: 1201, caption: "Congress dinner · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a28.jpg", w: 1800, h: 1201, caption: "Congress dinner at the Hilton · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a29.jpg", w: 1800, h: 1201, caption: "Delegates at the congress dinner · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a30.jpg", w: 1800, h: 1201, caption: "Guest lecture · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a31.jpg", w: 1800, h: 1201, caption: "AWIR session · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a32.jpg", w: 1800, h: 1201, caption: "Women in rheumatology session · AFLAR 2019", cat: "AFLAR 2019" },
+  { src: "/images/aflar2019/a33.jpg", w: 1800, h: 540, caption: "AFLAR 2019 group photograph · AFLAR 2019", cat: "AFLAR 2019" },
+];

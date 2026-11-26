@@ -164,7 +164,7 @@ export function RegistrationWizard() {
   /* ---------------- order summary ---------------- */
   const Summary = (
     <div className="overflow-hidden rounded-[26px] bg-white ring-1 ring-line shadow-[0_30px_60px_-45px_rgba(20,45,70,.55)]">
-      <div className="bg-navy-deep px-6 py-5 text-white">
+      <div className="bg-navy-deep px-6 py-4 text-white">
         <div className="font-cond text-[12px] uppercase tracking-[0.22em] text-gold">Your registration</div>
         <div className="mt-1 font-display text-[18px] font-medium">{order?.name ?? "Nothing selected yet"}</div>
       </div>
@@ -188,6 +188,15 @@ export function RegistrationWizard() {
         ) : (
           <p className="text-[14.5px] text-muted">Choose how you&apos;re joining us and your package will appear here.</p>
         )}
+        {step > 0 && (
+          <div className="mt-5 hidden lg:block">
+            {step < 3 ? (
+              <button type="button" onClick={next} disabled={!canNext} className="btn btn-teal w-full justify-center disabled:cursor-not-allowed disabled:opacity-40">{step === 2 ? "Review registration" : "Continue"} <ArrowRight className="h-4 w-4" /></button>
+            ) : (
+              <button type="button" onClick={() => setPayOpen(true)} className="btn btn-red w-full justify-center"><Lock className="h-4 w-4" /> Pay {order?.total}</button>
+            )}
+          </div>
+        )}
         <div className="mt-5 space-y-2 text-[12.5px] text-muted">
           <p className="flex items-center gap-2"><Lock className="h-3.5 w-3.5" /> Secure online card payment</p>
           <p className="flex items-center gap-2"><Info className="h-3.5 w-3.5" /> Registration is non-refundable and non-transferable</p>
@@ -199,9 +208,9 @@ export function RegistrationWizard() {
   /* ---------------- steps ---------------- */
   const step0 = (
     <div>
-      <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-light text-navy">Where will you be joining us from?</h2>
-      <p className="mt-2 text-muted">Fees and options depend on where you live.</p>
-      <div className="mt-8 grid gap-4 md:grid-cols-2">
+      <h2 className="text-[clamp(1.45rem,2.3vw,1.9rem)] font-light text-navy">Where will you be joining us from?</h2>
+      <p className="mt-1.5 text-[15px] text-muted">Fees and options depend on where you live.</p>
+      <div className="mt-6 grid gap-4 md:grid-cols-2">
         {[
           { p: "mu" as const, icon: Home, flag: "🇲🇺", t: "Mauritian resident", d: "Register for one, two or all three days. Pay per day.", price: `MUR ${fmt(localDayFee)}`, per: "per day · 4 CPD points" },
           { p: "intl" as const, icon: Globe2, flag: "🌍", t: "International delegate", d: "Full three-day pass including workshops and main congress.", price: `from USD ${Math.min(...intlCategories.map((c) => (early ? c.early.usd : c.normal.usd)))}`, per: early ? "early-bird rate" : "3-day pass" },
@@ -210,12 +219,12 @@ export function RegistrationWizard() {
             key={o.p}
             type="button"
             onClick={() => choosePath(o.p)}
-            className={clsx("group relative flex flex-col overflow-hidden rounded-[24px] p-7 text-left ring-1 transition hover:-translate-y-1", path === o.p ? "bg-aqua ring-2 ring-teal" : "bg-white ring-line hover:shadow-[0_30px_60px_-40px_rgba(20,45,70,.6)] hover:ring-teal/50")}
+            className={clsx("group relative flex flex-col overflow-hidden rounded-[24px] p-6 text-left ring-1 transition hover:-translate-y-1", path === o.p ? "bg-aqua ring-2 ring-teal" : "bg-white ring-line hover:shadow-[0_30px_60px_-40px_rgba(20,45,70,.6)] hover:ring-teal/50")}
           >
-            <span className="text-[40px] leading-none" aria-hidden>{o.flag}</span>
-            <span className="mt-5 font-display text-[22px] font-semibold text-navy">{o.t}</span>
+            <span className="text-[34px] leading-none" aria-hidden>{o.flag}</span>
+            <span className="mt-4 font-display text-[22px] font-semibold text-navy">{o.t}</span>
             <span className="mt-2 text-[15px] leading-relaxed text-muted">{o.d}</span>
-            <span className="mt-6 flex items-end justify-between border-t border-line pt-5">
+            <span className="mt-5 flex items-end justify-between border-t border-line pt-4">
               <span><span className="block font-display text-[24px] font-semibold text-navy">{o.price}</span><span className="text-[13px] text-muted">{o.per}</span></span>
               <span className="grid h-11 w-11 place-items-center rounded-full bg-navy text-white transition group-hover:bg-teal"><ArrowRight className="h-5 w-5" /></span>
             </span>
@@ -227,15 +236,15 @@ export function RegistrationWizard() {
 
   const stepMu = (
     <div>
-      <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-light text-navy">Choose the days you&apos;d like to attend</h2>
-      <p className="mt-2 text-muted">We&apos;d love to welcome you for all three days. Each day is MUR {fmt(localDayFee)} and earns {localCpdPerDay} CPD points.</p>
-      <div className="mt-6 flex flex-wrap gap-2">
+      <h2 className="text-[clamp(1.45rem,2.3vw,1.9rem)] font-light text-navy">Choose the days you&apos;d like to attend</h2>
+      <p className="mt-1.5 text-[15px] text-muted">We&apos;d love to welcome you for all three days. Each day is MUR {fmt(localDayFee)} and earns {localCpdPerDay} CPD points.</p>
+      <div className="mt-4 flex flex-wrap gap-2">
         {[["All 3 days", ["fri", "sat", "sun"]], ["Congress only (Sat + Sun)", ["sat", "sun"]], ["Workshops only (Fri)", ["fri"]]].map(([l, v]) => (
           <button key={l as string} type="button" onClick={() => setSel(v as DayId[])} className={clsx("rounded-full px-4 py-2 text-[14px] font-medium ring-1 transition", key === (v as string[]).join(",") ? "bg-navy text-white ring-navy" : "text-navy ring-line hover:bg-mist")}>{l as string}</button>
         ))}
         {sel.length > 0 && <button type="button" onClick={() => setSel([])} className="rounded-full px-4 py-2 text-[14px] text-muted hover:text-navy">Clear</button>}
       </div>
-      <div className="mt-6 grid gap-3">
+      <div className="mt-4 grid gap-2.5">
         {days.map((d) => {
           const on = sel.includes(d.id);
           return (
@@ -245,7 +254,7 @@ export function RegistrationWizard() {
               role="checkbox"
               aria-checked={on}
               onClick={() => toggleDay(d.id)}
-              className={clsx("group grid grid-cols-[auto_1fr] items-start gap-4 rounded-[22px] p-5 text-left ring-1 transition sm:grid-cols-[auto_1fr_auto] sm:items-center sm:p-6", on ? "bg-aqua ring-2 ring-teal" : "bg-white ring-line hover:ring-teal/50")}
+              className={clsx("group grid grid-cols-[auto_1fr] items-start gap-4 rounded-[20px] p-4 text-left ring-1 transition sm:grid-cols-[auto_1fr_auto] sm:items-center sm:px-5 sm:py-4", on ? "bg-aqua ring-2 ring-teal" : "bg-white ring-line hover:ring-teal/50")}
             >
               <span className={clsx("mt-1 grid h-7 w-7 place-items-center rounded-lg transition sm:mt-0", on ? "bg-teal text-white" : "bg-white ring-2 ring-line group-hover:ring-teal/60")}>{on && <Check className="h-4 w-4" strokeWidth={3} />}</span>
               <span className="min-w-0">
@@ -253,8 +262,8 @@ export function RegistrationWizard() {
                   <span className="font-display text-[18px] font-semibold text-navy">{d.weekday} {d.date.replace(" 2027", "")}</span>
                   <span className="rounded-full bg-white px-2.5 py-0.5 font-cond text-[11.5px] uppercase tracking-[0.12em] text-teal ring-1 ring-line">{d.label}</span>
                 </span>
-                <span className="mt-1.5 block text-[14.5px] leading-relaxed text-muted">{d.summary}</span>
-                <span className="mt-2 flex items-center gap-1.5 text-[13.5px] font-medium text-navy"><MapPin className="h-3.5 w-3.5 text-teal" />{d.venue}</span>
+                <span className="mt-1 block text-[14px] leading-snug text-muted">{d.summary}</span>
+                <span className="mt-1.5 flex items-center gap-1.5 text-[13px] font-medium text-navy"><MapPin className="h-3.5 w-3.5 text-teal" />{d.venue}</span>
               </span>
               <span className="col-start-2 flex items-baseline gap-3 sm:col-start-3 sm:flex-col sm:items-end sm:gap-0.5">
                 <span className="font-display text-[19px] font-semibold text-navy">MUR {fmt(localDayFee)}</span>
@@ -269,16 +278,16 @@ export function RegistrationWizard() {
 
   const stepIntl = (
     <div>
-      <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-light text-navy">Welcome, international delegates</h2>
-      <p className="mt-2 text-muted">Choose the category that applies to you. Every pass covers all three days: the pre-congress workshops on 7 May and the main congress on 8–9 May.</p>
+      <h2 className="text-[clamp(1.45rem,2.3vw,1.9rem)] font-light text-navy">Welcome, international delegates</h2>
+      <p className="mt-1.5 text-[15px] text-muted">Choose the category that applies to you. Every pass covers all three days: the pre-congress workshops on 7 May and the main congress on 8–9 May.</p>
       {early && (
-        <div className="mt-6 flex flex-wrap items-center gap-3 rounded-2xl bg-gold-soft px-5 py-4 text-[14.5px] text-[#6b5418]">
+        <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl bg-gold-soft px-4 py-2.5 text-[14px] text-[#6b5418]">
           <Hourglass className="h-5 w-5 shrink-0" />
           <span><b className="font-semibold">Early-bird rates until {earlyBirdLabel}.</b> Places are limited.</span>
           {daysLeft !== null && <span className="ml-auto rounded-full bg-white px-3 py-1 font-semibold text-navy">{daysLeft} days left</span>}
         </div>
       )}
-      <div className="mt-6 grid gap-3">
+      <div className="mt-3 grid gap-2.5">
         {intlCategories.map((c) => {
           const on = cat === c.id;
           const p = early ? c.early : c.normal;
@@ -289,12 +298,12 @@ export function RegistrationWizard() {
               role="radio"
               aria-checked={on}
               onClick={() => setCat(c.id)}
-              className={clsx("group grid grid-cols-[auto_1fr] items-start gap-4 rounded-[22px] p-5 text-left ring-1 transition sm:grid-cols-[auto_1fr_auto] sm:items-center sm:p-6", on ? "bg-aqua ring-2 ring-teal" : "bg-white ring-line hover:ring-teal/50")}
+              className={clsx("group grid grid-cols-[auto_1fr] items-start gap-4 rounded-[20px] p-4 text-left ring-1 transition sm:grid-cols-[auto_1fr_auto] sm:items-center sm:px-5 sm:py-4", on ? "bg-aqua ring-2 ring-teal" : "bg-white ring-line hover:ring-teal/50")}
             >
               <span className={clsx("mt-1 grid h-7 w-7 place-items-center rounded-full transition sm:mt-0", on ? "bg-teal" : "ring-2 ring-line group-hover:ring-teal/60")}>{on && <span className="h-2.5 w-2.5 rounded-full bg-white" />}</span>
               <span className="min-w-0">
                 <span className="block font-display text-[18px] font-semibold text-navy">{c.title}</span>
-                <span className="mt-1 block text-[14.5px] leading-relaxed text-muted">
+                <span className="mt-0.5 block text-[14px] leading-snug text-muted">
                   {c.copy}
                   {c.joinLink && <> Not a member yet? <a href={c.joinLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className="font-medium text-teal underline underline-offset-2">Join PAFLAR</a>.</>}
                 </span>
@@ -310,7 +319,7 @@ export function RegistrationWizard() {
           );
         })}
       </div>
-      <div className="mt-5 grid gap-2 rounded-2xl bg-mist p-5 text-[14px] text-ink/75 sm:grid-cols-2">
+      <div className="mt-3 grid gap-1.5 rounded-2xl bg-mist px-5 py-3.5 text-[13.5px] text-ink/75 sm:grid-cols-2">
         <span className="flex items-center gap-2"><Check className="h-4 w-4 text-teal" /> Pre-congress workshops (7 May)</span>
         <span className="flex items-center gap-2"><Check className="h-4 w-4 text-teal" /> Main congress sessions (8–9 May)</span>
         <span className="flex items-center gap-2"><Check className="h-4 w-4 text-teal" /> 12 CPD points</span>
@@ -321,8 +330,8 @@ export function RegistrationWizard() {
 
   const stepDetails = (
     <div>
-      <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-light text-navy">Your details</h2>
-      <p className="mt-2 text-muted">These appear on your receipt, badge and certificate. Fields marked <span className="text-crimson">*</span> are required.</p>
+      <h2 className="text-[clamp(1.45rem,2.3vw,1.9rem)] font-light text-navy">Your details</h2>
+      <p className="mt-1.5 text-[15px] text-muted">These appear on your receipt, badge and certificate. Fields marked <span className="text-crimson">*</span> are required.</p>
 
       <fieldset className="mt-8">
         <legend className="font-cond text-[13px] uppercase tracking-[0.2em] text-teal">Personal</legend>
@@ -416,8 +425,8 @@ export function RegistrationWizard() {
   );
   const stepReview = (
     <div>
-      <h2 className="text-[clamp(1.6rem,3vw,2.2rem)] font-light text-navy">Review and pay</h2>
-      <p className="mt-2 text-muted">Check your details, then continue to secure payment.</p>
+      <h2 className="text-[clamp(1.45rem,2.3vw,1.9rem)] font-light text-navy">Review and pay</h2>
+      <p className="mt-1.5 text-[15px] text-muted">Check your details, then continue to secure payment.</p>
       <div className="mt-8 space-y-4">
         <div className="rounded-[22px] bg-white p-6 ring-1 ring-line">
           <div className="flex items-center justify-between"><span className="font-cond text-[13px] uppercase tracking-[0.2em] text-teal">Registration</span><Edit to={1} /></div>
@@ -458,7 +467,7 @@ export function RegistrationWizard() {
   return (
     <div ref={top} className="scroll-mt-[150px] lg:scroll-mt-[175px]">
       <Stepper step={step} labels={labels} onJump={go} />
-      <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_380px] lg:gap-12">
+      <div className="mt-7 grid gap-8 lg:grid-cols-[1fr_360px] lg:gap-10">
         <div className="min-w-0">
           <AnimatePresence mode="wait">
             <motion.div key={`${step}-${path}`} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -24 }} transition={{ duration: 0.28, ease: [0.2, 0.7, 0.2, 1] }}>
@@ -467,7 +476,7 @@ export function RegistrationWizard() {
           </AnimatePresence>
 
           {step > 0 && (
-            <div className="mt-10 hidden items-center justify-between gap-4 border-t border-line pt-6 lg:flex">
+            <div className="sticky bottom-0 z-10 mt-6 hidden items-center justify-between gap-4 border-t border-line bg-white/95 py-4 backdrop-blur lg:flex">
               <button type="button" onClick={() => go(step - 1)} className="inline-flex items-center gap-2 text-[15px] font-medium text-navy hover:text-teal"><ArrowLeft className="h-4 w-4" /> Back</button>
               {step < 3 ? (
                 <button type="button" onClick={next} disabled={!canNext} className="btn btn-teal disabled:cursor-not-allowed disabled:opacity-40">Continue <ArrowRight className="h-4 w-4" /></button>
@@ -477,7 +486,7 @@ export function RegistrationWizard() {
             </div>
           )}
         </div>
-        <aside className="hidden lg:block"><div className="sticky top-[160px]">{Summary}</div></aside>
+        <aside className="hidden lg:block"><div className="sticky top-[100px]">{Summary}</div></aside>
       </div>
 
       {/* Mobile summary + sticky action bar */}

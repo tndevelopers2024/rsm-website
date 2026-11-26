@@ -79,8 +79,12 @@ export function Header() {
 
           <div className="hidden items-center gap-3 lg:flex">
             <div className="relative" onMouseEnter={() => setHover("paflar")} onMouseLeave={() => setHover(null)}>
-              <Link href="/paflar-2027" className="flex items-center gap-2 rounded-full bg-crimson px-5 py-3 font-display text-[14.5px] font-semibold text-white shadow-[0_10px_24px_-12px_rgba(181,18,58,.8)] transition hover:bg-[#9a0f31]">
-                PAFLAR 2027 <ChevronDown className="h-3.5 w-3.5" />
+              <Link href="/paflar-2027/register" className="flex items-center gap-3 rounded-full bg-crimson py-2 pl-5 pr-4 text-white shadow-[0_10px_24px_-12px_rgba(181,18,58,.8)] transition hover:bg-[#9a0f31]">
+                <span className="flex flex-col leading-none">
+                  <span className="font-cond text-[10.5px] uppercase tracking-[0.18em] text-white/75">Congress 2027</span>
+                  <span className="mt-1 font-display text-[14.5px] font-semibold">RSM Registration</span>
+                </span>
+                <ChevronDown className="h-3.5 w-3.5" />
               </Link>
               <AnimatePresence>
                 {hover === "paflar" && <MegaPanel item={paflar} align="right" dark />}
@@ -91,9 +95,12 @@ export function Header() {
             </Link>
           </div>
 
-          <button onClick={() => setOpen(true)} className="grid h-10 w-10 place-items-center rounded-full bg-navy text-white lg:hidden" aria-label="Open menu">
+          <div className="flex items-center gap-2 lg:hidden">
+          <Link href="/paflar-2027/register" className="rounded-full bg-crimson px-4 py-2.5 font-display text-[13.5px] font-semibold text-white">Register</Link>
+          <button onClick={() => setOpen(true)} className="grid h-10 w-10 place-items-center rounded-full bg-navy text-white" aria-label="Open menu">
             <Menu className="h-5 w-5" />
           </button>
+          </div>
         </div>
       </div>
 
@@ -119,7 +126,7 @@ export function Header() {
                   )}
                 </motion.div>
               ))}
-              <Link href="/contact" className="btn btn-gold mt-8">Contact the Society</Link>
+              <div className="mt-8 flex flex-wrap gap-3"><Link href="/paflar-2027/register" className="btn btn-red">RSM Congress Registration</Link><Link href="/contact" className="btn btn-gold">Contact the Society</Link></div>
             </nav>
           </motion.div>
         )}

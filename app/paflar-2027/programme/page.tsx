@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CalendarDays, MapPin, Mic2, Award, Info } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, CalendarDays, MapPin, Mic2, Award, Info, ChevronRight } from "lucide-react";
 import { pageMeta } from "@/lib/seo";
 import { days, speakers, speakerCountries, programmeNote } from "@/lib/paflar";
-import { PageHero } from "@/components/PageHero";
 import { CongressSubNav } from "@/components/CongressSubNav";
 import { SectionHead } from "@/components/SectionHead";
 import { Reveal } from "@/components/Reveal";
@@ -30,57 +30,43 @@ export default function ProgrammePage() {
   ];
   return (
     <>
-      <PageHero
-        eyebrow="7th PAFLAR Congress · Programme"
-        title="Three days of paediatric Rheumatology"
-        lead="Hands-on workshops on Friday, then two days of science, cases and debate with leading specialists from Africa and around the world."
-        image="audience"
-        tone="ocean"
-        crumbs={[{ label: "PAFLAR 2027", href: "/paflar-2027" }, { label: "Programme" }]}
-      >
-        <div className="grid max-w-3xl grid-cols-2 gap-2.5 sm:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.v} className="rounded-2xl bg-white/[.08] p-4 ring-1 ring-white/15">
-              <s.i className="h-4 w-4 text-gold" />
-              <div className="mt-2 font-display text-[18px] font-semibold leading-tight">{s.v}</div>
-              <div className="mt-0.5 text-[12.5px] leading-snug text-white/65">{s.k}</div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/paflar-2027/register" className="btn btn-red">Register now <ArrowRight className="h-4 w-4" /></Link>
-          <a href="#speakers" className="btn btn-ghost">Meet the speakers</a>
-        </div>
-      </PageHero>
-      <CongressSubNav />
-
-      {/* DAYS AT A GLANCE */}
-      <section className="pt-16 md:pt-24">
+      {/* Compact hero */}
+      <section className="grain relative isolate overflow-hidden bg-navy-deep pb-10 pt-32 text-white sm:pt-40 md:pb-14">
+        <Image src="/images/aflar2019/a11.jpg" alt="" fill priority sizes="100vw" className="-z-20 object-cover object-[50%_40%] opacity-35" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(11,32,52,.97)_0%,rgba(11,32,52,.85)_45%,rgba(11,32,52,.55)_100%)]" />
         <div className="wrap">
-          <div className="grid gap-3 md:grid-cols-3">
-            {days.map((d, i) => (
-              <Reveal key={d.id} delay={i * 0.06} className="relative overflow-hidden rounded-[22px] bg-mist p-6 ring-1 ring-line">
-                <div className="flex items-baseline justify-between">
-                  <span className="font-cond text-[12px] uppercase tracking-[0.2em] text-teal">{d.weekday} {d.date.replace(" 2027", "")}</span>
-                  <span className="rounded-full bg-white px-2.5 py-0.5 text-[12px] font-medium text-navy ring-1 ring-line">{d.cpd} CPD</span>
+          <nav className="mb-6 flex flex-wrap items-center gap-2 font-cond text-[13px] uppercase tracking-[0.18em] text-white/60" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-white">Home</Link><ChevronRight className="h-3.5 w-3.5" />
+            <Link href="/paflar-2027" className="hover:text-white">PAFLAR 2027</Link><ChevronRight className="h-3.5 w-3.5" />
+            <span className="text-sky">Programme</span>
+          </nav>
+          <div className="grid items-end gap-8 lg:grid-cols-[1.2fr_1fr]">
+            <div>
+              <h1 className="font-display text-[clamp(2rem,4.4vw,3.6rem)] font-light leading-[1.05]">Congress <span className="font-serif italic text-gold">programme</span></h1>
+              <p className="mt-3 max-w-xl text-[1.02rem] text-white/75">Workshops on Friday, then two days of science, cases and debate with specialists from Africa and around the world.</p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link href="/paflar-2027/register" className="btn btn-red !py-3">Register now <ArrowRight className="h-4 w-4" /></Link>
+                <a href="#speakers" className="btn btn-ghost !py-3">Speakers</a>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-2">
+              {stats.map((x) => (
+                <div key={x.v} className="flex items-center gap-3 rounded-2xl bg-white/[.07] px-4 py-3 ring-1 ring-white/12">
+                  <x.i className="h-4 w-4 shrink-0 text-gold" />
+                  <div className="min-w-0"><div className="font-display text-[16px] font-semibold leading-tight">{x.v}</div><div className="truncate text-[12px] text-white/60">{x.k}</div></div>
                 </div>
-                <h3 className="mt-3 text-[19px] font-semibold text-navy">{d.label}</h3>
-                <p className="mt-1.5 text-[14.5px] leading-relaxed text-muted">{d.summary}</p>
-                <p className="mt-4 flex items-center gap-2 text-[13.5px] font-medium text-navy"><MapPin className="h-4 w-4 text-teal" />{d.venue}</p>
-              </Reveal>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
+      <CongressSubNav sticky={false} />
 
       {/* FULL PROGRAMME */}
-      <section id="programme" className="scroll-mt-40 py-16 md:py-24">
+      <section id="programme" className="scroll-mt-24 pb-16 pt-10 md:pb-24 md:pt-12">
         <div className="wrap">
-          <SectionHead eyebrow="Provisional Programme" title={<>Plan your <em>congress.</em></>} lead="Pick a day, or search for a topic or speaker across all three days." />
-          <Reveal className="mt-6 flex items-start gap-3 rounded-2xl bg-gold-soft/60 px-5 py-4 text-[14.5px] text-[#6b5418]">
-            <Info className="mt-0.5 h-4 w-4 shrink-0" /> {programmeNote}
-          </Reveal>
-          <div className="mt-10"><ProgrammeExplorer /></div>
+          <ProgrammeExplorer />
+          <p className="mt-6 flex items-start gap-2 text-[13.5px] text-muted"><Info className="mt-0.5 h-4 w-4 shrink-0" /> {programmeNote}</p>
         </div>
       </section>
 

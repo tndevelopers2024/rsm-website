@@ -13,6 +13,7 @@ import { Countdown } from "@/components/Countdown";
 import { CongressSubNav } from "@/components/CongressSubNav";
 import { CongressCta } from "@/components/CongressCta";
 import { SpeakerGrid } from "@/components/SpeakerGrid";
+import { EventGallery } from "@/components/EventGallery";
 import { Pending } from "@/components/Pending";
 
 export const metadata: Metadata = pageMeta({ title: "7th PAFLAR Congress · Mauritius 2027", description: "Pre-congress workshop 7 May 2027 at Artemis Cascavelle Hospital; main congress 8–9 May at the Hilton Mauritius Resort & Spa, Flic-en-Flac. Join the 7th PAFLAR Congress, hosted by the Rheumatology Society, Mauritius.", path: "/paflar-2027", paflar: true });
@@ -26,8 +27,8 @@ export default function CongressPage() {
             className="-z-20"
             slides={[
               { image: "heroSea", label: "Mauritius 2027", position: "50% center" },
-              { image: "heroPanel", label: "Scientific sessions", position: "60% center" },
-              { image: "heroTeam", label: "Collaboration", position: "65% center" },
+              { image: "aflarBallroom", label: "At the Hilton, AFLAR 2019", position: "60% center" },
+              { image: "aflarDinner", label: "Networking", position: "55% center" },
             ]}
             indicatorClassName="absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 lg:flex"
           />
@@ -173,6 +174,14 @@ export default function CongressPage() {
         <div className="wrap">
           <SectionHead eyebrow="Speakers & Faculty" title={<>Leading specialists from <em>Africa and beyond.</em></>} aside={<Link href="/paflar-2027/programme#speakers" className="btn btn-outline">All speakers <ArrowRight className="h-4 w-4" /></Link>} />
           <div className="mt-12"><SpeakerGrid limit={6} /></div>
+        </div>
+      </section>
+
+      {/* AFLAR 2019 */}
+      <section className="pb-24 md:pb-32">
+        <div className="wrap">
+          <SectionHead eyebrow="Mauritius has hosted before" title={<>Memories from <em>AFLAR 2019.</em></>} lead="The 9th AFLAR Congress, hosted by the Society at the Hilton Mauritius in September 2019." aside={<Link href="/gallery" className="btn btn-outline">Full gallery <ArrowRight className="h-4 w-4" /></Link>} />
+          <EventGallery className="mt-12" />
         </div>
       </section>
 

@@ -15,10 +15,10 @@ const links = [
   ["Sponsorship", "/paflar-2027/sponsorship"],
 ];
 
-export function CongressSubNav() {
+export function CongressSubNav({ sticky = true }: { sticky?: boolean }) {
   const p = usePathname();
   return (
-    <div className="sticky top-[61px] z-40 lg:top-[77px] border-b border-line bg-white">
+    <div className={clsx("z-40 border-b border-line bg-white", sticky ? "sticky top-[61px] lg:top-[77px]" : "relative")}>
       <div className="wrap flex items-center justify-between gap-6">
         <div className="no-scrollbar flex gap-1 overflow-x-auto">
           {links.map(([l, h]) => (

@@ -65,7 +65,7 @@ function DayView({ d, query }: { d: Day; query: string }) {
   return (
     <div className="grid gap-6 lg:grid-cols-[320px_1fr] lg:gap-10">
       {/* Day card */}
-      <aside className="lg:sticky lg:top-[250px] lg:self-start">
+      <aside className="lg:sticky lg:top-[200px] lg:self-start">
         <div className={clsx("relative overflow-hidden rounded-[28px] p-7 text-white md:p-8", d.id === "fri" ? "bg-gradient-to-br from-[#a8862f] to-[#6b5418]" : "bg-gradient-to-br from-navy to-navy-deep")}>
           <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full border border-white/15" />
           <div className="font-cond text-[13px] uppercase tracking-[0.24em] text-white/70">{d.weekday}</div>
@@ -125,7 +125,7 @@ export function ProgrammeExplorer() {
   return (
     <div>
       {/* Day selector + search */}
-      <div className="sticky top-[123px] z-30 -mx-6 border-b border-line bg-white px-6 py-3 md:-mx-10 md:px-10 lg:top-[148px] lg:mx-0 lg:rounded-2xl lg:border lg:px-3 lg:shadow-[0_18px_40px_-30px_rgba(20,45,70,.5)] print:hidden">
+      <div className="sticky top-[61px] z-30 -mx-6 border-b border-line bg-white px-6 py-3 md:-mx-10 md:px-10 lg:top-[86px] lg:mx-0 lg:rounded-2xl lg:border lg:px-3 lg:shadow-[0_18px_40px_-30px_rgba(20,45,70,.5)] print:hidden">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
           <div role="tablist" aria-label="Congress days" className="grid flex-1 grid-cols-3 gap-2">
             {days.map((d) => {

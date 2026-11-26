@@ -10,6 +10,12 @@ export const img = {
   heroJoint: "/images/hero/hero-joint.jpg",
   heroPanel: "/images/hero/hero-panel.jpg",
   heroSea: "/images/hero/hero-sea.jpg",
+  aflarBallroom: "/images/aflar2019/a11.jpg",
+  aflarOpening: "/images/aflar2019/a01.jpg",
+  aflarGroup: "/images/aflar2019/a03.jpg",
+  aflarDinner: "/images/aflar2019/a26.jpg",
+  aflarPodium: "/images/aflar2019/a15.jpg",
+  aflarGarden: "/images/aflar2019/a22.jpg",
   // Mauritius / destination
   ocean: u("1505228395891-9a51e7e86bf6"),
   resortMountains: u("1520250497591-112f2f40a3f4"),

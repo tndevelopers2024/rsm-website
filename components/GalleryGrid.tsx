@@ -4,10 +4,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Expand } from "lucide-react";
 import clsx from "clsx";
-import { photos } from "@/lib/content";
+import { photos as base, aflarPhotos } from "@/lib/content";
+const photos = [...base, ...aflarPhotos];
 import { Lightbox } from "./Lightbox";
 
-const cats = ["All", "Congress", "Speakers", "Delegates", "International", "Archive"] as const;
+const cats = ["All", "AFLAR 2019", "Congress", "Speakers", "Delegates", "International", "Archive"] as const;
 
 export function GalleryGrid() {
   const [cat, setCat] = useState<(typeof cats)[number]>("All");

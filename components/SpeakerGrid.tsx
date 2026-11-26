@@ -38,13 +38,10 @@ export function SpeakerGrid({ light = false, limit }: { light?: boolean; limit?:
               transition={{ duration: 0.25 }}
               className={clsx("group flex gap-4 rounded-[20px] p-5 transition", light ? "bg-white/[.06] ring-1 ring-white/10 hover:bg-white/[.1]" : "bg-white ring-1 ring-line hover:-translate-y-0.5 hover:shadow-[0_24px_50px_-36px_rgba(20,45,70,.6)]")}
             >
-              <div className="relative shrink-0">
-                <span className={clsx("grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br font-display text-[17px] font-semibold text-white", tones[i % tones.length])}>{initials(s.name)}</span>
-                <span className="absolute -bottom-1.5 -right-1.5 grid h-7 w-7 place-items-center rounded-full bg-white text-[15px] shadow ring-1 ring-line" aria-hidden>{flagOf(s.country)}</span>
-              </div>
+              <span className={clsx("grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br font-display text-[17px] font-semibold text-white", tones[i % tones.length])}>{initials(s.name)}</span>
               <div className="min-w-0">
                 <h3 className={clsx("text-[16.5px] font-semibold leading-snug", light ? "text-white" : "text-navy")}>{s.name}</h3>
-                <div className={clsx("text-[13px]", light ? "text-white/60" : "text-muted")}>{s.country}</div>
+                <div className={clsx("mt-0.5 flex items-center gap-1.5 text-[13px]", light ? "text-white/65" : "text-muted")}><span className="text-[15px] leading-none" aria-hidden>{flagOf(s.country)}</span>{s.country}</div>
                 {s.talks.map((t) => (
                   <p key={t.title} className={clsx("mt-2 line-clamp-2 text-[13.5px] leading-snug", light ? "text-white/80" : "text-ink/75")}>
                     <span className={clsx("font-cond text-[11.5px] uppercase tracking-[0.12em]", light ? "text-gold" : "text-teal")}>{t.day.split(" ")[0].slice(0, 3)} {t.t} · </span>{t.title}

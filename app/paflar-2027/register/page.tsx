@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
+import { EventGallery } from "@/components/EventGallery";
 import { CalendarDays, MapPin, Award, Mail, HelpCircle, Check, ChevronRight } from "lucide-react";
 import { pageMeta } from "@/lib/seo";
 import { days, intlCategories, localDayFee, localCpdPerDay, earlyBirdLabel } from "@/lib/paflar";
@@ -32,8 +34,10 @@ export default function RegisterPage() {
   return (
     <>
       {/* Compact hero */}
-      <section className="grain relative isolate overflow-hidden bg-navy-deep pb-14 pt-36 text-white sm:pt-44 md:pb-20">
-        <Orbits className="absolute -right-56 -top-40 -z-10 w-[760px] opacity-60" />
+      <section className="grain relative isolate overflow-hidden bg-navy-deep pb-10 pt-32 text-white sm:pt-40 md:pb-12">
+        <Image src="/images/aflar2019/a03.jpg" alt="" fill priority sizes="100vw" className="-z-20 object-cover object-[50%_35%] opacity-30" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(11,32,52,.97)_0%,rgba(11,32,52,.82)_50%,rgba(11,32,52,.5)_100%)]" />
+        <Orbits className="absolute -right-56 -top-40 -z-10 w-[760px] opacity-50" />
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_80%_10%,rgba(34,181,166,.25),transparent_55%)]" />
         <div className="wrap">
           <nav className="mb-8 flex flex-wrap items-center gap-2 font-cond text-[13px] uppercase tracking-[0.18em] text-white/60" aria-label="Breadcrumb">
@@ -44,7 +48,7 @@ export default function RegisterPage() {
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-3xl">
               <EarlyBirdBadge />
-              <h1 className="mt-5 font-display text-[clamp(2.1rem,5vw,4.2rem)] font-light leading-[1.05]">Register for <span className="font-serif italic text-gold">PAFLAR 2027</span></h1>
+              <h1 className="mt-4 font-display text-[clamp(2rem,4.4vw,3.6rem)] font-light leading-[1.05]">Register for <span className="font-serif italic text-gold">PAFLAR 2027</span></h1>
               <p className="mt-4 max-w-2xl text-[1.05rem] text-white/75 sm:text-[1.15rem]">7th PAFLAR Congress · three days of paediatric rheumatology in Mauritius. It takes about three minutes.</p>
             </div>
             <div className="grid w-full grid-cols-3 gap-2 sm:w-auto">
@@ -59,11 +63,22 @@ export default function RegisterPage() {
           </div>
         </div>
       </section>
-      <CongressSubNav />
+      <CongressSubNav sticky={false} />
 
       {/* Wizard */}
-      <section className="py-14 md:py-20">
+      <section className="py-10 md:py-12">
         <div className="wrap"><RegistrationWizard /></div>
+      </section>
+
+      {/* AFLAR 2019 gallery */}
+      <section className="pb-20 pt-6 md:pb-28">
+        <div className="wrap">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHead eyebrow="We've done this before" title={<>AFLAR 2019 at the <em>Hilton Mauritius.</em></>} lead="The Society hosted the 9th AFLAR Congress at the same venue in September 2019. PAFLAR 2027 returns to the Hilton, Flic-en-Flac." />
+            <Link href="/gallery" className="btn btn-outline">Full gallery</Link>
+          </div>
+          <EventGallery className="mt-10" />
+        </div>
       </section>
 
       {/* Fees at a glance */}
