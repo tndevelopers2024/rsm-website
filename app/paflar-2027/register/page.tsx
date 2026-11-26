@@ -14,7 +14,7 @@ import { RegistrationWizard, EarlyBirdBadge } from "@/components/RegistrationWiz
 
 export const metadata: Metadata = pageMeta({
   title: "Register · PAFLAR 2027",
-  description: "Register for the 7th PAFLAR Congress, 7–9 May 2027, Mauritius. Mauritian residents from MUR 4,000 per day; international delegates from USD 250 early bird.",
+  description: "Register for the 7th PAFLAR Congress, 7–9 May 2027, Mauritius. Mauritian residents from MUR 4,000 per day; international participants from USD 250 early bird.",
   path: "/paflar-2027/register",
   paflar: true,
 });
@@ -22,7 +22,7 @@ export const metadata: Metadata = pageMeta({
 const fmt = (n: number) => n.toLocaleString("en-GB");
 
 const faqs = [
-  { q: "Who counts as a Mauritian resident?", a: "Delegates living and practising in Mauritius register by the day at MUR 4,000 per day. Everyone else registers as an international delegate with a full three-day pass." },
+  { q: "Who counts as a Mauritian resident?", a: "Participants living and practising in Mauritius register by the day at MUR 4,000 per day. Everyone else registers as an international participant with a full three-day pass." },
   { q: "When do early-bird rates end?", a: `International early-bird rates apply to registrations made up to ${earlyBirdLabel}. From 1 February 2027 the normal rates apply.` },
   { q: "What does my registration include?", a: "Access to the sessions you register for, CPD points (4 per day), and the congress materials. International passes cover all three days: pre-congress workshops on 7 May and the main congress on 8–9 May." },
   { q: "Where are the venues?", a: "Friday's pre-congress workshops are at Artemis Cascavelle Hospital, Cascavelle. The main congress on Saturday and Sunday is at the Hilton Mauritius Resort & Spa, Flic-en-Flac." },

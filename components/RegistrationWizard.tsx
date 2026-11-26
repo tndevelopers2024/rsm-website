@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import {
   ArrowLeft, ArrowRight, Check, MapPin, Award, Globe2, Home, ShieldCheck, Lock, CreditCard,
-  BedDouble, Utensils, Mail, Pencil, X, Clock, Sparkles, Info, Hourglass,
+  BedDouble, Utensils, Mail, Pencil, X, Clock, Sparkles, Info, Hourglass, Loader2, CheckCircle2, KeyRound, ExternalLink, Landmark,
 } from "lucide-react";
 import {
   days, localDayFee, localCpdPerDay, localPackageNames, intlCategories, earlyBirdEnds, earlyBirdLabel,
@@ -74,7 +74,11 @@ export function RegistrationWizard() {
   const [cat, setCat] = useState<IntlCategory["id"] | null>(null);
   const [form, setForm] = useState<Form>(emptyForm);
   const [errors, setErrors] = useState<Partial<Record<keyof Form, string>>>({});
-  const [payOpen, setPayOpen] = useState(false);
+  const [payOpen, setPayOpenRaw] = useState(false);
+  const [payStage, setPayStage] = useState<"confirm" | "processing" | "done" | "error">("confirm");
+  const [result, setResult] = useState<{ id: string; link: string; emailSent: boolean; preview?: { subject: string; html: string; password: string } } | null>(null);
+  const [payErr, setPayErr] = useState("");
+  const setPayOpen = (v: boolean) => { if (v && payStage !== "done") setPayStage("confirm"); setPayOpenRaw(v); };
   const [now, setNow] = useState<number | null>(null);
   const top = useRef<HTMLDivElement>(null);
 
@@ -119,7 +123,7 @@ export function RegistrationWizard() {
     return null;
   }, [path, sel, key, category, early]);
 
-  const labels = ["Delegate type", path === "intl" ? "Category" : "Days", "Your details", "Review & pay"];
+  const labels = ["Participant type", path === "intl" ? "Category" : "Days", "Your details", "Review & pay"];
   const go = (n: number) => {
     setStep(n);
     requestAnimationFrame(() => top.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
@@ -159,6 +163,30 @@ export function RegistrationWizard() {
     if (step === 1 && !canNext) return;
     if (step === 2 && !validate()) return;
     go(step + 1);
+  };
+
+  const submitRegistration = async () => {
+    setPayStage("processing"); setPayErr("");
+    const diet = [...form.diet.filter((d) => d !== "Other"), ...(form.diet.includes("Other") && form.dietOther ? [form.dietOther] : [])].join(", ");
+    try {
+      const [res] = await Promise.all([
+        fetch("/api/register", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({
+          path, days: sel, category: cat, first: form.first, last: form.last, email: form.email, phone: form.phone, country: form.country, city: form.city,
+          workplace: form.workplace === "Other" ? form.workplaceOther : form.workplace, mcr: form.mcr, diet, hotel: form.hotel, terms: form.terms,
+        }) }),
+        new Promise((r) => setTimeout(r, 1400)),
+      ]);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Registration failed");
+      try {
+        const k = "rsm-live-regs";
+        const list = JSON.parse(localStorage.getItem(k) || "[]") as { email: string; token: string; id: string }[];
+        localStorage.setItem(k, JSON.stringify([{ email: form.email.trim().toLowerCase(), token: data.token, id: data.id }, ...list.filter((x) => x.email !== form.email.trim().toLowerCase())]));
+      } catch { /* storage unavailable */ }
+      setResult(data); setPayStage("done");
+    } catch (e) {
+      setPayErr(e instanceof Error ? e.message : "Something went wrong"); setPayStage("error");
+    }
   };
 
   /* ---------------- order summary ---------------- */
@@ -213,7 +241,7 @@ export function RegistrationWizard() {
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         {[
           { p: "mu" as const, icon: Home, flag: "🇲🇺", t: "Mauritian resident", d: "Register for one, two or all three days. Pay per day.", price: `MUR ${fmt(localDayFee)}`, per: "per day · 4 CPD points" },
-          { p: "intl" as const, icon: Globe2, flag: "🌍", t: "International delegate", d: "Full three-day pass including workshops and main congress.", price: `from USD ${Math.min(...intlCategories.map((c) => (early ? c.early.usd : c.normal.usd)))}`, per: early ? "early-bird rate" : "3-day pass" },
+          { p: "intl" as const, icon: Globe2, flag: "🌍", t: "International participant", d: "Full three-day pass including workshops and main congress.", price: `from USD ${Math.min(...intlCategories.map((c) => (early ? c.early.usd : c.normal.usd)))}`, per: early ? "early-bird rate" : "3-day pass" },
         ].map((o) => (
           <button
             key={o.p}
@@ -278,7 +306,7 @@ export function RegistrationWizard() {
 
   const stepIntl = (
     <div>
-      <h2 className="text-[clamp(1.45rem,2.3vw,1.9rem)] font-light text-navy">Welcome, international delegates</h2>
+      <h2 className="text-[clamp(1.45rem,2.3vw,1.9rem)] font-light text-navy">Welcome, international participants</h2>
       <p className="mt-1.5 text-[15px] text-muted">Choose the category that applies to you. Every pass covers all three days: the pre-congress workshops on 7 May and the main congress on 8–9 May.</p>
       {early && (
         <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl bg-gold-soft px-4 py-2.5 text-[14px] text-[#6b5418]">
@@ -434,7 +462,7 @@ export function RegistrationWizard() {
           <div className="mt-1 text-[14.5px] text-muted">{path === "mu" ? "Mauritian resident" : "International delegate"} · {order?.cpd} CPD points</div>
         </div>
         <div className="rounded-[22px] bg-white p-6 ring-1 ring-line">
-          <div className="flex items-center justify-between"><span className="font-cond text-[13px] uppercase tracking-[0.2em] text-teal">Delegate</span><Edit to={2} /></div>
+          <div className="flex items-center justify-between"><span className="font-cond text-[13px] uppercase tracking-[0.2em] text-teal">Participant</span><Edit to={2} /></div>
           <dl className="mt-3 grid gap-x-6 gap-y-3 text-[14.5px] sm:grid-cols-2">
             {[
               ["Name", `${form.first} ${form.last}`],
@@ -517,23 +545,62 @@ export function RegistrationWizard() {
           <motion.div className="fixed inset-0 z-[100] grid place-items-center bg-navy-deep/70 p-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setPayOpen(false)}>
             <motion.div role="dialog" aria-modal="true" aria-labelledby="pay-title" onClick={(e) => e.stopPropagation()} initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 20, opacity: 0 }} className="relative w-full max-w-lg overflow-hidden rounded-[28px] bg-white">
               <button onClick={() => setPayOpen(false)} aria-label="Close" className="absolute right-4 top-4 rounded-full p-2 text-muted hover:bg-mist"><X className="h-5 w-5" /></button>
-              <div className="bg-gradient-to-br from-teal to-navy px-8 pb-8 pt-10 text-white">
-                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-white/15"><ShieldCheck className="h-7 w-7" /></span>
-                <h3 id="pay-title" className="mt-5 font-display text-[24px] font-medium">Secure payment is being connected</h3>
-                <p className="mt-2 text-white/80">Online card payment for PAFLAR 2027 will be switched on shortly.</p>
-              </div>
-              <div className="px-8 py-7">
-                <div className="flex items-start gap-3 rounded-2xl bg-gold-soft px-4 py-3.5 text-[14px] text-[#6b5418]"><Clock className="mt-0.5 h-4 w-4 shrink-0" /> Your registration has not been submitted yet and no payment has been taken.</div>
-                <dl className="mt-5 space-y-2 text-[14.5px]">
-                  <div className="flex justify-between"><dt className="text-muted">Package</dt><dd className="font-medium text-navy">{order?.name}</dd></div>
-                  <div className="flex justify-between"><dt className="text-muted">Delegate</dt><dd className="font-medium text-navy">{form.first} {form.last}</dd></div>
-                  <div className="flex justify-between border-t border-line pt-2"><dt className="text-muted">Total</dt><dd className="font-display text-[18px] font-semibold text-navy">{order?.total}</dd></div>
-                </dl>
-                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                  <button onClick={() => setPayOpen(false)} className="btn btn-outline flex-1 justify-center">Back to review</button>
-                  <a href={`mailto:${SECRETARIAT}?subject=${encodeURIComponent("PAFLAR 2027 registration – " + (order?.name ?? ""))}&body=${encodeURIComponent(`Name: ${form.first} ${form.last}\nEmail: ${form.email}\nPhone: ${form.phone}\nPackage: ${order?.name}\nTotal: ${order?.total}`)}`} className="btn btn-teal flex-1 justify-center"><Mail className="h-4 w-4" /> Email the Secretariat</a>
+              {payStage === "done" && result ? (
+                <div className="max-h-[88vh] overflow-y-auto">
+                  <div className="bg-gradient-to-br from-teal to-navy px-8 pb-7 pt-9 text-white">
+                    <motion.span initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="grid h-14 w-14 place-items-center rounded-2xl bg-white/15"><CheckCircle2 className="h-8 w-8" /></motion.span>
+                    <h3 id="pay-title" className="mt-5 font-display text-[24px] font-medium">You&apos;re registered, {form.first}!</h3>
+                    <p className="mt-2 text-white/80">Registration ID <b className="font-semibold text-white">{result.id}</b> · {order?.total} received by the Rheumatology Society, Mauritius.</p>
+                  </div>
+                  <div className="px-8 py-7">
+                    {result.emailSent ? (
+                      <div className="flex items-start gap-3 rounded-2xl bg-aqua px-4 py-3.5 text-[14px] text-teal"><Mail className="mt-0.5 h-4 w-4 shrink-0" /> We&apos;ve emailed your receipt, password and sign-in link to <b className="font-semibold">{form.email}</b>. Please check your inbox (and spam folder).</div>
+                    ) : (
+                      <>
+                        <div className="flex items-start gap-3 rounded-2xl bg-gold-soft px-4 py-3.5 text-[13.5px] text-[#6b5418]"><Info className="mt-0.5 h-4 w-4 shrink-0" /> Demo mode: the email service isn&apos;t switched on yet, so here is exactly what {form.email} will receive.</div>
+                        {result.preview && (
+                          <>
+                            <div className="mt-4 overflow-hidden rounded-2xl ring-1 ring-line">
+                              <div className="border-b border-line bg-mist px-4 py-2 text-[12px] text-muted"><b className="text-navy">{result.preview.subject}</b></div>
+                              <iframe title="Confirmation email" srcDoc={result.preview.html} className="h-[420px] w-full bg-white" />
+                            </div>
+                            <div className="mt-4 flex items-center gap-3 rounded-2xl border border-line px-4 py-3 text-[14px]"><KeyRound className="h-4 w-4 text-teal" /><span className="text-muted">Password</span><code className="ml-auto font-semibold tracking-wide text-navy">{result.preview.password}</code></div>
+                          </>
+                        )}
+                      </>
+                    )}
+                    <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                      <button onClick={() => setPayOpen(false)} className="btn btn-outline flex-1 justify-center">Close</button>
+                      <a href={result.link} className="btn btn-teal flex-1 justify-center">Open my participant area <ExternalLink className="h-4 w-4" /></a>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <>
+                  <div className="bg-gradient-to-br from-teal to-navy px-8 pb-8 pt-10 text-white">
+                    <span className="grid h-14 w-14 place-items-center rounded-2xl bg-white/15"><ShieldCheck className="h-7 w-7" /></span>
+                    <h3 id="pay-title" className="mt-5 font-display text-[24px] font-medium">Secure card payment</h3>
+                    <p className="mt-2 text-white/80">Paid directly to the Rheumatology Society, Mauritius through SBM&apos;s secure checkout.</p>
+                  </div>
+                  <div className="px-8 py-7">
+                    <div className="flex items-start gap-3 rounded-2xl bg-gold-soft px-4 py-3.5 text-[13.5px] text-[#6b5418]"><Info className="mt-0.5 h-4 w-4 shrink-0" /> Demo payment: no card is charged. The SBM gateway is connected before registration opens.</div>
+                    <dl className="mt-5 space-y-2 text-[14.5px]">
+                      <div className="flex justify-between gap-4"><dt className="text-muted">Package</dt><dd className="text-right font-medium text-navy">{order?.name}</dd></div>
+                      <div className="flex justify-between gap-4"><dt className="text-muted">Participant</dt><dd className="text-right font-medium text-navy">{form.first} {form.last}</dd></div>
+                      <div className="flex justify-between gap-4"><dt className="text-muted">Confirmation to</dt><dd className="truncate text-right font-medium text-navy">{form.email}</dd></div>
+                      <div className="flex justify-between gap-4 border-t border-line pt-2"><dt className="text-muted">Total</dt><dd className="font-display text-[18px] font-semibold text-navy">{order?.total}</dd></div>
+                    </dl>
+                    <div className="mt-4 flex items-center gap-2 text-[12.5px] text-muted"><Landmark className="h-4 w-4 text-teal" /> Funds go straight to the Society&apos;s SBM account.</div>
+                    {payStage === "error" && <p className="mt-4 rounded-xl bg-crimson/10 px-3 py-2 text-[13.5px] text-crimson">{payErr}. Please try again.</p>}
+                    <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                      <button onClick={() => setPayOpen(false)} disabled={payStage === "processing"} className="btn btn-outline flex-1 justify-center">Back to review</button>
+                      <button onClick={submitRegistration} disabled={payStage === "processing"} className="btn btn-red flex-1 justify-center">
+                        {payStage === "processing" ? <><Loader2 className="h-4 w-4 animate-spin" /> Processing…</> : <><Lock className="h-4 w-4" /> Pay {order?.total}</>}
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
             </motion.div>
           </motion.div>
         )}

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Menu, X, ArrowUpRight, ArrowRight, Mail, CalendarDays } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowUpRight, ArrowRight, Mail, CalendarDays, UserRound } from "lucide-react";
 import clsx from "clsx";
 import { nav, site, congress } from "@/lib/content";
 import { MegaPanel } from "./MegaPanel";
@@ -40,7 +40,8 @@ export function Header() {
             Professional medical society · Established {site.established}
           </span>
           <div className="flex items-center gap-6">
-            <span className="hidden items-center gap-2 md:flex"><Mail className="h-3.5 w-3.5 text-sky" />{site.email}</span>
+            <span className="hidden items-center gap-2 lg:flex"><Mail className="h-3.5 w-3.5 text-sky" />{site.email}</span>
+            <a href="/portal/index.html" className="flex items-center gap-1.5 text-white/85 hover:text-white"><UserRound className="h-3.5 w-3.5 text-sky" /> Participant login</a>
             <Link href="/paflar-2027" className="flex items-center gap-2 text-gold hover:text-white">
               <CalendarDays className="h-3.5 w-3.5" /> 7th PAFLAR Congress · {congress.dates}
               <ArrowRight className="h-3.5 w-3.5" />
@@ -53,7 +54,7 @@ export function Header() {
       <div className={clsx("border-b bg-white transition-shadow duration-500", scrolled ? "border-line shadow-[0_12px_40px_-24px_rgba(11,32,52,.45)]" : "border-transparent")}>
         <div className="wrap flex h-[62px] items-center justify-between gap-6 lg:h-[76px]">
           <Link href="/" aria-label="Rheumatology Society, Mauritius home" className="shrink-0">
-            <Image src="/brand/rsm-logo-wide.jpg" alt="Rheumatology Society Mauritius" width={440} height={140} priority className="h-[38px] w-auto lg:h-[46px]" />
+            <Image src="/brand/rsm-logo-full.png" alt="Rheumatology Society Mauritius" width={1855} height={460} priority className="h-[38px] w-auto lg:h-[46px]" />
           </Link>
 
           <nav className="hidden items-center lg:flex xl:gap-1" onMouseLeave={() => setHover(null)}>
@@ -105,7 +106,7 @@ export function Header() {
         {open && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[60] overflow-y-auto bg-navy-deep lg:hidden">
             <div className="wrap flex h-[76px] items-center justify-between">
-              <span className="rounded-lg bg-white px-2 py-1"><Image src="/brand/rsm-logo-wide.jpg" alt="Rheumatology Society Mauritius" width={440} height={140} className="h-9 w-auto" /></span>
+              <span className="rounded-lg bg-white px-2 py-1"><Image src="/brand/rsm-logo-full.png" alt="Rheumatology Society Mauritius" width={1855} height={460} className="h-9 w-auto" /></span>
               <button onClick={() => setOpen(false)} className="grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white" aria-label="Close menu">
                 <X className="h-5 w-5" />
               </button>
@@ -123,7 +124,7 @@ export function Header() {
                   )}
                 </motion.div>
               ))}
-              <div className="mt-8 flex flex-wrap gap-3"><Link href="/paflar-2027/register" className="btn btn-red">Registration</Link><Link href="/contact" className="btn btn-gold">Contact the Society</Link></div>
+              <div className="mt-8 flex flex-wrap gap-3"><Link href="/paflar-2027/register" className="btn btn-red">Registration</Link><a href="/portal/index.html" className="btn border border-white/30 text-white hover:bg-white/10">Participant login</a><Link href="/contact" className="btn btn-gold">Contact the Society</Link></div>
             </nav>
           </motion.div>
         )}
