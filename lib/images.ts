@@ -5,11 +5,13 @@
 const u = (id: string) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=80`;
 
 export const img = {
-  // Client-supplied hero artwork (local files in /public/images/hero)
-  heroTeam: "/images/hero/hero-team.jpg",
+  // heroJoint is the only illustrated (AI) artwork kept: home banner "Science" slide only.
+  // Every other hero key points to a real photograph from the Society's events.
   heroJoint: "/images/hero/hero-joint.jpg",
-  heroPanel: "/images/hero/hero-panel.jpg",
-  heroSea: "/images/hero/hero-sea.jpg",
+  heroTeam: "/images/aflar2019/a10.jpg",
+  heroPanel: "/images/aflar2019/a09.jpg",
+  heroSea: "/images/aflar2019/a21.jpg",
+  aflarTalk: "/images/aflar2019/a08.jpg",
   aflarBallroom: "/images/aflar2019/a11.jpg",
   aflarOpening: "/images/aflar2019/a01.jpg",
   aflarGroup: "/images/aflar2019/a03.jpg",

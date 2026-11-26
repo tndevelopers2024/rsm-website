@@ -21,7 +21,7 @@ function ResearchPage() {
   const coe = initiatives.find((x) => x.key === "coe")!;
   return (
     <>
-      <PageHero eyebrow="Research & Publications" title="Building the evidence for better Rheumatology care." lead="Research priorities, disease registries and locally relevant clinical guidelines, developed responsibly with the Society's medical leadership." image="heroJoint" tone="none" crumbs={[{ label: "Research" }]} />
+      <PageHero eyebrow="Research & Publications" title="Building the evidence for better Rheumatology care." lead="Research priorities, disease registries and locally relevant clinical guidelines, developed responsibly with the Society's medical leadership." image="aflarTalk" tone="none" crumbs={[{ label: "Research" }]} />
 
       <section className="py-28 md:py-36">
         <div className="wrap">

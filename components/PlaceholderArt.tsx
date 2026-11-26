@@ -7,7 +7,7 @@ import type { ImgKey } from "@/lib/images";
 type Motif = "waves" | "resort" | "cells" | "audience" | "clinic" | "mountains" | "sunset";
 
 const motifOf: Partial<Record<ImgKey, Motif>> = {
-  heroTeam: "clinic", heroJoint: "clinic", heroPanel: "audience", heroSea: "audience",
+  heroTeam: "clinic", heroJoint: "clinic", heroPanel: "audience", heroSea: "audience", aflarTalk: "audience",
   ocean: "waves", aerialBeach: "waves", diver: "waves", jetty: "waves", palmBeach: "sunset", palmsTall: "sunset", palmsBeach2: "sunset", parasol: "sunset", beachSunset: "sunset",
   resortMountains: "resort", infinityPool: "resort", resortPoolEvening: "resort", resortPool: "resort", resortNight: "resort", poolDeck: "resort", hotelRoom: "resort", spa: "resort", dining: "resort", dinner: "resort",
   lagoonMountains: "mountains", greenMountains: "mountains", hike: "mountains",

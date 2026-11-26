@@ -26,10 +26,10 @@ export default function Home() {
         <HeroSlideshow
             className="-z-20"
             slides={[
+              { image: "heroJoint", label: "Science", position: "70% center" },
               { image: "aflarBallroom", label: "Education", position: "60% center" },
-              { image: "aflarOpening", label: "Science", position: "75% center" },
               { image: "aflarGroup", label: "Collaboration", position: "60% center" },
-              { image: "heroSea", label: "PAFLAR 2027", position: "60% center" },
+              { image: "aflarOpening", label: "PAFLAR 2027", position: "75% center" },
             ]}
             indicatorClassName="absolute bottom-[calc(3vh+150px)] right-[max(24px,calc((100vw-1320px)/2+40px))] z-20 hidden lg:flex"
           />
@@ -100,10 +100,10 @@ export default function Home() {
         <div className="wrap grid items-center gap-16 lg:grid-cols-[1fr_1.05fr] lg:gap-24">
           <div className="relative h-[460px] md:h-[560px]">
             <RevealMask className="absolute inset-0 right-[18%] bottom-[16%] overflow-hidden rounded-[28px]">
-              <DuoImage name="heroTeam" tone="none" sizes="(min-width:1024px) 40vw, 90vw" className="h-full w-full" imgClassName="object-[72%_center]" alt="Clinicians discussing a case" />
+              <DuoImage name="heroTeam" tone="none" sizes="(min-width:1024px) 40vw, 90vw" className="h-full w-full" imgClassName="object-[60%_center]" alt="Delegates at a Society congress session" />
             </RevealMask>
             <RevealMask delay={0.2} className="absolute bottom-0 right-0 h-[44%] w-[50%] overflow-hidden rounded-[28px] border-[10px] border-white">
-              <DuoImage name="heroJoint" tone="none" sizes="25vw" className="h-full w-full" imgClassName="object-[52%_center]" alt="Illustration of an inflamed knee joint" />
+              <DuoImage name="aflarTalk" tone="none" sizes="25vw" className="h-full w-full" imgClassName="object-[40%_center]" alt="A speaker presenting at AFLAR 2019" />
             </RevealMask>
             <Reveal delay={0.4} className="absolute -left-2 bottom-[10%] rounded-3xl bg-navy p-7 text-white shadow-2xl md:-left-8">
               <div className="font-serif text-6xl font-light text-gold">2015</div>
@@ -257,7 +257,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.2} className="group relative overflow-hidden rounded-[28px] lg:col-span-5">
               <Link href="/about#initiatives" className="block h-full min-h-[300px]">
-                <DuoImage name="heroJoint" tone="none" sizes="40vw" imgClassName="object-[55%_center]" className="!absolute inset-0 transition duration-[1400ms] group-hover:scale-105" />
+                <DuoImage name="aflarTalk" tone="none" sizes="40vw" imgClassName="object-[40%_center]" className="!absolute inset-0 transition duration-[1400ms] group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 to-navy-deep/10" />
                 <div className="absolute inset-x-0 bottom-0 p-9 text-white">
                   <span className="font-cond text-[13px] uppercase tracking-[0.22em] text-gold">Future initiatives</span>
