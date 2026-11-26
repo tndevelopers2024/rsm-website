@@ -536,6 +536,3 @@ export const aflarPhotos: Photo[] = [
   { src: "/images/aflar2019/a32.jpg", w: 1800, h: 1201, caption: "Women in rheumatology session · AFLAR 2019", cat: "AFLAR 2019" },
   { src: "/images/aflar2019/a33.jpg", w: 1800, h: 540, caption: "AFLAR 2019 group photograph · AFLAR 2019", cat: "AFLAR 2019" },
 ];
-
-/* Participant & admin portal (separate Vercel project). */
-export const PORTAL_URL = (process.env.NEXT_PUBLIC_PORTAL_URL || "https://rsm-portal.vercel.app").replace(/\/$/, "");
