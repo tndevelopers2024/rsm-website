@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, X, ArrowUpRight, ArrowRight, Mail, CalendarDays, UserRound } from "lucide-react";
 import clsx from "clsx";
-import { nav, site, congress } from "@/lib/content";
+import { nav, site, congress, PORTAL_URL } from "@/lib/content";
 import { MegaPanel } from "./MegaPanel";
 
 export function Header() {
@@ -41,7 +41,7 @@ export function Header() {
           </span>
           <div className="flex items-center gap-6">
             <span className="hidden items-center gap-2 lg:flex"><Mail className="h-3.5 w-3.5 text-sky" />{site.email}</span>
-            <a href="/portal/index.html" className="flex items-center gap-1.5 text-white/85 hover:text-white"><UserRound className="h-3.5 w-3.5 text-sky" /> Participant login</a>
+            <a href={PORTAL_URL} className="flex items-center gap-1.5 text-white/85 hover:text-white"><UserRound className="h-3.5 w-3.5 text-sky" /> Participant login</a>
             <Link href="/paflar-2027" className="flex items-center gap-2 text-gold hover:text-white">
               <CalendarDays className="h-3.5 w-3.5" /> 7th PAFLAR Congress · {congress.dates}
               <ArrowRight className="h-3.5 w-3.5" />
@@ -124,7 +124,7 @@ export function Header() {
                   )}
                 </motion.div>
               ))}
-              <div className="mt-8 flex flex-wrap gap-3"><Link href="/paflar-2027/register" className="btn btn-red">Registration</Link><a href="/portal/index.html" className="btn border border-white/30 text-white hover:bg-white/10">Participant login</a><Link href="/contact" className="btn btn-gold">Contact the Society</Link></div>
+              <div className="mt-8 flex flex-wrap gap-3"><Link href="/paflar-2027/register" className="btn btn-red">Registration</Link><a href={PORTAL_URL} className="btn border border-white/30 text-white hover:bg-white/10">Participant login</a><Link href="/contact" className="btn btn-gold">Contact the Society</Link></div>
             </nav>
           </motion.div>
         )}

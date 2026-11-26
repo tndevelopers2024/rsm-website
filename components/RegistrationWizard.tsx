@@ -11,6 +11,7 @@ import {
   days, localDayFee, localCpdPerDay, localPackageNames, intlCategories, earlyBirdEnds, earlyBirdLabel,
   mauritiusWorkplaces, dietaryOptions, registrationTerms, type IntlCategory,
 } from "@/lib/paflar";
+import { PORTAL_URL } from "@/lib/content";
 
 type Path = "mu" | "intl";
 type DayId = "fri" | "sat" | "sun";
@@ -170,7 +171,7 @@ export function RegistrationWizard() {
     const diet = [...form.diet.filter((d) => d !== "Other"), ...(form.diet.includes("Other") && form.dietOther ? [form.dietOther] : [])].join(", ");
     try {
       const [res] = await Promise.all([
-        fetch("/api/register", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({
+        fetch(`${PORTAL_URL}/api/register`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({
           path, days: sel, category: cat, first: form.first, last: form.last, email: form.email, phone: form.phone, country: form.country, city: form.city,
           workplace: form.workplace === "Other" ? form.workplaceOther : form.workplace, mcr: form.mcr, diet, hotel: form.hotel, terms: form.terms,
         }) }),
@@ -178,11 +179,6 @@ export function RegistrationWizard() {
       ]);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Registration failed");
-      try {
-        const k = "rsm-live-regs";
-        const list = JSON.parse(localStorage.getItem(k) || "[]") as { email: string; token: string; id: string }[];
-        localStorage.setItem(k, JSON.stringify([{ email: form.email.trim().toLowerCase(), token: data.token, id: data.id }, ...list.filter((x) => x.email !== form.email.trim().toLowerCase())]));
-      } catch { /* storage unavailable */ }
       setResult(data); setPayStage("done");
     } catch (e) {
       setPayErr(e instanceof Error ? e.message : "Something went wrong"); setPayStage("error");
