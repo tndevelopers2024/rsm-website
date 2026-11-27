@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, CalendarDays, MapPin, Users, GraduationCap, Microscope, HeartHandshake, Globe2, Building2, Quote } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CalendarDays, MapPin, Users, GraduationCap, Microscope, HeartHandshake, Building2, Quote, Scale, Repeat, Sprout, Lightbulb, Presentation, ShieldCheck, Check } from "lucide-react";
 import { about, congress, conferences, news, site, committee, registerHref, registerLabel } from "@/lib/content";
 import { MemberCard } from "@/components/MemberCard";
 import { DuoImage } from "@/components/DuoImage";
@@ -16,7 +16,8 @@ import { Pending } from "@/components/Pending";
 import { ContactForm } from "@/components/ContactForm";
 import { PhotoCollage } from "@/components/PhotoCollage";
 
-const pillarIcons = [GraduationCap, Microscope, HeartHandshake, Globe2];
+const pillarIcons = [GraduationCap, HeartHandshake, Building2];
+const valueIcons = [Scale, Repeat, Sprout, Lightbulb];
 
 export default function Home() {
   return (
@@ -45,20 +46,22 @@ export default function Home() {
             <Reveal>
               <span className="eyebrow-plain text-[11px] text-white/75 sm:text-[12px]">Established 2015 &nbsp;|&nbsp; Mauritius</span>
             </Reveal>
-            <h1 className="mt-4 font-display text-[clamp(1.85rem,8.2vw,2.3rem)] font-light leading-[1.1] tracking-[-0.025em] sm:mt-[2.2vh] sm:text-[clamp(2.1rem,min(4.3vw,7.4vh),4.4rem)] sm:leading-[1.04] sm:tracking-[-0.03em]">
-              <span className="block sm:whitespace-nowrap"><SplitHeading text="Advancing Rheumatology." /></span>
-              <span className="block sm:whitespace-nowrap font-serif italic text-sky"><SplitHeading text="Strengthening Care." delay={0.15} /></span>
-              <span className="block sm:whitespace-nowrap"><SplitHeading text="Shaping the Future." delay={0.3} /></span>
+            <h1 className="mt-4 font-display text-[clamp(1.85rem,8.2vw,2.3rem)] font-light leading-[1.1] tracking-[-0.025em] sm:mt-[2.2vh] sm:text-[clamp(2.1rem,min(4vw,7vh),4.1rem)] sm:leading-[1.06] sm:tracking-[-0.03em]">
+              <span className="block"><SplitHeading text="Bringing Rheumatology Together." /></span>
+              <span className="block font-serif italic text-sky"><SplitHeading text="Building a Future Without Barriers." delay={0.15} /></span>
             </h1>
             <Reveal delay={0.5}>
-              <p className="mt-4 max-w-xl text-[14.5px] leading-[1.65] text-white/80 sm:mt-[2.4vh] sm:text-[clamp(.95rem,2.1vh,1.12rem)] sm:leading-relaxed">
-                Rheumatology Society, Mauritius brings together healthcare professionals, researchers and partners to advance medical education, scientific research, awareness and collaborative care.
+              <p className="mt-4 max-w-xl text-[14.5px] leading-[1.65] text-white/85 sm:mt-[2.4vh] sm:text-[clamp(.95rem,2vh,1.1rem)] sm:leading-relaxed">
+                From uniting African rheumatology communities in 2019 to shaping the future of paediatric rheumatology in 2027, the Rheumatology Society, Mauritius (RSM) is working to change how rheumatology is understood, practised and accessed.
+              </p>
+              <p className="mt-3 hidden max-w-xl text-[clamp(.85rem,1.8vh,.98rem)] leading-relaxed text-white/65 sm:block">
+                We believe quality rheumatology care should not depend on where a patient lives, which hospital they visit or what they can afford.
               </p>
             </Reveal>
             <Reveal delay={0.65} className="mt-6 grid grid-cols-2 gap-2.5 sm:mt-[3vh] sm:flex sm:flex-wrap sm:gap-3">
               <Link href="/paflar-2027/register" className="btn btn-red col-span-2 !gap-2 !py-3.5 !text-[14px] sm:!px-8 sm:!text-[15px]">Register now <ArrowRight className="h-4 w-4" /></Link>
               <Link href="/paflar-2027" className="btn btn-ghost !px-3 !py-3 !text-[13px] sm:!px-7 sm:!text-[15px]"><span className="sm:hidden">PAFLAR 2027</span><span className="hidden sm:inline">Explore PAFLAR 2027</span></Link>
-              <Link href="/about" className="btn btn-ghost !px-3 !py-3 !text-[13px] sm:!px-7 sm:!text-[15px]"><span className="sm:hidden">Our Society</span><span className="hidden sm:inline">Discover Our Society</span></Link>
+              <Link href="/#journey" className="btn btn-ghost !px-3 !py-3 !text-[13px] sm:!px-7 sm:!text-[15px]"><span className="sm:hidden">Our Journey</span><span className="hidden sm:inline">Discover Our Journey</span></Link>
             </Reveal>
           </div>
 
@@ -113,14 +116,14 @@ export default function Home() {
             <CircleText text="EDUCATION · RESEARCH · AWARENESS · COLLABORATION · " color="#087f83" size={150} className="absolute -top-8 right-[8%] hidden md:block" />
           </div>
           <div>
-            <SectionHead eyebrow="Who We Are" title={<span className="block text-[0.9em] leading-[1.12]">A professional medical <span className="sm:whitespace-nowrap">society for <em>Rheumatology</em></span> in Mauritius.</span>} />
+            <SectionHead eyebrow="Who We Are" title={<span className="block text-[0.9em] leading-[1.12]">A Movement Towards <em>Better Rheumatology Care.</em></span>} />
             <Reveal delay={0.2}><p className="mt-8 text-[1.2rem] leading-relaxed text-ink">{about.whoWeAre[0]}</p></Reveal>
             <Reveal delay={0.25}><p className="mt-5 text-muted">{about.whoWeAre[1]}</p></Reveal>
             <Reveal delay={0.3}><p className="mt-5 text-muted">{about.whoWeAre[2]}</p></Reveal>
-            <Reveal delay={0.35}><Link href="/about" className="btn btn-outline mt-10">More about the Society <ArrowRight className="h-4 w-4" /></Link></Reveal>
+            <Reveal delay={0.35}><Link href="/about" className="btn btn-outline mt-10">Discover the Society <ArrowRight className="h-4 w-4" /></Link></Reveal>
           </div>
         </div>
-        <div className="wrap mt-16"><div className="grid gap-px overflow-hidden rounded-[28px] bg-line/70 shadow-[0_30px_60px_-45px_rgba(20,45,70,.45)] ring-1 ring-line sm:grid-cols-2 lg:grid-cols-4">
+        <div className="wrap mt-16"><Reveal><div className="mb-5 font-cond text-[13px] uppercase tracking-[0.2em] text-teal">Three pillars of RSM&apos;s work</div></Reveal><div className="grid gap-px overflow-hidden rounded-[28px] bg-line/70 shadow-[0_30px_60px_-45px_rgba(20,45,70,.45)] ring-1 ring-line md:grid-cols-3">
           {about.pillars.map((p, i) => {
             const Icon = pillarIcons[i];
             return (
@@ -140,28 +143,36 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy via-navy/95 to-navy/60" />
         <Orbits className="absolute -left-60 bottom-[-300px] -z-10 w-[800px] opacity-50" />
         <div className="wrap">
-          <SectionHead light eyebrow="Purpose" title={<>Guided by a clear vision for <em>Rheumatology care.</em></>} />
-          <div className="mt-16 grid gap-6 lg:grid-cols-2">
+          <SectionHead light eyebrow="Our Vision and Mission" title={<>A Future Where Quality Rheumatology Care Is <em>Accessible to Everyone.</em></>} />
+          <div className="mt-8 grid max-w-5xl gap-5 md:grid-cols-2">
+            {about.visionIntro.map((t, i) => <Reveal key={i} delay={0.1 + i * 0.08}><p className="text-[1.05rem] leading-relaxed text-white/75">{t}</p></Reveal>)}
+          </div>
+          <div className="mt-14 grid gap-6 lg:grid-cols-2">
             {[
-              { n: "01", k: "Our Vision", t: about.vision, extra: true },
-              { n: "02", k: "Our Mission", t: about.mission, t2: about.mission2 },
+              { n: "01", k: "Our Vision", t: about.vision },
+              { n: "02", k: "Our Mission", t: about.mission },
             ].map((x, i) => (
               <Reveal key={x.k} delay={i * 0.12} className="relative overflow-hidden rounded-[28px] bg-white/[.05] p-10 ring-1 ring-white/10 md:p-14">
                 <Quote className="absolute right-10 top-10 h-16 w-16 text-white/5" />
                 <div className="font-cond text-[14px] uppercase tracking-[0.25em] text-gold">{x.n} — {x.k}</div>
                 <p className="mt-6 font-display text-[clamp(1.25rem,2vw,1.6rem)] font-light leading-[1.5] text-white/90">{x.t}</p>
-                {"t2" in x && x.t2 && <p className="mt-5 border-t border-white/10 pt-5 font-display text-[clamp(1.1rem,1.6vw,1.3rem)] font-light leading-[1.5] text-white/75">{x.t2}</p>}
-                {x.extra && (
-                  <div className="mt-8 inline-flex items-center gap-3 rounded-full bg-gold/15 px-5 py-2.5 text-[14px] font-medium text-gold ring-1 ring-gold/35">
-                    <Building2 className="h-4 w-4" /> Long-term goal: Centre of Excellence in Rheumatology
-                  </div>
-                )}
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-8 flex flex-wrap items-center gap-4 text-[14.5px] text-white/55">
-            <Pending>Awaiting constitution</Pending> Formal aims and objectives will be published from the Society&apos;s approved constitution.
-          </Reveal>
+          <Reveal className="mt-16"><div className="font-cond text-[13px] uppercase tracking-[0.2em] text-sky">What guides our work</div></Reveal>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {about.values.map((v, i) => {
+              const Icon = valueIcons[i];
+              return (
+                <Reveal key={v.title} delay={i * 0.08} className="rounded-2xl bg-white/[.04] p-7 ring-1 ring-white/10 transition hover:bg-white/[.08]">
+                  <Icon className="h-8 w-8 text-gold" strokeWidth={1.4} />
+                  <h3 className="mt-5 text-lg font-semibold">{v.title}</h3>
+                  <p className="mt-2 text-[14.5px] leading-relaxed text-white/65">{v.text}</p>
+                </Reveal>
+              );
+            })}
+          </div>
+          <Reveal className="mt-12"><Link href="/about" className="btn btn-ghost">Our Vision for Rheumatology in Mauritius <ArrowRight className="h-4 w-4" /></Link></Reveal>
         </div>
       </section>
 
@@ -173,10 +184,17 @@ export default function Home() {
         <div className="wrap">
           <SectionHead
             eyebrow="Our Institutional Journey"
-            title={<>A decade of building <em>Rheumatology</em> in Mauritius.</>}
-            lead="From our founding in 2015 to hosting an international paediatric rheumatology congress in 2027, each milestone reflects the Society's commitment to education, awareness and collaboration."
+            title={<>From Building a Society to <em>Uniting a Continent.</em></>}
+            lead="RSM's journey reflects a commitment to making rheumatology more connected, accessible and sustainable."
           />
-          <div className="mt-20"><Timeline /></div>
+          <div className="mt-10 grid max-w-5xl gap-5 text-muted md:grid-cols-3">
+            <Reveal delay={0.1}><p>What began as an effort to strengthen rheumatology in Mauritius grew into a wider contribution to African medical collaboration. The 2019 AFLAR Congress in Mauritius became a defining moment, bringing together rheumatology communities that had previously operated in more fragmented regional networks.</p></Reveal>
+            <Reveal delay={0.15}><p>The collaboration helped create stronger connections across Southern, Northern, Eastern and Western Africa, encouraging scientific exchange, joint initiatives and greater opportunities for research and publication.</p></Reveal>
+            <Reveal delay={0.2}><p>Today, RSM is building on that legacy. Its next ambition is to strengthen paediatric rheumatology education across the continent and help establish a common curriculum for training future specialists.</p></Reveal>
+          </div>
+          <Reveal className="mt-16"><div className="font-cond text-[13px] uppercase tracking-[0.2em] text-teal">Key milestones</div></Reveal>
+          <div className="mt-8"><Timeline /></div>
+          <Reveal className="mt-12"><Link href="/about#journey" className="btn btn-outline">Explore Our Complete Journey <ArrowRight className="h-4 w-4" /></Link></Reveal>
         </div>
       </section>
 
@@ -187,19 +205,26 @@ export default function Home() {
         <div className="wrap grid min-h-[860px] items-center gap-14 py-28 lg:grid-cols-[1.15fr_.85fr]">
           <div>
             <Reveal><div className="font-serif text-[clamp(7rem,14vw,12rem)] font-light leading-[.8] text-transparent [-webkit-text-stroke:1.5px_rgba(199,166,90,.7)]">07</div></Reveal>
-            <Reveal delay={0.1}><span className="eyebrow-plain mt-6 block text-gold">Featured Congress · Mauritius 2027</span></Reveal>
-            <h2 className="mt-5 font-display text-[clamp(2.4rem,5vw,4.4rem)] font-light leading-[1.04]">
-              <SplitHeading text="The 7th PAFLAR Congress comes to Mauritius." />
+            <Reveal delay={0.1}><span className="eyebrow-plain mt-6 block text-gold">Featured Congress · PAFLAR 2027</span></Reveal>
+            <h2 className="mt-5 font-display text-[clamp(2.2rem,4.4vw,3.9rem)] font-light leading-[1.06]">
+              <SplitHeading text="From Regional Unity to a Shared Future for Paediatric Rheumatology." />
             </h2>
-            <Reveal delay={0.25}><p className="mt-7 max-w-xl text-[1.1rem] leading-relaxed text-white/75">{congress.intro}</p></Reveal>
-            <Reveal delay={0.35}>
-              <blockquote className="mt-9 max-w-2xl border-l-2 border-gold pl-6 font-serif text-[1.35rem] font-light italic leading-snug text-sky">
+            <Reveal delay={0.2} className="mt-6 flex items-center gap-3 font-cond text-[13px] uppercase tracking-[0.18em]">
+              <span className="rounded-full bg-white/10 px-3.5 py-1.5 text-white/85 ring-1 ring-white/20">2019 · Regional unity</span>
+              <ArrowRight className="h-4 w-4 text-gold" />
+              <span className="rounded-full bg-gold/20 px-3.5 py-1.5 text-gold ring-1 ring-gold/40">2027 · A shared future</span>
+            </Reveal>
+            <Reveal delay={0.25}><p className="mt-7 max-w-xl text-[1.05rem] leading-relaxed text-white/80">In 2019, Mauritius became a meeting point for African rheumatology communities, helping strengthen connections across a previously fragmented continent. In 2027, RSM is taking that commitment further.</p></Reveal>
+            <Reveal delay={0.3}><p className="mt-4 max-w-xl text-white/65">The 7th PAFLAR Congress represents an opportunity to bring together paediatric rheumatologists, researchers, healthcare professionals and international experts to address one of the most important challenges facing the speciality: preparing the next generation of specialists through stronger, more consistent medical education. A key ambition is to work towards a common paediatric rheumatology curriculum that can support training, knowledge-sharing and clinical development across African countries.</p></Reveal>
+            <Reveal delay={0.35}><p className="mt-4 max-w-xl text-white/65">Hosted by the Rheumatology Society, Mauritius and the Paediatric Society of Mauritius, in collaboration with PAFLAR, the congress will bring together regional and international expertise under the theme:</p></Reveal>
+            <Reveal delay={0.4}>
+              <blockquote className="mt-6 max-w-2xl border-l-2 border-gold pl-6 font-serif text-[1.3rem] font-light italic leading-snug text-sky">
                 &ldquo;{congress.theme}&rdquo;
               </blockquote>
             </Reveal>
             <Reveal delay={0.45} className="mt-10 flex flex-wrap gap-4">
-              <Link href="/paflar-2027" className="btn btn-gold">Explore the Congress <ArrowRight className="h-4 w-4" /></Link>
-              <a href={registerHref} className="btn btn-ghost">{registerLabel} <ArrowUpRight className="h-4 w-4" /></a>
+              <Link href="/paflar-2027" className="btn btn-gold">Explore PAFLAR 2027 <ArrowRight className="h-4 w-4" /></Link>
+              <Link href="/paflar-2027/register" className="btn btn-ghost">Register for the Congress <ArrowUpRight className="h-4 w-4" /></Link>
             </Reveal>
           </div>
           <div className="space-y-4">
@@ -217,10 +242,14 @@ export default function Home() {
               </Reveal>
             ))}
             <Reveal delay={0.5} className="rounded-2xl bg-white/[.07] p-6 ring-1 ring-white/12 ">
-              <div className="flex items-center gap-3 font-cond text-[12px] uppercase tracking-[0.2em] text-white/55"><Users className="h-4 w-4 text-gold" /> Organising collaboration</div>
+              <div className="flex items-center gap-3 font-cond text-[12px] uppercase tracking-[0.2em] text-white/55"><Users className="h-4 w-4 text-gold" /> Organisers</div>
               <div className="mt-4 flex flex-wrap gap-2">
-                {congress.organisers.map((o) => <span key={o} className="rounded-full px-4 py-2 text-[14px] ring-1 ring-white/25">{o}</span>)}
+                {["RSM", "Paediatric Society of Mauritius", "PAFLAR"].map((o) => <span key={o} className="rounded-full px-4 py-2 text-[14px] ring-1 ring-white/25">{o}</span>)}
               </div>
+            </Reveal>
+            <Reveal delay={0.6} className="flex items-start gap-4 rounded-2xl bg-gold/10 p-6 ring-1 ring-gold/30">
+              <ShieldCheck className="mt-0.5 h-6 w-6 shrink-0 text-gold" />
+              <p className="text-[15px] text-white/85"><b className="font-semibold text-white">Registration:</b> All congress registrations will be managed directly by RSM, providing a centralised registration and payment process.</p>
             </Reveal>
           </div>
         </div>
@@ -232,38 +261,52 @@ export default function Home() {
         <ParticleWaves className="inset-x-0 top-0 -z-10 h-[240px] w-full rotate-180" opacity={0.2} rows={10} />
         <div className="wrap">
           <SectionHead
-            eyebrow="Education, CPD & Research"
-            title={<>Learning and evidence that <em>keep practice current.</em></>}
-            aside={<Link href="/education" className="btn btn-outline">Education & CPD <ArrowRight className="h-4 w-4" /></Link>}
+            eyebrow="Education, CPD and Research"
+            title={<>Building the Knowledge and Expertise That <em>Better Care Demands.</em></>}
+            aside={<Link href="/education" className="btn btn-outline">Explore Education and Research <ArrowRight className="h-4 w-4" /></Link>}
           />
-          <div className="mt-16 grid gap-5 lg:grid-cols-12 lg:grid-rows-[300px_300px]">
-            <Reveal className="group relative overflow-hidden rounded-[28px] lg:col-span-7 lg:row-span-2">
+          <div className="mt-10 grid max-w-5xl gap-5 text-muted md:grid-cols-3">
+            <Reveal delay={0.1}><p>RSM believes that advancing rheumatology requires continuous learning, access to scientific developments and opportunities for professionals to exchange knowledge beyond geographical boundaries.</p></Reveal>
+            <Reveal delay={0.15}><p>Through scientific conferences, quarterly continuing professional development programmes and research initiatives, the Society works to strengthen the clinical capabilities of rheumatology professionals in Mauritius.</p></Reveal>
+            <Reveal delay={0.2}><p>But the ambition goes beyond individual learning. RSM aims to support the development of a stronger specialist ecosystem, where research, clinical guidelines, disease registries and structured training can contribute to more consistent standards of care.</p></Reveal>
+          </div>
+          <div className="mt-14 grid gap-5 lg:grid-cols-12 lg:grid-rows-[300px_300px]">
+            <Reveal className="group relative overflow-hidden rounded-[28px] lg:col-span-6 lg:row-span-2">
               <Link href="/education" className="block h-full min-h-[420px]">
-                <DuoImage name="heroPanel" tone="none" sizes="60vw" className="!absolute inset-0 transition duration-[1400ms] group-hover:scale-105" />
+                <DuoImage name="heroPanel" tone="none" sizes="50vw" className="!absolute inset-0 transition duration-[1400ms] group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-9 text-white md:p-12">
-                  <span className="font-cond text-[13px] uppercase tracking-[0.22em] text-gold">Education & CPD</span>
-                  <h3 className="mt-3 max-w-lg text-[clamp(1.6rem,2.6vw,2.3rem)] font-light leading-tight">Quarterly continuing professional development</h3>
-                  <p className="mt-3 max-w-lg text-white/75">The Society conducts quarterly CPD activities to encourage continuing medical education and professional learning.</p>
+                  <span className="font-cond text-[13px] uppercase tracking-[0.22em] text-gold">Focus area</span>
+                  <h3 className="mt-3 max-w-lg text-[clamp(1.6rem,2.6vw,2.3rem)] font-light leading-tight">Continuing Professional Development</h3>
+                  <p className="mt-3 max-w-lg text-white/75">Quarterly CPD activities provide healthcare professionals with opportunities to stay informed about emerging treatments, clinical practices and developments in rheumatology.</p>
                 </div>
               </Link>
             </Reveal>
-            <Reveal delay={0.1} className="group relative overflow-hidden rounded-[28px] bg-teal p-9 text-white lg:col-span-5">
-              <Link href="/research" className="block h-full">
-                <Microscope className="h-10 w-10 text-white/80" strokeWidth={1.3} />
-                <h3 className="mt-6 text-2xl font-medium">Research & publications</h3>
-                <p className="mt-3 text-white/80">Encouraging rheumatology research, disease registries and locally relevant clinical guidelines.</p>
-                <ArrowUpRight className="absolute right-8 top-8 h-6 w-6 transition group-hover:rotate-45" />
-              </Link>
-            </Reveal>
-            <Reveal delay={0.2} className="group relative overflow-hidden rounded-[28px] lg:col-span-5">
-              <Link href="/about#initiatives" className="block h-full min-h-[300px]">
+            <Reveal delay={0.1} className="group relative overflow-hidden rounded-[28px] lg:col-span-6">
+              <Link href="/news" className="block h-full min-h-[280px]">
                 <DuoImage name="aflarTalk" tone="none" sizes="40vw" imgClassName="object-[40%_center]" className="!absolute inset-0 transition duration-[1400ms] group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 to-navy-deep/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 to-navy-deep/20" />
                 <div className="absolute inset-x-0 bottom-0 p-9 text-white">
-                  <span className="font-cond text-[13px] uppercase tracking-[0.22em] text-gold">Future initiatives</span>
-                  <h3 className="mt-2 text-2xl font-medium">Disease registries & the Centre of Excellence</h3>
+                  <Presentation className="h-8 w-8 text-gold" strokeWidth={1.4} />
+                  <h3 className="mt-3 text-2xl font-medium">Scientific Conferences</h3>
+                  <p className="mt-2 max-w-md text-white/75">Yearly scientific conferences bring together local and international experts for clinical discussions, research presentations and professional exchange.</p>
                 </div>
+              </Link>
+            </Reveal>
+            <Reveal delay={0.15} className="group relative overflow-hidden rounded-[28px] bg-teal p-9 text-white lg:col-span-3">
+              <Link href="/research" className="block h-full">
+                <Microscope className="h-9 w-9 text-white/85" strokeWidth={1.3} />
+                <h3 className="mt-5 text-xl font-medium">Research and Publications</h3>
+                <p className="mt-2 text-[15px] text-white/80">Encouraging rheumatology research, scientific publications and collaboration to strengthen evidence-based clinical practice.</p>
+                <ArrowUpRight className="absolute right-7 top-7 h-6 w-6 transition group-hover:rotate-45" />
+              </Link>
+            </Reveal>
+            <Reveal delay={0.2} className="group relative overflow-hidden rounded-[28px] bg-navy p-9 text-white lg:col-span-3">
+              <Link href="/about#initiatives" className="block h-full">
+                <Sprout className="h-9 w-9 text-gold" strokeWidth={1.3} />
+                <h3 className="mt-5 text-xl font-medium">Future Capacity Building</h3>
+                <p className="mt-2 text-[15px] text-white/75">Supporting disease registries, locally relevant clinical guidelines and structured specialist training, including the proposed common paediatric rheumatology curriculum.</p>
+                <ArrowUpRight className="absolute right-7 top-7 h-6 w-6 transition group-hover:rotate-45" />
               </Link>
             </Reveal>
           </div>
@@ -272,19 +315,30 @@ export default function Home() {
 
       {/* ============================== 8. AWARENESS ============================== */}
       <section className="grid lg:grid-cols-2">
-        <RevealMask className="relative min-h-[460px] lg:min-h-[700px]">
+        <RevealMask className="relative min-h-[460px] lg:min-h-[860px]">
           <DuoImage name="holdingHands" tone="teal" sizes="50vw" className="!absolute inset-0" alt="Supportive hands" />
         </RevealMask>
         <div className="relative isolate flex flex-col justify-center overflow-hidden bg-teal px-6 py-24 text-white md:px-20">
           <Orbits className="absolute -right-52 -top-52 -z-10 w-[600px] opacity-60" />
-          <Reveal><span className="eyebrow !text-sky">Patient Awareness & Advocacy</span></Reveal>
-          <Reveal delay={0.1}><h2 className="mt-5 font-display text-[clamp(2.1rem,3.8vw,3.4rem)] font-light leading-[1.08]">Helping the public understand <em className="font-serif italic">rheumatic diseases.</em></h2></Reveal>
-          <Reveal delay={0.2}><p className="mt-6 max-w-lg text-white/85">We promote public awareness of rheumatic diseases and support patient advocacy initiatives, from community events to awareness of rheumatic disease in children.</p></Reveal>
-          <Reveal delay={0.3} className="mt-10 flex items-center gap-6 rounded-2xl bg-black/15 p-6">
-            <div className="shrink-0 whitespace-nowrap font-serif text-5xl font-light leading-none">12<span className="text-2xl"> Oct</span></div>
-            <p className="text-[15px] text-white/85">World Arthritis Day 2017 at the Municipality of Quatre Bornes, with the Association of Rheumatology Concern (ARC) and the Chinese Universities Graduate Union.</p>
+          <Reveal><span className="eyebrow !text-sky">Patient Awareness and Advocacy</span></Reveal>
+          <Reveal delay={0.1}><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,3.1rem)] font-light leading-[1.1]">A Diagnosis Should Open Doors to Care, <em className="font-serif italic">Not Create More Barriers.</em></h2></Reveal>
+          <Reveal delay={0.2}><p className="mt-6 max-w-xl text-white/90">RSM believes that every patient deserves to be heard, supported and treated with dignity, regardless of whether they receive care in a public hospital or a private healthcare facility.</p></Reveal>
+          <Reveal delay={0.25}><p className="mt-4 max-w-xl text-white/75">A patient&apos;s ability to access appropriate treatment should not depend on their financial circumstances or where they seek medical attention. Nor should they feel marginalised because they cannot access private or hospital-based services. The Society is committed to promoting greater awareness, encouraging equitable access to treatment and supporting sustainable models of care that include long-term follow-up and continuity of treatment.</p></Reveal>
+          <Reveal delay={0.3} className="mt-8">
+            <div className="font-cond text-[12.5px] uppercase tracking-[0.2em] text-sky">Our patient-focused priorities</div>
+            <ul className="mt-4 space-y-3">
+              {[
+                ["Breaking Access Barriers", "Encouraging equitable access to essential and often expensive rheumatology treatments across public and private healthcare."],
+                ["Promoting Early Recognition", "Helping communities understand rheumatic diseases and recognise the importance of timely diagnosis."],
+                ["Supporting Children and Families", "Bringing greater attention to childhood rheumatic diseases, including Juvenile Idiopathic Arthritis."],
+                ["Encouraging Continuity of Care", "Promoting affordable, long-term treatment and patient follow-up."],
+                ["Giving Patients a Voice", "Supporting advocacy that recognises the experiences, concerns and needs of people living with rheumatic conditions."],
+              ].map(([t, d]) => (
+                <li key={t} className="flex gap-3 text-[15px]"><Check className="mt-1 h-4 w-4 shrink-0 text-sky" /><span><b className="font-semibold text-white">{t}:</b> <span className="text-white/75">{d}</span></span></li>
+              ))}
+            </ul>
           </Reveal>
-          <Reveal delay={0.4}><Link href="/awareness" className="btn btn-white mt-10">Awareness & advocacy <ArrowRight className="h-4 w-4" /></Link></Reveal>
+          <Reveal delay={0.4}><Link href="/awareness" className="btn btn-white mt-10">Explore Our Patient Awareness Initiatives <ArrowRight className="h-4 w-4" /></Link></Reveal>
         </div>
       </section>
 
@@ -295,35 +349,52 @@ export default function Home() {
           <SectionHead
             light
             eyebrow="International Collaboration"
-            title={<>Connected to the global <em>Rheumatology community.</em></>}
-            lead="Society members take part in leading international meetings, bringing current knowledge home and representing Mauritius abroad."
-            aside={<Link href="/international" className="btn btn-ghost">Our international engagement <ArrowRight className="h-4 w-4" /></Link>}
+            title={<>When Rheumatology Comes Together, <em>Entire Regions Move Forward.</em></>}
+            lead="One of RSM's most significant contributions has been its commitment to bringing rheumatology communities closer together."
+            aside={<Link href="/international" className="btn btn-ghost">Discover Our International Engagement <ArrowRight className="h-4 w-4" /></Link>}
           />
+          <div className="mt-10 grid max-w-5xl gap-5 text-white/65 md:grid-cols-3">
+            <Reveal delay={0.1}><p>The 2019 AFLAR Conference in Mauritius demonstrated what stronger regional collaboration could achieve. By creating a platform for professionals from across Africa to meet, exchange knowledge and build relationships, the event helped strengthen connections between rheumatology communities that had previously been more fragmented.</p></Reveal>
+            <Reveal delay={0.15}><p>RSM encourages its members to participate in international scientific meetings, engage with global developments and bring new knowledge and perspectives back to Mauritius.</p></Reveal>
+            <Reveal delay={0.2}><p>From regional African partnerships to international scientific exchange, the Society believes that progress in rheumatology is strongest when expertise is shared.</p></Reveal>
+          </div>
         </div>
-        <Marquee items={["IRACON", "EULAR", "ACR", "Société Française de Rhumatologie", "PAFLAR 2027"]} className="mt-20 border-y border-white/10 py-8 text-white/85" />
-        <div className="wrap mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Marquee items={["AFLAR / PAFLAR", "IRACON", "EULAR", "ACR", "Société Française de Rhumatologie", "PAFLAR 2027"]} className="mt-20 border-y border-white/10 py-8 text-white/85" />
+        <div className="wrap mt-16"><Reveal><div className="mb-5 font-cond text-[13px] uppercase tracking-[0.2em] text-gold">Our international engagement includes</div></Reveal></div>
+        <div className="wrap grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {conferences.map((c, i) => (
             <Reveal key={c.code} delay={i * 0.08} className="rounded-2xl bg-white/[.05] p-7 ring-1 ring-white/10 transition hover:bg-white/[.09]">
               <div className="font-cond text-[13px] uppercase tracking-[0.2em] text-gold">{c.region}</div>
-              <div className="mt-3 font-display text-3xl font-bold tracking-tight">{c.code}</div>
+              <div className="mt-3 font-display text-[clamp(1.4rem,2vw,1.8rem)] font-bold tracking-tight">{c.code}</div>
               <p className="mt-2 text-[14.5px] text-white/60">{c.name}</p>
             </Reveal>
           ))}
         </div>
-        <p className="wrap mt-6 text-[13.5px] text-white/45">Listed as international conference participation, not formal institutional affiliations.</p>
+        <div className="wrap mt-10">
+          <Reveal className="rounded-2xl bg-gold/10 p-7 ring-1 ring-gold/25 md:p-8">
+            <div className="font-cond text-[12.5px] uppercase tracking-[0.2em] text-gold">Looking ahead</div>
+            <p className="mt-2 max-w-3xl text-white/80">PAFLAR 2027 will provide another opportunity to strengthen these relationships, with a particular focus on paediatric rheumatology education, shared learning and capacity building across Africa.</p>
+          </Reveal>
+          <p className="mt-6 text-[13.5px] text-white/45">Participation in international conferences is listed separately from formal institutional partnerships or affiliations.</p>
+        </div>
       </section>
 
       {/* ============================== 10. COMMITTEE ============================== */}
       <section className="relative isolate overflow-hidden bg-[radial-gradient(ellipse_at_10%_0%,rgba(8,127,131,.12),transparent_50%),linear-gradient(180deg,#f1f7f8_0%,#f7fafb_100%)] py-20 md:py-28">
         <DotGrid className="right-0 top-0 -z-10 h-[340px] w-[520px]" />
         <div className="wrap">
-          <SectionHead eyebrow="The Team" title={<>The people leading <em>the Society.</em></>} lead="Consultant rheumatologists and physicians from hospitals and private practice across Mauritius." />
-          <div className="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-5 lg:grid-cols-4">
+          <SectionHead eyebrow="The Team" title={<>Driven by Expertise. <em>United by a Shared Purpose.</em></>} lead="Behind every milestone achieved by RSM is a community of medical professionals committed to advancing rheumatology and improving patient care." />
+          <div className="mt-8 grid max-w-5xl gap-5 text-muted md:grid-cols-2">
+            <Reveal delay={0.1}><p>The Society brings together consultant rheumatologists and physicians working across Mauritius&apos;s public and private healthcare sectors. Their collective expertise, professional experience and commitment to collaboration help shape the Society&apos;s educational programmes, advocacy efforts and future initiatives.</p></Reveal>
+            <Reveal delay={0.15}><p>From strengthening specialist knowledge to addressing gaps in patient access, the leadership team works towards a common goal: building a stronger and more sustainable future for rheumatology in Mauritius.</p></Reveal>
+          </div>
+          <Reveal className="mt-12"><div className="font-cond text-[13px] uppercase tracking-[0.2em] text-teal">Meet the leadership</div></Reveal>
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
             {committee.slice(0, 4).map((m, i) => (
               <Reveal key={m.name} delay={i * 0.08}><MemberCard m={m} i={i} /></Reveal>
             ))}
           </div>
-          <Reveal className="mt-10"><Link href="/committee" className="btn btn-outline">Meet the full team <ArrowRight className="h-4 w-4" /></Link></Reveal>
+          <Reveal className="mt-10"><Link href="/committee" className="btn btn-outline">Meet the Full Team <ArrowRight className="h-4 w-4" /></Link></Reveal>
         </div>
       </section>
 
@@ -331,25 +402,35 @@ export default function Home() {
       <section className="relative isolate overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#eef6f7_100%)] py-20 md:py-28">
         <Glow className="left-1/2 top-1/3 -z-10 h-[520px] w-[820px] -translate-x-1/2" color="rgba(57,143,168,.12)" />
         <div className="wrap">
-          <Reveal className="relative isolate grid gap-12 overflow-hidden rounded-[36px] bg-navy p-10 text-white md:p-16 lg:grid-cols-[1.1fr_1fr] lg:p-20">
+          <Reveal className="relative isolate grid gap-12 overflow-hidden rounded-[36px] bg-navy p-10 text-white md:p-16 lg:grid-cols-[1fr_1.1fr] lg:p-20">
             <DuoImage name="hospital" tone="navy" className="!absolute inset-0 -z-20 opacity-40" />
-            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy via-navy/90 to-navy/60" />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy via-navy/92 to-navy/70" />
             <div>
-              <span className="eyebrow !text-gold">Institutional Partnerships & Support</span>
-              <h2 className="mt-5 font-display text-[clamp(2rem,3.6vw,3.2rem)] font-light leading-[1.1]">Partner with us to advance Rheumatology in <em className="font-serif italic text-sky">Mauritius.</em></h2>
-              <p className="mt-6 max-w-lg text-white/75">We welcome conversations with universities, healthcare institutions, international medical associations, corporate sponsors and philanthropic organisations who share our commitment to education, research and patient care.</p>
+              <span className="eyebrow !text-gold">Institutional Partnerships</span>
+              <h2 className="mt-5 font-display text-[clamp(2rem,3.6vw,3.2rem)] font-light leading-[1.1]">Sustainable Progress Takes <em className="font-serif italic text-sky">Collective Commitment.</em></h2>
+              <p className="mt-6 max-w-lg text-white/80">Improving rheumatology care requires more than individual clinical excellence. It depends on strong institutions, committed partners, adequate resources and systems that can support patients over the long term.</p>
+              <p className="mt-4 max-w-lg text-white/65">RSM recognises that making specialist care accessible and sustainable requires collaboration across the healthcare ecosystem. The Society welcomes partnerships with hospitals, universities, medical associations, research institutions, corporate organisations and philanthropic supporters who share its commitment to advancing rheumatology.</p>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <Link href="/partnerships" className="btn btn-gold">Explore Partnership Opportunities <ArrowRight className="h-4 w-4" /></Link>
+                <Link href="/paflar-2027/sponsorship" className="btn btn-ghost">Support PAFLAR 2027 <ArrowUpRight className="h-4 w-4" /></Link>
+              </div>
             </div>
-            <div className="flex flex-col justify-center gap-3">
-              {[
-                ["Institutional partnerships", "Universities, hospitals & associations", "/partnerships"],
-                ["PAFLAR 2027 sponsorship", "Congress sponsorship enquiries", "/paflar-2027/sponsorship"],
-                ["Support our initiatives", "Registries, research & the Centre of Excellence", "/partnerships"],
-              ].map(([t, s, h]) => (
-                <Link key={t} href={h} className="group flex items-center justify-between rounded-2xl bg-white/[.07] px-7 py-6 ring-1 ring-white/12 transition hover:bg-white hover:text-navy">
-                  <div><div className="font-display text-lg font-semibold">{t}</div><div className="text-[14px] opacity-70">{s}</div></div>
-                  <ArrowUpRight className="h-5 w-5 transition group-hover:rotate-45" />
-                </Link>
-              ))}
+            <div>
+              <div className="font-cond text-[12.5px] uppercase tracking-[0.2em] text-white/55">Where partnerships can make a difference</div>
+              <div className="mt-4 grid gap-3">
+                {[
+                  ["Improving Access to Treatment", "Supporting initiatives that help reduce barriers to essential rheumatology treatments and promote equitable access across public and private healthcare."],
+                  ["Strengthening Specialist Capacity", "Creating opportunities for specialist development, professional training and the growth of rheumatology services in both public and private sectors."],
+                  ["Supporting Research and Innovation", "Collaborating on disease registries, research programmes, clinical guidelines and initiatives that strengthen evidence-based care."],
+                  ["Building the Next Generation", "Supporting medical education, paediatric rheumatology training and the development of a common curriculum for future specialists."],
+                  ["Ensuring Sustainable Patient Care", "Encouraging long-term approaches to patient follow-up, treatment affordability and continuity of care."],
+                ].map(([t, d]) => (
+                  <div key={t} className="rounded-2xl bg-white/[.07] px-6 py-4 ring-1 ring-white/12">
+                    <div className="font-display text-[16.5px] font-semibold">{t}</div>
+                    <div className="mt-1 text-[14px] leading-relaxed text-white/70">{d}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </Reveal>
         </div>
@@ -359,7 +440,7 @@ export default function Home() {
       <section className="relative isolate overflow-hidden bg-[linear-gradient(180deg,#eef6f7_0%,#f8fbfc_45%,#ffffff_100%)] pb-20 md:pb-28">
         <ParticleWaves className="inset-x-0 bottom-0 -z-10 h-[220px] w-full" opacity={0.18} rows={9} />
         <div className="wrap">
-          <SectionHead eyebrow="News & Events" title={<>Latest from <em>the Society.</em></>} aside={<Link href="/news" className="btn btn-outline">All news & events <ArrowRight className="h-4 w-4" /></Link>} />
+          <SectionHead eyebrow="News and Events" title={<>Progress Worth Sharing. <em>Developments Worth Following.</em></>} aside={<Link href="/news" className="btn btn-outline">View All News and Events <ArrowRight className="h-4 w-4" /></Link>} />
           <div className="mt-16 grid gap-6 lg:grid-cols-[1.4fr_1fr_1fr]">
             {news.slice(0, 3).map((n, i) => (
               <Reveal key={n.title} delay={i * 0.1}>
@@ -390,14 +471,14 @@ export default function Home() {
         </div>
         <div className="wrap">
           <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-            <SectionHead light eyebrow="Gallery" title={<>Moments from <em>our congresses.</em></>} lead="Scenes from the Rheumatology Congress Mauritius 2026 and the Society's international engagement. Tap any photograph to view it in full." />
+            <SectionHead light eyebrow="Gallery" title={<>Moments That Bring <em>Our Mission to Life.</em></>} lead="Every gathering, scientific discussion and awareness initiative represents another step towards stronger rheumatology care." />
             <Reveal delay={0.2} className="flex flex-wrap gap-2 lg:justify-end">
               {["Congress 2026", "Faculty & speakers", "Delegates", "AFLAR"].map((c) => <span key={c} className="rounded-full px-4 py-2 font-cond text-[13px] uppercase tracking-[0.12em] text-white/80 ring-1 ring-white/20">{c}</span>)}
             </Reveal>
           </div>
           <div className="mt-16 lg:mt-20"><PhotoCollage /></div>
           <Reveal className="mt-16 flex justify-center lg:mt-20">
-            <Link href="/gallery" className="btn btn-gold">View the full gallery <ArrowRight className="h-4 w-4" /></Link>
+            <Link href="/gallery" className="btn btn-gold">Explore the Full Gallery <ArrowRight className="h-4 w-4" /></Link>
           </Reveal>
         </div>
       </section>
@@ -407,13 +488,31 @@ export default function Home() {
         <DotGrid className="right-[8%] top-[10%] -z-10 h-[300px] w-[420px]" />
         <div className="wrap grid gap-16 lg:grid-cols-[1fr_1.2fr]">
           <div>
-            <SectionHead eyebrow="Contact Us" title={<>Get in touch with <em>the Society.</em></>} lead="For membership, education, partnership or congress enquiries, write to us and the appropriate committee member will respond." />
+            <SectionHead eyebrow="Contact Us" title={<>Be Part of the Progress <em>We Are Building.</em></>} lead="Get in touch to build a more sustainable future for rheumatology globally." />
             <Reveal delay={0.2} className="mt-10 space-y-6">
               <div><div className="font-cond text-[12px] uppercase tracking-[0.2em] text-muted">Email</div><div className="mt-1 font-display text-xl font-semibold text-navy">{site.email}</div>{site.emailPending && <div className="mt-2"><Pending>Proposed address</Pending></div>}</div>
               <div><div className="font-cond text-[12px] uppercase tracking-[0.2em] text-muted">Location</div><div className="mt-1 font-display text-xl font-semibold text-navy">Mauritius</div></div>
             </Reveal>
           </div>
-          <Reveal delay={0.1}><ContactForm /></Reveal>
+          <Reveal delay={0.1}><ContactForm submitLabel="Send an Enquiry" /></Reveal>
+        </div>
+      </section>
+
+      {/* ============================== 15. CLOSING MESSAGE ============================== */}
+      <section className="grain relative isolate overflow-hidden bg-navy-deep py-24 text-center text-white md:py-32">
+        <DuoImage name="aflarGroup" tone="none" className="!absolute inset-0 -z-20 opacity-25" imgClassName="object-[center_35%]" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-navy-deep/80 via-navy-deep/85 to-navy-deep" />
+        <Orbits className="absolute left-1/2 top-1/2 -z-10 w-[900px] -translate-x-1/2 -translate-y-1/2 opacity-30" />
+        <div className="wrap max-w-4xl">
+          <Reveal><span className="eyebrow-plain text-gold">Rheumatology Society, Mauritius</span></Reveal>
+          <h2 className="mt-6 font-display text-[clamp(2.2rem,4.6vw,4rem)] font-light leading-[1.06]">
+            <SplitHeading text="The Work of Uniting Rheumatology Continues." />
+          </h2>
+          <Reveal delay={0.2}><p className="mx-auto mt-6 max-w-2xl text-[1.1rem] leading-relaxed text-white/75">Let&apos;s build a future where no patient is left behind and no opportunity to advance rheumatology is missed.</p></Reveal>
+          <Reveal delay={0.3} className="mt-10 flex flex-wrap justify-center gap-4">
+            <Link href="/contact" className="btn btn-gold">Join the RSM Community <ArrowRight className="h-4 w-4" /></Link>
+            <Link href="/paflar-2027" className="btn btn-ghost">Explore PAFLAR 2027 <ArrowUpRight className="h-4 w-4" /></Link>
+          </Reveal>
         </div>
       </section>
     </>

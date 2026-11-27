@@ -56,7 +56,7 @@ function AboutPage() {
         <div className="wrap grid gap-6 lg:grid-cols-2">
           {[
             { k: "Our Vision", t: about.vision },
-            { k: "Our Mission", t: about.mission, t2: about.mission2, note: "Proposed wording" },
+            { k: "Our Mission", t: about.mission, t2: about.mission2, note: "" },
           ].map((x, i) => (
             <Reveal key={x.k} delay={i * 0.12} className="rounded-[28px] bg-white/[.05] p-10 ring-1 ring-white/10 md:p-14">
               <div className="flex items-center gap-4"><span className="font-cond text-[14px] uppercase tracking-[0.25em] text-gold">{x.k}</span>{x.note && <Pending>{x.note}</Pending>}</div>

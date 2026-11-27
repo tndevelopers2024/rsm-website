@@ -11,7 +11,7 @@ export const site = {
   established: "July 2015",
   domain: "rheumatologysociety.org",
   email: "info@rheumatologysociety.org", // proposed: confirm once mailboxes are live
-  emailPending: true,
+  emailPending: false,
   tagline: "Advancing Rheumatology. Strengthening Care. Shaping the Future.",
 };
 
@@ -65,21 +65,31 @@ export const nav: NavItem[] = [
 ];
 
 export const about = {
+  title: "A Movement Towards Better Rheumatology Care.",
   whoWeAre: [
-    "Established in July 2015, the Rheumatology Society, Mauritius, is a professional medical society dedicated to advancing rheumatology, a field of internal medicine dedicated to the diagnosis and management of autoimmune diseases that affect the joints and connective tissue, which affect both adults and children.",
-    "The Society works towards improving the understanding and management of rheumatic diseases by bringing together healthcare professionals, researchers, institutional partners and patient voices, both locally and internationally.",
-    "Through scientific conferences, continuing professional development programmes, awareness campaigns and international collaboration, the Society strives to contribute towards improved healthcare outcomes and the advancement of rheumatology in Mauritius and beyond.",
+    "Established in July 2015, the Rheumatology Society, Mauritius was founded with a broader ambition than simply advancing a medical speciality. It set out to bring healthcare professionals together, strengthen the practice of rheumatology and address the gaps that affect patients’ access to diagnosis, treatment and long-term care.",
+    "Over the years, RSM has worked to build connections between medical professionals, institutions and international rheumatology communities. Its efforts have contributed to a more collaborative environment for rheumatology in Africa, while keeping the needs of patients in Mauritius at the centre of its work.",
+    "Today, the Society’s priorities extend across three interconnected areas: advancing specialist knowledge, making care more accessible and developing sustainable systems that can support patients over the long term.",
+  ],
+  visionIntro: [
+    "For RSM, advancing rheumatology is not only about improving medical knowledge. It is also about addressing the inequalities, limitations and gaps that patients experience when seeking care.",
+    "Our vision is to help create a healthcare environment in which people living with rheumatic diseases receive timely diagnosis, appropriate treatment and continuous support, regardless of their financial circumstances or the healthcare setting they access.",
   ],
   vision:
-    "To advance excellence in rheumatology through medical education, research, innovation, patient advocacy and international collaboration, with a long-term vision of establishing a Centre of Excellence in Rheumatology in Mauritius.",
+    "To establish Mauritius as a centre of excellence in rheumatology, recognised for clinical expertise, equitable access to treatment, research, innovation and sustainable patient care.",
   mission:
-    "To support professional learning, promote research and awareness of rheumatic diseases, encourage patient advocacy and strengthen collaboration among healthcare professionals and institutions in Mauritius and internationally.",
-  mission2: "To ensure equity, accessibility and sustainability in the delivery of rheumatology care and services throughout the country.",
+    "To strengthen rheumatology services through professional education, scientific research, patient advocacy, institutional collaboration and the development of sustainable healthcare systems.",
+  mission2: "",
   pillars: [
-    { title: "Medical Education", text: "Scientific conferences and continuing professional development for healthcare professionals." },
-    { title: "Scientific Research", text: "Encouraging rheumatology research and scientific collaboration." },
-    { title: "Public Awareness", text: "Awareness campaigns that help the public recognise rheumatic diseases." },
-    { title: "Professional Collaboration", text: "Bringing together professionals and institutions, locally and internationally." },
+    { title: "Advancing Medical Excellence", text: "Strengthening specialist knowledge through education, research and international scientific exchange." },
+    { title: "Improving Access to Care", text: "Working towards equitable treatment access across public and private healthcare settings." },
+    { title: "Building for the Future", text: "Developing the people, partnerships and systems needed for sustainable rheumatology services." },
+  ],
+  values: [
+    { title: "Equity in Access", text: "Breaking down barriers between public and private healthcare so that access to essential treatments is not determined by a patient’s financial position." },
+    { title: "Continuity of Care", text: "Promoting long-term patient follow-up and affordable treatment pathways rather than focusing only on immediate medical intervention." },
+    { title: "Capacity Building", text: "Supporting the development of specialist expertise and opportunities for rheumatology professionals in both public and private healthcare." },
+    { title: "Innovation and Foresight", text: "Preparing for emerging medical needs through research, international collaboration and forward-looking healthcare initiatives." },
   ],
 };
 
@@ -89,8 +99,10 @@ export type Milestone = {
   label: string;
   title: string;
   text: string;
+  text2?: string;
   pending?: string;
   future?: boolean;
+  highlight?: boolean;
 };
 
 export const milestones: Milestone[] = [
@@ -98,50 +110,45 @@ export const milestones: Milestone[] = [
     date: "July 2015",
     year: "2015",
     label: "Founded",
-    title: "Establishment of the Society",
-    text: "Establishment of the Rheumatology Society, Mauritius.",
+    title: "The Establishment of RSM",
+    text: "The Rheumatology Society, Mauritius was established in July 2015 to strengthen specialist practice, medical education and collaboration in rheumatology.",
   },
   {
     date: "12 October 2017",
     year: "2017",
     label: "Awareness",
-    title: "World Arthritis Day awareness campaign",
-    text: "A World Arthritis Day awareness campaign at the Municipality of Quatre Bornes, in collaboration with the Association of Rheumatology Concern (ARC) and the Chinese Universities Graduate Union.",
+    title: "Taking Rheumatic Disease Awareness to the Community",
+    text: "RSM collaborated with the Association of Rheumatology Concern (ARC) and the Chinese Universities Graduate Union to organise a World Arthritis Day awareness campaign at the Municipality of Quatre Bornes.",
   },
   {
     date: "6–8 September 2019",
     year: "2019",
-    label: "Congress",
-    title: "9th AFLAR Conference",
-    text: "The 9th African League of Associations for Rheumatology (AFLAR) Conference, held at the Hilton, Flic en Flac, Mauritius.",
+    label: "Defining moment",
+    title: "A Defining Moment for African Rheumatology",
+    text: "Mauritius hosted the 9th AFLAR Conference from 6–8 September 2019. The gathering helped bring together previously fragmented African rheumatology communities, creating opportunities for stronger regional collaboration, scientific exchange and research publications.",
+    text2: "This milestone became an important part of RSM’s contribution to African rheumatology and received wider recognition through multiple publications.",
+    highlight: true,
   },
   {
     date: "20 May 2023",
     year: "2023",
     label: "Paediatrics",
-    title: "Juvenile Idiopathic Arthritis awareness",
-    text: "An awareness campaign on Juvenile Idiopathic Arthritis, held at the Hennessy Park Hotel.",
+    title: "Bringing Attention to Childhood Rheumatic Diseases",
+    text: "RSM organised an awareness campaign on Juvenile Idiopathic Arthritis, highlighting the importance of recognising and addressing rheumatic conditions in children.",
   },
   {
-    date: "2024 – present",
-    year: "2024",
-    label: "Science",
-    title: "Yearly scientific conferences",
-    text: "Yearly scientific conferences bringing together clinicians and researchers for clinical updates and scientific exchange.",
-  },
-  {
-    date: "July 2025 – present",
-    year: "2025",
+    date: "2024–2025",
+    year: "2024–25",
     label: "Education",
-    title: "Quarterly CPD activities",
-    text: "Quarterly continuing professional development (CPD) activities for healthcare professionals.",
+    title: "Strengthening Scientific Learning",
+    text: "The Society expanded its educational activities through yearly scientific conferences and quarterly continuing professional development programmes.",
   },
   {
     date: "7–9 May 2027",
     year: "2027",
     label: "Upcoming",
-    title: "7th PAFLAR Congress",
-    text: "The upcoming 7th PAFLAR Congress in Mauritius, hosted by the Society with the Paediatric Society of Mauritius in collaboration with PAFLAR: a pre-congress workshop on 7 May at Artemis Cascavelle Hospital and the main congress on 8–9 May at the Hilton Mauritius Resort & Spa, Flic-en-Flac.",
+    title: "Shaping the Next Generation of Paediatric Rheumatologists",
+    text: "Mauritius will host the 7th PAFLAR Congress, bringing together regional and international experts with the ambition of advancing paediatric rheumatology education and developing a common curriculum for future specialists.",
     future: true,
   },
 ];
@@ -186,10 +193,11 @@ export const initiatives = [
 ];
 
 export const conferences = [
-  { code: "IRACON", name: "Indian Rheumatology Association conference", region: "India" },
-  { code: "EULAR", name: "European Congress of Rheumatology", region: "Europe" },
+  { code: "AFLAR / PAFLAR", name: "African League of Associations for Rheumatology", region: "Africa" },
+  { code: "IRACON", name: "Indian Rheumatology Association", region: "India" },
+  { code: "EULAR", name: "European Alliance of Associations for Rheumatology", region: "Europe" },
   { code: "ACR", name: "American College of Rheumatology", region: "United States" },
-  { code: "SFR", name: "Société Française de Rhumatologie conferences", region: "France" },
+  { code: "SFR", name: "Société Française de Rhumatologie", region: "France" },
 ];
 
 export type Member = { name: string; role: string; title: string; place: string; officer?: boolean; photo?: string };

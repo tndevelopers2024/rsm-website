@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 const field = "w-full rounded-xl border border-line bg-white px-4 py-3.5 text-[15.5px] text-ink outline-none transition focus:border-teal focus:ring-4 focus:ring-teal/10";
 const label = "mb-2 block font-cond text-[12.5px] uppercase tracking-[0.14em] text-navy";
 
-export function ContactForm({ defaultType = "General enquiry" }: { defaultType?: string }) {
+export function ContactForm({ defaultType = "General enquiry", submitLabel = "Send enquiry" }: { defaultType?: string; submitLabel?: string }) {
   const [sent, setSent] = useState(false);
   const [type, setType] = useState(defaultType);
   useEffect(() => {
@@ -38,7 +38,7 @@ export function ContactForm({ defaultType = "General enquiry" }: { defaultType?:
         <div className="md:col-span-2"><label className={label} htmlFor="m">Message</label><textarea id="m" required rows={5} className={field} placeholder="How can we help?" /></div>
       </div>
       <div className="mt-8 flex flex-wrap items-center gap-5">
-        <button className="btn btn-red" type="submit">Send enquiry <ArrowRight className="h-4 w-4" /></button>
+        <button className="btn btn-red" type="submit">{submitLabel} <ArrowRight className="h-4 w-4" /></button>
         {sent && <p className="flex items-center gap-2 text-[15px] text-teal"><CheckCircle2 className="h-5 w-5" /> Thank you. Your enquiry has been received.</p>}
       </div>
     </form>

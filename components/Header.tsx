@@ -41,7 +41,7 @@ export function Header() {
           </span>
           <div className="flex items-center gap-6">
             <span className="hidden items-center gap-2 lg:flex"><Mail className="h-3.5 w-3.5 text-sky" />{site.email}</span>
-            <a href={PORTAL_URL} className="flex items-center gap-1.5 text-white/85 hover:text-white"><UserRound className="h-3.5 w-3.5 text-sky" /> Participant login</a>
+            <a href={PORTAL_URL} className="hidden items-center gap-1.5 text-white/85 hover:text-white sm:flex"><UserRound className="h-3.5 w-3.5 text-sky" /> Participant login</a>
             <Link href="/paflar-2027" className="flex items-center gap-2 text-gold hover:text-white">
               <CalendarDays className="h-3.5 w-3.5" /> 7th PAFLAR Congress · {congress.dates}
               <ArrowRight className="h-3.5 w-3.5" />
