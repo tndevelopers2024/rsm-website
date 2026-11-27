@@ -48,7 +48,7 @@ export default function Home() {
             </Reveal>
             <h1 className="mt-4 font-display text-[clamp(1.85rem,8.2vw,2.3rem)] font-light leading-[1.1] tracking-[-0.025em] sm:mt-[2.2vh] sm:text-[clamp(2.1rem,min(4vw,7vh),4.1rem)] sm:leading-[1.06] sm:tracking-[-0.03em]">
               <span className="block"><SplitHeading text="Bringing Rheumatology Together." /></span>
-              <span className="block font-serif italic text-sky"><SplitHeading text="Building a Future Without Barriers." delay={0.15} /></span>
+              <span className="block font-serif italic text-sky"><SplitHeading text="A Future Without Barriers." delay={0.15} /></span>
             </h1>
             <Reveal delay={0.5}>
               <p className="mt-4 max-w-xl text-[14.5px] leading-[1.65] text-white/85 sm:mt-[2.4vh] sm:text-[clamp(.95rem,2vh,1.1rem)] sm:leading-relaxed">
