@@ -1,10 +1,11 @@
-import type { NextConfig } from "next";
+// @ts-check
 
 const preview = process.env.NEXT_PUBLIC_PREVIEW === "1";
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   // Preview build: static export for the hosted review link (no remote images there).
-  ...(preview ? { output: "export" as const, trailingSlash: true } : {}),
+  ...(preview ? { output: "export", trailingSlash: true } : {}),
   images: {
     unoptimized: preview,
     remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
